@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const ArrowLeft = () => {
   return (
     <>
-  <svg
+      <svg
         xmlns="http://www.w3.org/2000/svg"
         height="16"
         width="14"
@@ -95,12 +95,12 @@ export function More() {
     <>
       <div>
         <Link to="/" className={styles.back}>
-          <ArrowLeft/>
-        <p>Atrás</p>
+          <ArrowLeft />
+          <p>Atrás</p>
         </Link>
       </div>
 
-  <div className={styles.title_span}>Más sobre mis habilidades</div> 
+      <div className={styles.title_span}>Más sobre mis habilidades</div>
       <div className={styles.main}>
         <motion.div
           initial={{ opacity: 0, scale: 0 }}
@@ -114,10 +114,12 @@ export function More() {
             <ReactSVG />
           </div>
           <p>
-            Llevo aprendiendo sobre este framework desde el 2021, se ha
-            convertido en mi principal herramienta de desarrollo, y puedo
-            confirmar que mi favorita también. En ella he desarrollado tanto
-            este portafolio como todos mis proyectos expuestos anteriormente.
+            Desde el año 2021, me he dedicado al estudio y aplicación de este
+            framework, el cual ha evolucionado para convertirse en mi principal
+            herramienta de desarrollo. Con confianza, afirmo que es mi favorito
+            entre las herramientas que empleo. Bajo su influencia, he llevado a
+            cabo la creación tanto de este portafolio como de todos los
+            proyectos previamente presentados.
           </p>
         </motion.div>
 
@@ -133,10 +135,12 @@ export function More() {
             <CSSsvg />
           </div>
           <p>
-            A pesar de que CSS no es conciderado un lenguaje de programación, si
-            es una herramienta de desarrllo completamente útil, sobre todo para
-            mí, alguien a quien se le da mejor el diseño que el desarrollo como
-            tal. Aprendí CSS desde el primer día.
+            Aunque CSS no se clasifica como un lenguaje de programación en
+            sentido estricto, es una herramienta de desarrollo sumamente útil,
+            especialmente para alguien con habilidades destacadas en diseño más
+            que en desarrollo puro. Desde mis inicios, he dedicado tiempo
+            significativo al aprendizaje de CSS, consolidándolo como una
+            destreza fundamental en mi conjunto de habilidades.
           </p>
         </motion.div>
 
@@ -152,9 +156,11 @@ export function More() {
             <HTMLsvg />
           </div>
           <p>
-            Tanto HTML como CSS con herramientas base tanto para mis proyectos,
-            como los proyetos del mundo entero. Fueron los dos primeros
-            significados de programación que llegaron a mi.
+            Tanto HTML como CSS son fundamentales en mi arsenal de herramientas,
+            siendo elementos clave tanto para mis propios proyectos como para
+            iniciativas a nivel global. Estos dos fueron los primeros lenguajes
+            de marcado y estilo que se cruzaron en mi camino en el mundo de la
+            programación.
           </p>
         </motion.div>
 
@@ -170,10 +176,12 @@ export function More() {
             <JSsvg />
           </div>
           <p>
-            No lo domino muy bien, pero día a día aprendo cada vez más. A este
-            lo conviné junto con HTML y CSS para empezar a crear mis primeras
-            páginas sencillas. Pero después aprendí que existían frameworks como
-            React, Svelte y Astro y deje a ese JavaScript Vanilla de lado.
+            Aunque mi dominio de este lenguaje no es absoluto, mi dedicación
+            diaria me ha permitido adquirir conocimientos de manera constante.
+            Inicialmente, lo integré con HTML y CSS para desarrollar mis
+            primeras páginas de manera elemental. Sin embargo, a medida que
+            avanzaba, descubrí frameworks avanzados como React, Svelte y Astro,
+            relegando así el uso exclusivo de JavaScript Vanilla.
           </p>
         </motion.div>
       </div>
