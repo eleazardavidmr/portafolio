@@ -1,0 +1,47 @@
+.back{
+  display: flex;
+  align-items: center;
+  color: #26cad0;
+  font-weight: bold;
+  font-size: 1.4rem;
+  text-decoration: none;
+}
+
+.title_span{
+  color: #26cad0;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-left: 5vw;
+}
+
+
+svg {
+  width: 20px;
+  height: 20px;
+}
+.title_c {
+  display: flex;
+  align-items: center;
+}
+
+.title_c span{
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+
+.react_,
+.css_,
+.html_,
+.js_ {
+  background-color: #3c4976;
+  margin: 5vw;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+@media only screen and (min-width: 900px) {
+  .react_, .css_, .html_, .js_{
+    width: 50vw;
+    margin: 2vw auto;
+  } 
+}
