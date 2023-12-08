@@ -1,6 +1,7 @@
 import styles from "../componentsCSS/projects.module.css";
 import knockoutsimg from "../img/knockoutspizzas_screenshot.png";
 import todoapimg from "../img/todoapp_screenshot.png";
+import alarmAppImg from '../img/alarmapp_screenshot.png'
 export function Projects() {
   return (
     <>
@@ -23,6 +24,7 @@ export function Projects() {
                 </p>
                 <a
                   className={styles.project_a}
+                  target="_blank"
                   href="https://knockoutspizzas.surge.sh"
                 >
                   knockoutspizzas.surge.sh
@@ -47,9 +49,35 @@ export function Projects() {
                 </p>
                 <a
                   className={styles.project_a}
+                  target='_blank'
                   href="https://edmr-todoapp.surge.sh"
                 >
                   edmr-todoapp.surge.sh
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div className={styles.project}>
+            <div className={styles.project_image_container}>
+              <img
+                src={alarmAppImg}
+                alt="Alarm App"
+                className={styles.project_image}
+              />
+            </div>
+            <div className={styles.project_info}>
+              <span className={styles.project_title}>Alarm App</span>
+              <div>
+                <p className={styles.project_p}>
+                  Aplicacion para que crear alarmas.
+                </p>
+                <a
+                  className={styles.project_a}
+                  target="_blank"
+                  href="https://edmr-alarmapp.surge.sh"
+                >
+                  edmr-alarmapp.surge.sh
                 </a>
               </div>
             </div>
