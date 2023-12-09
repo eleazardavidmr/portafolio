@@ -1,7 +1,8 @@
 import styles from "../componentsCSS/projects.module.css";
 import knockoutsimg from "../img/knockoutspizzas_screenshot.png";
 import todoapimg from "../img/todoapp_screenshot.png";
-import alarmAppImg from '../img/alarmapp_screenshot.png'
+import alarmAppImg from "../img/alarmapp_screenshot.png";
+import weatherappImg from "../img/weatherapp_screenshot.png";
 export function Projects() {
   return (
     <>
@@ -45,11 +46,11 @@ export function Projects() {
               <span className={styles.project_title}>ToDo App</span>
               <div>
                 <p className={styles.project_p}>
-                  Aplicacion para anotar tareas pendientes.
+                  Guarda todas tus tareas pendientes. 
                 </p>
                 <a
                   className={styles.project_a}
-                  target='_blank'
+                  target="_blank"
                   href="https://edmr-todoapp.surge.sh"
                 >
                   edmr-todoapp.surge.sh
@@ -78,6 +79,31 @@ export function Projects() {
                   href="https://edmr-alarmapp.surge.sh"
                 >
                   edmr-alarmapp.surge.sh
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div className={styles.project}>
+            <div className={styles.project_image_container}>
+              <img
+                src={weatherappImg}
+                alt="Weather App"
+                className={styles.project_image}
+              />
+            </div>
+            <div className={styles.project_info}>
+              <span className={styles.project_title}>Weather App</span>
+              <div>
+                <p className={styles.project_p}>
+                  Puedes ver el clima de cualquier ciudad del mundo.
+                </p>
+                <a
+                  className={styles.project_a}
+                  target="_blank"
+                  href="https://edmr-weatherapp.surge.sh"
+                >
+                  edmr-weatherapp.surge.sh
                 </a>
               </div>
             </div>
