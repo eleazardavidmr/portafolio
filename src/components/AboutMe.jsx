@@ -1,5 +1,4 @@
 import styles from "../componentsCSS/aboutme.module.css";
-//import { Link } from 'react-router-dom'
 export function AboutMe() {
   return (
     <>
