@@ -132,7 +132,7 @@ export function Skills() {
               </div>
             </motion.div>
 
-            <Link className={styles.more_btn} to="/more">Ver más</Link>
+            <Link className={styles.more_btn} to="/more">Saber más</Link>
           </div>
         </div>
       </div>

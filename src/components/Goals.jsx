@@ -6,7 +6,7 @@ export function Goals() {
       <div className={styles.goals_main}>
         <span className={styles.title}>Metas y Objetivos 🌟</span>
         <div className={styles.goals_info_main}>
-          <p>
+          <p className={styles.goals_info_main_p}>
             ¡Hola! Mi viaje en el mundo del desarrollo web está impulsado por
             una pasión inquebrantable por la creación y la innovación. Aquí te
             comparto algunas de mis metas y objetivos:

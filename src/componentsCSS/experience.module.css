@@ -1,29 +1,32 @@
-.xp_main{
-    margin: 20vw 0;
-
+.xp_main {
+  margin: 20vw 0;
 }
-.xp_main li{
-    margin-top: 20px;
-    list-style: circle;
-}
-
-.title{
-    font-size: 1.9rem;
-    color: #26cad0;
+.xp_main li {
+  list-style: circle;
+  margin: 0 8vw;
 }
 
-.resalt{
-    color: #26cad0;
+.title {
+  font-size: 2rem;
+  color: #26cad0;
 }
 
-.xp_main ul{
-    margin-top: 10vw;
+.resalt {
+  color: #26cad0;
 }
-@media only screen and (min-width: 600px){
-    .xp_main{
-        margin: 5vw 0;
-    }
-    .xp_main ul{
-        margin: 2vw 0;
-    }
+
+.xp_main ul {
+  margin-top: 10vw;
+  padding: 0;
+}
+@media only screen and (min-width: 600px) {
+  .xp_main {
+    margin: 5vw 0;
+  }
+  .xp_main ul {
+    margin: 2vw 0;
+  }
+  .xp_main li{
+    margin: 0 3vw;
+  }
 }

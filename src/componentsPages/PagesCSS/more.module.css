@@ -3,7 +3,6 @@
   align-items: center;
   color: #26cad0;
   font-weight: bold;
-  font-size: 1.4rem;
   text-decoration: none;
 }
 
@@ -16,8 +15,8 @@
 
 
 svg {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
 }
 .title_c {
   display: flex;
@@ -34,9 +33,9 @@ svg {
 .html_,
 .js_ {
   background-color: #3c4976;
-  margin: 5vw;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 20px;
+  margin: 10px;
 }
 
 @media only screen and (min-width: 900px) {
