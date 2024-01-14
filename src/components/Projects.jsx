@@ -1,8 +1,8 @@
 import styles from "../componentsCSS/projects.module.css";
-import knockoutsimg from "../img/knockoutspizzas_screenshot.png";
-import todoapimg from "../img/todoapp_screenshot.png";
-import alarmAppImg from "../img/alarmapp_screenshot.png";
-import weatherappImg from "../img/weatherapp_screenshot.png";
+import knockoutsimg from "../img/knockoutspizzas_screenshot.webp";
+import todoapimg from "../img/todoapp_screenshot.jpg";
+import alarmAppImg from "../img/alarmapp_screenshot.webp";
+import weatherappImg from "../img/weatherapp_screenshot.jpg";
 export function Projects() {
   return (
     <>

@@ -1,5 +1,5 @@
 import styles from "../componentsCSS/main.module.css";
-import eleazarmunoz_photo from '../img/EleazarMunoz3gimped.jpg'
+import eleazarmunoz_photo from '../img/eleazarmunoz.jpg'
 import { motion } from 'framer-motion'
 export function Main() {
   return (
