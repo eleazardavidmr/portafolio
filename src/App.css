@@ -1,0 +1,15 @@
+.app{
+    margin: 20px;
+    padding: 0;
+    box-sizing: border-box;
+}
+hr{
+    margin-bottom: 5vw;
+}
+@media only screen and (min-width: 600px){
+    .app{
+        max-width: 650px;
+        margin: 0 auto;
+    }
+    
+}

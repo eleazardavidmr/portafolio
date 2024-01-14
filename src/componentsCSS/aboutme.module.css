@@ -1,0 +1,13 @@
+.aboutme_title {
+  color: #26cad0;
+  font-size: 1.9rem;
+}
+
+.p{
+  margin: 0 3vw;
+}
+@media only screen and (min-width: 600px) {
+  .p{
+    margin: 0 2vw;
+  } 
+}
