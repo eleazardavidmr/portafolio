@@ -1,5 +1,8 @@
-body {
+* {
   font-family: "Bricolage Grotesque", sans-serif;
+}
+
+body {
   margin: 0;
   padding: 0;
   background-color: #181f47;
