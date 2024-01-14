@@ -45,6 +45,7 @@
   }
   .title {
     font-size: 2.5rem;
+    width:300px; 
   }
   .main_container{
       margin: 1vw;

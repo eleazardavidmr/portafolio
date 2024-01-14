@@ -14,7 +14,7 @@ export function Main() {
         </motion.div>
         <div className={styles.main_info}>
 				<span className={styles.title}>Eleazar Muñoz</span>				
-				<p>Un frontend developer de 16 años nacido en Venezuela.</p>
+				<p>Soy un desarrollador web fronted de 16 años nacido en Venezuela.</p>
 		</div>
       </div>
     </>
