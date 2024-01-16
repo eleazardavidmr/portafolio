@@ -9,6 +9,7 @@
   transition: all 300ms;
   border-radius: 5px;
 }
+
 .mail_div:hover{
   box-shadow: 0 0 0 5px #3c4976;
   border-radius: 10px;
@@ -29,7 +30,7 @@
   color: #26cad0;
 }
 
-.send_svg:hover {
+.send_svg:hover{
   cursor: pointer;
 }
 
