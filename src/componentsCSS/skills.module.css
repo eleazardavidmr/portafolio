@@ -77,6 +77,7 @@ svg {
   }
   .skill {
     width: 200px;
+    background-color: #1b2047;
   }
   .more_btn {
     grid-column: span 2;

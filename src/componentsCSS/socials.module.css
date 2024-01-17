@@ -10,7 +10,7 @@
   border-radius: 5px;
 }
 
-.mail_div:hover{
+.mail_div:hover {
   box-shadow: 0 0 0 5px #3c4976;
   border-radius: 10px;
 }
@@ -30,7 +30,7 @@
   color: #26cad0;
 }
 
-.send_svg:hover{
+.send_svg:hover {
   cursor: pointer;
 }
 
@@ -58,14 +58,22 @@
   margin: 10px;
   color: #d1d5dc;
   text-decoration: none;
-  transition: 300ms;
+  transition-property: box-shadow;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in; 
   font-size: 1rem;
 }
 .social_container:hover {
   box-shadow: 0 0 0 5px #3c4976;
 }
-@media only screen and (min-width: 600px){
-  .mail_div:hover{
+@media only screen and (min-width: 600px) {
+  .mail_div:hover {
     scale: 1.02;
+  }
+  .social_container {
+    background-color: #1b2047;
+  }
+  .mail_div {
+    background-color: #1b2047;
   }
 }

@@ -6,9 +6,27 @@ body {
   margin: 0;
   padding: 0;
   background-color: #181f47;
+  /*background:
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.15) 0%,
+      rgba(0, 0, 0, 0.15) 100%
+    ),
+    radial-gradient(
+        at top center,
+        rgba(255, 255, 255, 0.4) 0%,
+        rgba(0, 0, 0, 0.4) 120%
+      )
+      #181f47;
+  background-blend-mode: multiply, multiply;*/
+  /*
+* Created with https://www.css-gradient.com
+* Gradient link: https://www.css-gradient.com/?c1=142047&c2=010101&gt=r&gd=dtt
+*/
   color: #d1d5db;
   font-size: 1.2rem;
   line-height: 1.5;
+  transition: background 500ms;
 }
 
 hr {
@@ -27,6 +45,11 @@ body::-webkit-scrollbar-thumb {
 }
 @media only screen and (min-width: 600px) {
   body {
-    padding: 20px;
+    padding: 2;
+    background: #142047;
+    background: radial-gradient(at center top, #142047, #010101) 0px;
+    transition: background 500ms;
+    width: 48rem;
+    margin: auto;
   }
 }

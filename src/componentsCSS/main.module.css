@@ -4,14 +4,15 @@
   align-items: center;
   justify-content: center;
   padding: auto;
-  margin-top: 4vw;
+  margin-top: 5vw;
   text-align: center;
+  width: 100%;
 }
 
 .title {
   color: #26acd0;
   text-shadow: #078d93 1px 0 20px;
-  width: 300px;
+  width: 350px;
   font-size: 2.3rem;
   font-weight: 800;
   margin-top: 5vw;
@@ -44,8 +45,7 @@
     text-align: left;
   }
   .title {
-    font-size: 2.5rem;
-    width:300px; 
+    font-size: 2.2rem;
   }
   .main_container{
       margin: 1vw;
