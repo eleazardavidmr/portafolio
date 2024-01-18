@@ -3,7 +3,7 @@ import styles from "../componentsCSS/experience.module.css";
 export function Experience() {
   return (
     <>
-      <div className={styles.xp_main}>
+      <div className={styles.xp_main} id="experience">
         <h1 className={styles.title}>Experiencia 🛠️</h1>
         <ul>
           <li>

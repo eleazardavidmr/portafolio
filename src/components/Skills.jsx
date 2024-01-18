@@ -76,7 +76,7 @@ const JSsvg = () => {
 export function Skills() {
   return (
     <>
-      <div className={styles.main}>
+      <div className={styles.main} id="skills">
         <span className={styles.title}>Habilidades 💻</span>
         <div>
           <div className={styles.skills}>

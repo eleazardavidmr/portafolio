@@ -1,5 +1,6 @@
 * {
   font-family: "Bricolage Grotesque", sans-serif;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -40,16 +41,17 @@ body::-webkit-scrollbar-track {
   background-color: #181f47;
 }
 body::-webkit-scrollbar-thumb {
-  background-color: #26cad0; /* color of the scroll thumb */
-  border-radius: 20px; /* roundness of the scroll thumb */
+  background-color: #26cad0; border-radius: 20px; 
 }
+
 @media only screen and (min-width: 600px) {
   body {
-    padding: 2;
     background: #142047;
     background: radial-gradient(at center top, #142047, #010101) 0px;
     transition: background 500ms;
     width: 48rem;
     margin: auto;
+    position: static;
+    z-index: -1;
   }
 }

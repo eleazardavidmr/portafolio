@@ -2,7 +2,7 @@ import styles from "../componentsCSS/aboutme.module.css";
 export function AboutMe() {
   return (
     <>
-      <div className={styles.aboutme_main}>
+      <div className={styles.aboutme_main} id="about">
         <h1 className={styles.aboutme_title}>
           Sobre mí
 

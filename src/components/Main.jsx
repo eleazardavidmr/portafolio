@@ -10,7 +10,7 @@ export function Main() {
   })
   return (
     <>
-      <div className={styles.main_container}>
+      <div className={styles.main_container} id="main">
         <div className={styles.main_imgContainer}>
           <img
             src={eleazarmunoz_photo}

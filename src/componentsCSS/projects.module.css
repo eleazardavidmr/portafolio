@@ -20,8 +20,6 @@
   border-radius: 20px;
 }
 
-
-
 .project_info {
   margin: 10px;
 }
@@ -29,15 +27,12 @@
 .project_a {
   color: #26cda0;
 }
+
 @media only screen and (min-width: 600px) {
   .project_image {
-    min-width: 25vw;
-    max-width: 25vw;
-  }
-  .projects_container {
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-  }
+    width: 30vw;
+    max-width: 30vw;
+  } 
   .project {
     display: flex;
     justify-content: center;
@@ -47,5 +42,3 @@
   
 
 }
-
-

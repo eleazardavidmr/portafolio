@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 export function Socials() {
   return (
     <>
-      <div className={styles.socials_main}>
+      <div className={styles.socials_main} id="contact">
         <h1>Contacto 📞</h1>
         <div className={styles.socials}>
           <motion.a

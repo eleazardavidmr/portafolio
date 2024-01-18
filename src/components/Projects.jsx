@@ -7,7 +7,7 @@ export function Projects() {
   return (
     <>
       <span className={styles.title}>Proyectos 📈</span>
-      <div className={styles.projects_main}>
+      <div className={styles.projects_main} id="projects">
         <section className={styles.projects_container}>
           <div className={styles.project}>
             <div className={styles.project_image_container}>
