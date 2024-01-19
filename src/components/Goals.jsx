@@ -1,7 +1,6 @@
 import styles from "../componentsCSS/goals.module.css";
 export function Goals() {
   return (
-
     <>
       <div className={styles.goals_main} id="goals">
         <span className={styles.title}>Metas y Objetivos 🌟</span>

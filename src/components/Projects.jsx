@@ -46,7 +46,7 @@ export function Projects() {
               <span className={styles.project_title}>ToDo App</span>
               <div>
                 <p className={styles.project_p}>
-                  Guarda todas tus tareas pendientes. 
+                  Guarda todas tus tareas pendientes.
                 </p>
                 <a
                   className={styles.project_a}
