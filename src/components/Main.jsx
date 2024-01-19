@@ -19,7 +19,6 @@ export function Main() {
               <Typewriter
                 words={[ "Soy Eleazar Muñoz", "Desarrollador Web", "Programador", "Entusiasta"]}
                 loop={10}
-                cursor
                 cursorStyle="_"
                 typeSpeed={70}
                 deleteSpeed={50}
