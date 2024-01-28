@@ -7,23 +7,6 @@ body {
   margin: 0;
   padding: 0;
   background-color: #181f47;
-  /*background:
-    linear-gradient(
-      to bottom,
-      rgba(255, 255, 255, 0.15) 0%,
-      rgba(0, 0, 0, 0.15) 100%
-    ),
-    radial-gradient(
-        at top center,
-        rgba(255, 255, 255, 0.4) 0%,
-        rgba(0, 0, 0, 0.4) 120%
-      )
-      #181f47;
-  background-blend-mode: multiply, multiply;*/
-  /*
-* Created with https://www.css-gradient.com
-* Gradient link: https://www.css-gradient.com/?c1=142047&c2=010101&gt=r&gd=dtt
-*/
   color: #d1d5db;
   font-size: 1.2rem;
   line-height: 1.5;
@@ -41,7 +24,8 @@ body::-webkit-scrollbar-track {
   background-color: #181f47;
 }
 body::-webkit-scrollbar-thumb {
-  background-color: #26cad0; border-radius: 20px; 
+  background-color: #26cad0;
+  border-radius: 20px;
 }
 
 @media only screen and (min-width: 600px) {

@@ -1,5 +1,4 @@
 import styles from "../componentsCSS/experience.module.css";
-//Experience
 export function Experience() {
   return (
     <>
