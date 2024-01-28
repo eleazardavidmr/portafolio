@@ -3,13 +3,18 @@ import knockoutsimg from "../img/knockoutspizzas_screenshot.webp";
 import todoapimg from "../img/todoapp_screenshot.jpg";
 import alarmAppImg from "../img/alarmapp_screenshot.webp";
 import weatherappImg from "../img/weatherapp_screenshot.jpg";
+import { motion } from "framer-motion";
 export function Projects() {
   return (
     <>
       <span className={styles.title}>Proyectos 📈</span>
       <div className={styles.projects_main} id="projects">
         <section className={styles.projects_container}>
-          <div className={styles.project}>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.3 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            className={styles.project}
+          >
             <div className={styles.project_image_container}>
               <img
                 src={knockoutsimg}
@@ -32,9 +37,13 @@ export function Projects() {
                 </a>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          <div className={styles.project}>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.3 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            className={styles.project}
+          >
             <div className={styles.project_image_container}>
               <img
                 src={todoapimg}
@@ -57,9 +66,9 @@ export function Projects() {
                 </a>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          <div className={styles.project}>
+          <motion.div initial={{opacity: 0, scale: 0.3}} whileInView={{opacity: 1, scale: 1}} className={styles.project}>
             <div className={styles.project_image_container}>
               <img
                 src={alarmAppImg}
@@ -82,9 +91,9 @@ export function Projects() {
                 </a>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          <div className={styles.project}>
+          <motion.div initial={{opacity: 0, scale: 0.3}} whileInView={{opacity: 1, scale: 1}}  className={styles.project}>
             <div className={styles.project_image_container}>
               <img
                 src={weatherappImg}
@@ -107,7 +116,7 @@ export function Projects() {
                 </a>
               </div>
             </div>
-          </div>
+          </motion.div>
         </section>
       </div>
     </>
