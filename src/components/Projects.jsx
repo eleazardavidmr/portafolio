@@ -1,8 +1,9 @@
 import styles from "../componentsCSS/projects.module.css";
-import knockoutsimg from "../img/knockoutspizzas_screenshot.webp";
-import todoapimg from "../img/todoapp_screenshot.jpg";
-import alarmAppImg from "../img/alarmapp_screenshot.webp";
-import weatherappImg from "../img/weatherapp_screenshot.jpg";
+import knockoutsimg from "../img/projectsImg/knockoutspizzas_screenshot.webp";
+import todoapimg from "../img/projectsImg/todoapp_screenshot.jpg";
+import alarmAppImg from "../img/projectsImg/alarmapp_screenshot.webp";
+import weatherappImg from "../img/projectsImg/weatherapp_screenshot.jpg";
+import roraimaTravel from "../img/projectsImg/roraimaTravel.png";
 import { motion } from "framer-motion";
 export function Projects() {
   return (
@@ -46,31 +47,6 @@ export function Projects() {
           >
             <div className={styles.project_image_container}>
               <img
-                src={todoapimg}
-                alt="ToDo App"
-                className={styles.project_image}
-              />
-            </div>
-            <div className={styles.project_info}>
-              <span className={styles.project_title}>ToDo App</span>
-              <div>
-                <p className={styles.project_p}>
-                  Guarda todas tus tareas pendientes.
-                </p>
-                <a
-                  className={styles.project_a}
-                  target="_blank"
-                  href="https://edmr-todoapp.surge.sh"
-                >
-                  edmr-todoapp.surge.sh
-                </a>
-              </div>
-            </div>
-          </motion.div>
-
-          <motion.div initial={{opacity: 0, scale: 0.3}} whileInView={{opacity: 1, scale: 1}} className={styles.project}>
-            <div className={styles.project_image_container}>
-              <img
                 src={alarmAppImg}
                 alt="Alarm App"
                 className={styles.project_image}
@@ -93,7 +69,11 @@ export function Projects() {
             </div>
           </motion.div>
 
-          <motion.div initial={{opacity: 0, scale: 0.3}} whileInView={{opacity: 1, scale: 1}}  className={styles.project}>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.3 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            className={styles.project}
+          >
             <div className={styles.project_image_container}>
               <img
                 src={weatherappImg}
@@ -101,6 +81,7 @@ export function Projects() {
                 className={styles.project_image}
               />
             </div>
+
             <div className={styles.project_info}>
               <span className={styles.project_title}>Weather App</span>
               <div>
@@ -113,6 +94,37 @@ export function Projects() {
                   href="https://edmr-weatherapp.surge.sh"
                 >
                   edmr-weatherapp.surge.sh
+                </a>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.3 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            className={styles.project}
+          >
+            <div className={styles.project_image_container}>
+              <img
+                src={roraimaTravel}
+                alt="Roraima Travel"
+                className={styles.project_image}
+              />
+            </div>
+
+            <div className={styles.project_info}>
+              <span className={styles.project_title}>Roraima Travel</span>
+              <div>
+                <p className={styles.project_p}>
+                  Roraima Travel es una agencia de viajes a la que le propuse
+                  diseñarle una página web. Aquí está:
+                </p>
+                <a
+                  href="https://roraimatravel.netlify.app/"
+                  className={styles.project_a}
+                  target="_blank"
+                >
+                  roraimatravel.netlify.app
                 </a>
               </div>
             </div>
