@@ -41,7 +41,7 @@ export function Navbar() {
             <a href="#skills">💻</a>
           </div>
 
-          <div className={`${styles.sect}`}>
+          <div className={`${styles.sect} ${styles.last}`}>
             <a href="#contact">📞</a>
           </div>
         </div>
