@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import styles from "../componentsCSS/navbar.module.css";
 export function Navbar() {
   return (
@@ -6,21 +7,16 @@ export function Navbar() {
         <div className={styles.navbar_main}>
           <div className={`${styles.sect} ${styles.first}`}>
             <a href="#main" className={styles.emojie_container}>
-              <span className={styles.emoji_span}>
-                🌐
-              </span>
+              <span className={styles.emoji_span}>🌐</span>
               <span className={`${styles.emojiTitle} ${styles.d_none}`}>
-                  Inicio
+                Inicio
               </span>
             </a>
           </div>
 
           <div className={styles.sect}>
-            <a href="#experience" className={styles.emoji_container}> 
-              <span className={styles.emoji_span}>
-
-🛠️
-              </span>
+            <a href="#experience" className={styles.emoji_container}>
+              <span className={styles.emoji_span}>🛠️</span>
               <span className={`${styles.emojiTitle} ${styles.d_none}`}>
                 Experiencia
               </span>
@@ -28,7 +24,9 @@ export function Navbar() {
           </div>
 
           <div className={styles.sect}>
-            <a href="#about" className={styles.emoji_container}>👨‍💻</a>
+            <a href="#about" className={styles.emoji_container}>
+              👨‍💻
+            </a>
           </div>
 
           <div className={styles.sect}>
@@ -43,7 +41,7 @@ export function Navbar() {
             <a href="#skills">💻</a>
           </div>
 
-          <div className={`${styles.sect} ${styles.last}`}>
+          <div className={`${styles.sect}`}>
             <a href="#contact">📞</a>
           </div>
         </div>
