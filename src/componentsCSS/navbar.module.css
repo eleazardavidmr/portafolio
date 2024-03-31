@@ -4,6 +4,7 @@
   align-items: center;
   margin: 0;
   padding: 5px;
+  transition: all 300ms;
 }
 
 a {
@@ -50,6 +51,7 @@ a {
 .d_none {
   display: none;
 }
+
 @media only screen and (min-width: 600px) {
   .navbar_main_sect {
     display: flex;

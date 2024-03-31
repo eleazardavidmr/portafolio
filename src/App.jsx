@@ -25,7 +25,6 @@ function App() {
         <Skills />
         <hr />
         <Socials />
-        <hr />
         <Form />
       </div>
     </>

@@ -18,18 +18,18 @@
 .projects_container {
   display: flex;
   flex-direction: column;
-  justify-content: center; 
+  justify-content: center;
   align-items: center;
 }
 
 .project_image {
   margin-top: 10px;
   width: 90vw;
-  border-radius: 20px;
+  border-radius: 15px;
 }
 
 .project_info {
-  margin: 10px;
+  margin: 10px 10px 10px 25px;
 }
 
 .project_a {
@@ -38,12 +38,15 @@
 
 @media only screen and (min-width: 600px) {
   .project_image {
-    width: 30vw;
+    width: 20vw;
   }
   .project {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 2vw 0;
+  }
+  .alarmapp_image {
+    aspect-ratio: 16/9;
   }
 }

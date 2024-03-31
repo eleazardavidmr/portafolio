@@ -6,7 +6,7 @@ export function Experience() {
         <h1 className={styles.title}>Experiencia 🛠️</h1>
         <ul>
           <li>
-            Llevo alrededor de 3 años desarrollando páginas web, por practica y
+            Llevo alrededor de 4 años desarrollando páginas web, por practica y
             por pasión.
           </li>
           <li>

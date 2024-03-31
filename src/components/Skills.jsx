@@ -80,7 +80,7 @@ export function Skills() {
         <span className={styles.title}>Habilidades 💻</span>
         <div>
           <div className={styles.skills}>
-            <motion.div
+            <motion.a
               initial={{ opacity: 0, scale: 0 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -91,7 +91,7 @@ export function Skills() {
                 <span className={styles.skill_title}>React JS</span>
                 <ReactSVG />
               </div>
-            </motion.div>
+            </motion.a>
 
             <motion.div
               initial={{ opacity: 0, scale: 0 }}
@@ -132,7 +132,9 @@ export function Skills() {
               </div>
             </motion.div>
 
-            <Link className={styles.more_btn} to="/more">Saber más</Link>
+            <Link className={styles.more_btn} to="/more">
+              Saber más
+            </Link>
           </div>
         </div>
       </div>

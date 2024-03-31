@@ -109,7 +109,7 @@ export function More() {
           transition={{ duration: 0.2 }}
           className={styles.react_}
         >
-          <div className={styles.title_c}>
+          <div className={styles.title_c} id="react">
             <span>React JS</span>
             <ReactSVG />
           </div>

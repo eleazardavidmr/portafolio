@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import styles from "../componentsCSS/navbar.module.css";
 export function Navbar() {
   return (

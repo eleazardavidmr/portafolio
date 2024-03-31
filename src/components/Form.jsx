@@ -8,12 +8,12 @@ export function Form() {
         method="POST"
         className={styles.form}
       >
-        <h2>¡Contáctame!</h2>
+        <h2>¡Envíame un correo!</h2>
         <label htmlFor="name">Nombre *</label>
-        <input type="text" name="name" />
-        <label htmlFor="">Correo electrónico *</label>
-        <input type="email" name="email" />
-        <label htmlFor="Mensaje *">Mensaje *</label>
+        <input type="text" name="name" autoComplete="off" />
+        <label htmlFor="email">Correo electrónico *</label>
+        <input type="email" name="email" autoComplete="off" />
+        <label htmlFor="message">Mensaje *</label>
         <textarea name="message" id="" cols="30" rows="10"></textarea>
         <button type="submit" className={styles.btn}>
           ENVIAR
