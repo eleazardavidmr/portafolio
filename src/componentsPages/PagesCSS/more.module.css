@@ -1,4 +1,4 @@
-.back{
+.back {
   display: flex;
   align-items: center;
   color: #26cad0;
@@ -6,14 +6,20 @@
   text-decoration: none;
 }
 
-.title_span{
+.title_span {
   color: #26cad0;
   font-size: 2rem;
   font-weight: bold;
   margin-left: 5vw;
 }
-
-
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0 auto;
+}
 svg {
   width: 30px;
   height: 30px;
@@ -23,7 +29,7 @@ svg {
   align-items: center;
 }
 
-.title_c span{
+.title_c span {
   font-size: 1.7rem;
   font-weight: 700;
 }
@@ -32,15 +38,19 @@ svg {
 .css_,
 .html_,
 .js_ {
-  background-color: #1b2047;
   padding: 20px;
   border-radius: 20px;
   margin: 10px;
+  width: 90vw;
+  background-color: #12142c;
 }
 
 @media only screen and (min-width: 900px) {
-  .react_, .css_, .html_, .js_{
+  .react_,
+  .css_,
+  .html_,
+  .js_ {
     width: 50vw;
-    margin: 2vw auto;
-  } 
+    background-color: #1d2048;
+  }
 }

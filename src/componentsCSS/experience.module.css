@@ -1,5 +1,5 @@
 .xp_main {
-  margin: 20vw 0;
+  margin: 5vw 0;
 }
 .xp_main li {
   list-style: circle;
@@ -9,6 +9,7 @@
 .title {
   font-size: 2rem;
   color: #26cad0;
+  font-weight: 900;
 }
 
 .resalt {
@@ -26,7 +27,7 @@
   .xp_main ul {
     margin: 2vw 0;
   }
-  .xp_main li{
+  .xp_main li {
     margin: 0 3vw;
   }
 }

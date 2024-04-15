@@ -1,10 +1,7 @@
-@tailwindcss base;
-@tailwindcss components;
-@tailwindcss utilities;
 * {
   scroll-behavior: smooth;
   outline: none !important;
-  font-family: "Bricolage Grotesque", "Onest", sans-serif;
+  font-family: "Inter", "Onest", sans-serif;
 }
 
 body {
@@ -14,11 +11,6 @@ body {
   color: #d1d5db;
   font-size: 1.2rem;
   line-height: 1.5;
-  transition: background 500ms;
-}
-
-hr {
-  margin: 5vw 0;
 }
 
 body::-webkit-scrollbar {

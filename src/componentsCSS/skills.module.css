@@ -1,7 +1,7 @@
 .title {
   font-size: 2rem;
   color: #26cad0;
-  font-weight: 700;
+  font-weight: 900;
 }
 .more_btn {
   text-decoration: none;
@@ -16,7 +16,7 @@
 
 .more_btn:hover {
   scale: 1.04;
-  box-shadow: 0 0 0 5px #1da867;
+  box-shadow: 0 0 0 5px #1da86780;
 }
 
 .skills_image_container {

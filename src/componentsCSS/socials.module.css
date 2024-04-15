@@ -1,6 +1,7 @@
 .socials_main h1 {
   color: #26cad0;
   font-size: 2rem;
+  font-weight: 900;
 }
 
 .mail_div {
@@ -61,7 +62,7 @@
   text-decoration: none;
   transition-property: box-shadow;
   transition-duration: 300ms;
-  transition-timing-function: ease-in; 
+  transition-timing-function: ease-in;
   font-size: 1rem;
 }
 .social_container:hover {

@@ -2,13 +2,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-direction: column;
+  margin: 5vw auto;
 }
 
 .title {
   font-size: 2rem;
-  max-width: 30vw;
   color: #26cad0;
-  font-weight: 700;
+  font-weight: 900;
+  align-self: flex-start;
 }
 .project_title {
   font-size: 1.5rem;
@@ -34,6 +36,7 @@
 
 .project_a {
   color: #26cda0;
+  font-weight: 700;
 }
 
 @media only screen and (min-width: 600px) {

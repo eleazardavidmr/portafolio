@@ -2,24 +2,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  text-align: center;
+  justify-content: space-between;
   width: 100%;
+  margin: 5vw auto;
 }
 
 .title {
   color: #26acd0;
-  width: 350px;
   font-size: 2.3rem;
-  font-weight: 800;
-  margin-top: 5vw;
-  text-align: center;
-  font-family: monospace, "Bricolage Grotesque", sans-serif;
+  font-weight: 900;
 }
 
 .main_img {
   width: 290px;
-  margin: 20px;
   border-radius: 50%;
 }
 
@@ -27,16 +22,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 5vw;
   justify-content: center;
   text-align: center;
+  width: 90%;
+  margin-top: 5vw;
 }
 @media only screen and (min-width: 600px) {
   .main_container {
     flex-direction: row;
     margin: 0;
   }
-
+  .main_info {
+    width: 50%;
+  }
   .title {
     font-size: 2.2rem;
   }

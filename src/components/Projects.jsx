@@ -7,13 +7,9 @@ import { motion } from "framer-motion";
 export function Projects() {
   return (
     <>
-      <span className={styles.title}>Proyectos 📈</span>
       <div className={styles.projects_main} id="projects">
+        <span className={styles.title}>Proyectos 📈</span>
         <section className={styles.projects_container}>
-          {/*
-
-*/}
-
           <motion.div
             initial={{ opacity: 0, scale: 0.3 }}
             whileInView={{ opacity: 1, scale: 1 }}

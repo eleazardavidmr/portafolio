@@ -1,28 +1,32 @@
-.title{
-  font-weight: 700;
+.goals_main {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.title {
+  font-weight: 900;
   color: #26cad0;
   font-size: 2rem;
-  margin: 5vw 0;
 }
-ul li{
+ul li {
   list-style: circle;
 }
-ul li span{
+ul li span {
   color: #26cad0;
   font-weight: 600;
 }
 
-.goals_ul{
+.goals_ul {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-
-
-@media only screen and(min-width: 600px){
-
-  .goals_info_main_p{
+@media only screen and(min-width: 600px) {
+  .title {
+    text-align: left;
+  }
+  .goals_info_main_p {
     margin: 0;
-  } 
+  }
 }

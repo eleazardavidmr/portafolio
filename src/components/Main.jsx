@@ -14,6 +14,7 @@ export function Main() {
             className={styles.main_img}
           />
         </div>
+
         <div className={styles.main_info}>
           <h1 className={styles.title}>
             <span className={styles.main_span}>
