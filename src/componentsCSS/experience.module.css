@@ -8,7 +8,7 @@
 
 .title {
   font-size: 2rem;
-  color: #26cad0;
+  color: var(--section-title);
   font-weight: 900;
 }
 

@@ -1,13 +1,13 @@
 .back {
   display: flex;
   align-items: center;
-  color: #26cad0;
+  color: var(--section-title);
   font-weight: bold;
   text-decoration: none;
 }
 
 .title_span {
-  color: #26cad0;
+  color: var(--section-title);
   font-size: 2rem;
   font-weight: bold;
   margin-left: 5vw;
@@ -23,6 +23,7 @@
 svg {
   width: 30px;
   height: 30px;
+  fill: var(--box-background);
 }
 .title_c {
   display: flex;
@@ -41,8 +42,9 @@ svg {
   padding: 20px;
   border-radius: 20px;
   margin: 10px;
-  width: 90vw;
-  background-color: #12142c;
+  width: 80%;
+  background-color: var(--box-background);
+  color: var(--text-color)
 }
 
 @media only screen and (min-width: 900px) {
@@ -51,6 +53,5 @@ svg {
   .html_,
   .js_ {
     width: 50vw;
-    background-color: #1d2048;
   }
 }

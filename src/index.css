@@ -4,11 +4,40 @@
   font-family: "Inter", "Onest", sans-serif;
 }
 
+
+:root{
+  --background-color: #181f47;
+  --text-color: #d1d5d0;
+
+  --desktop-background: #142047;
+  --desktop-gradient: radial-gradient(at center top, #142047, #010101) 0px;
+
+
+  --section-title: #26acd0;
+
+  /*----skills section*/
+  --box-background: rgb(51, 62, 111);
+
+}
+@media (prefers-color-scheme: light){
+  :root{
+    --background-color: rgb(229, 229, 229);
+    --text-color: rgb(0, 0, 0);
+
+    --desktop-background: rgb(181, 181, 181);
+    --desktop-gradient: rgb(181, 181, 181);
+    
+
+   --section-title: #1b7a94;
+  
+   /*--skills section-------*/
+   --box-background: rgb(81, 93, 144);
+  }
+}
 body {
   margin: 0;
-  padding: 0;
-  background-color: #181f47;
-  color: #d1d5db;
+  background-color: var(--background-color);
+  color: var(--text-color);
   font-size: 1.2rem;
   line-height: 1.5;
 }
@@ -26,12 +55,12 @@ body::-webkit-scrollbar-thumb {
 
 @media only screen and (min-width: 600px) {
   body {
-    background: #142047;
-    background: radial-gradient(at center top, #142047, #010101) 0px;
+    background-color: var(--desktop-background);
+    background: var(--desktop-gradient);
     transition: background 500ms;
     width: 48rem;
     margin: auto;
-    position: static;
     z-index: -1;
   }
 }
+

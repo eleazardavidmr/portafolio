@@ -8,7 +8,7 @@
 
 .title {
   font-size: 2rem;
-  color: #26cad0;
+  color: var(--section-title);
   font-weight: 900;
   align-self: flex-start;
 }
@@ -35,7 +35,7 @@
 }
 
 .project_a {
-  color: #26cda0;
+  color: var(--section-title);
   font-weight: 700;
 }
 

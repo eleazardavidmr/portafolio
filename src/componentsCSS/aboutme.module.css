@@ -2,7 +2,7 @@
   margin: 5vw auto;
 }
 .aboutme_title {
-  color: #26cad0;
+  color: var(--section-title);
   font-size: 1.9rem;
   font-weight: 900;
 }

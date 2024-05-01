@@ -1,5 +1,5 @@
 .socials_main h1 {
-  color: #26cad0;
+  color: var(--section-title);
   font-size: 2rem;
   font-weight: 900;
 }
@@ -54,7 +54,7 @@
   flex-direction: column;
   align-items: center;
   width: 100px;
-  background-color: #2c3661;
+  background-color: var(--box-background);
   border-radius: 10px;
   padding: 10px;
   margin: 10px;
@@ -72,10 +72,5 @@
   .mail_div:hover {
     scale: 1.02;
   }
-  .social_container {
-    background-color: #1b2047;
-  }
-  .mail_div {
-    background-color: #1b2047;
-  }
+
 }

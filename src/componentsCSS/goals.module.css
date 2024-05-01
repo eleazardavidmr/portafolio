@@ -5,14 +5,14 @@
 }
 .title {
   font-weight: 900;
-  color: #26cad0;
+  color: var(--section-title);
   font-size: 2rem;
 }
 ul li {
   list-style: circle;
 }
 ul li span {
-  color: #26cad0;
+  color: var(--section-title);
   font-weight: 600;
 }
 
