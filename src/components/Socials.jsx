@@ -7,7 +7,7 @@ export function Socials() {
   return (
     <>
       <div className={styles.socials_main} id="contact">
-        <h1>Contacto 📞</h1>
+        <h2>Contacto 📞</h2>
         <div className={styles.socials}>
           <motion.a
             initial={{ opacity: 0, scale: 0 }}

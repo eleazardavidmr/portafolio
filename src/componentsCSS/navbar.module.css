@@ -16,7 +16,10 @@ a {
   background-color: #1b7a94;
 }
 .navbar_main {
-  background-color: #0a0924;
+  background: rgba(0, 98, 203, 0.35);
+  -webkit-backdrop-filter: blur(21px);
+  backdrop-filter: blur(21px);
+  border: 1px solid rgba(0, 98, 203, 0.175);
   border-radius: 15px;
   display: flex;
   align-items: center;
@@ -34,7 +37,6 @@ a {
   justify-content: center;
   align-items: center;
   position: sticky;
-  opacity: 0.8;
 }
 
 a {

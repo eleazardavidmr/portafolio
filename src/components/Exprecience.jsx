@@ -3,7 +3,7 @@ export function Experience() {
   return (
     <>
       <div className={styles.xp_main} id="experience">
-        <h1 className={styles.title}>Experiencia 🛠️</h1>
+        <h2 className={styles.title}>Experiencia 🛠️</h2>
         <ul>
           <li>
             Llevo alrededor de 4 años desarrollando páginas web, por practica y

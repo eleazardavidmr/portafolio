@@ -19,13 +19,8 @@ export function Main() {
           <h1 className={styles.title}>
             <span className={styles.main_span}>
               <Typewriter
-                words={[
-                  "Soy Eleazar Muñoz",
-                  "Desarrollador Web",
-                  "Programador",
-                  "Entusiasta",
-                  "Eleazar Muñoz",
-                ]}
+                words={["Eleazar Muñoz"]}
+                loop={5}
                 cursor={true}
                 cursorStyle={"_"}
                 typeSpeed={70}

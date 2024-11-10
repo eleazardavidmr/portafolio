@@ -3,7 +3,7 @@ export function Goals() {
   return (
     <>
       <div className={styles.goals_main} id="goals">
-        <span className={styles.title}>Metas y Objetivos 🌟</span>
+        <h2 className={styles.title}>Metas y Objetivos 🌟</h2>
         <div className={styles.goals_info_main}>
           <p className={styles.goals_info_main_p}>
             ¡Hola! Mi viaje en el mundo del desarrollo web está impulsado por

@@ -1,16 +1,15 @@
 .title {
-  font-size: 2rem;
   color: var(--section-title);
-  font-weight: 900;
 }
+/**/
 .more_btn {
   text-decoration: none;
   color: unset;
   background-color: #198754;
   padding: 10px;
   margin-top: 30px;
-  width: 70%;
-  border-radius: 5px;
+  width: 60%;
+  border-radius: 20px;
   transition: all 300ms;
   color: (--text-color);
 }
@@ -42,7 +41,7 @@
 }
 
 .skill_title {
-  font-weight: 700;
+  font-weight: bold;
   padding: 10px;
 }
 
@@ -51,7 +50,6 @@
   width: 50vw;
   /* background-color: #3c4976;s
  */
-  background: var(--box-background);
   border-radius: 10px;
   padding: 0 20px;
   margin: 10px;
@@ -59,6 +57,12 @@
   justify-content: center;
   align-items: center;
   color: var(--box-text);
+
+  background: rgba(255, 255, 255, 0.1); /* Fondo translúcido */
+  backdrop-filter: blur(10px); /* Efecto de desenfoque */
+  -webkit-backdrop-filter: blur(10px); /* Compatibilidad para Safari */
+  border-radius: 12px; /* Bordes redondeados */
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .skill:hover {

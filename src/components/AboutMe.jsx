@@ -3,7 +3,7 @@ export function AboutMe() {
   return (
     <>
       <div className={`${styles.aboutme_main}`} id="about">
-        <h1 className={styles.aboutme_title}>Sobre mí 👨‍💻</h1>
+        <h2 className={styles.aboutme_title}>Sobre mí 👨‍💻</h2>
         <div className={styles.aboutme_info}>
           <p className={styles.p}>
             Descubrí el mundo de la programación en el año 2020 durante la

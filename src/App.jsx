@@ -7,7 +7,6 @@ import { Projects } from "./components/Projects";
 import { Skills } from "./components/Skills";
 import { Socials } from "./components/Socials";
 import { Navbar } from "./components/Navbar";
-import { useState } from "react";
 function App() {
   return (
     <>

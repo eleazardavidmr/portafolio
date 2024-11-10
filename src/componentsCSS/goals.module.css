@@ -4,16 +4,14 @@
   flex-direction: column;
 }
 .title {
-  font-weight: 900;
   color: var(--section-title);
-  font-size: 2rem;
 }
 ul li {
   list-style: circle;
 }
 ul li span {
   color: var(--section-title);
-  font-weight: 600;
+  font-weight: bold;
 }
 
 .goals_ul {

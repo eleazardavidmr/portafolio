@@ -32,7 +32,7 @@ svg {
 
 .title_c span {
   font-size: 1.7rem;
-  font-weight: 700;
+  font-weight: bold;
 }
 
 .react_,
@@ -43,8 +43,12 @@ svg {
   border-radius: 20px;
   margin: 10px;
   width: 80%;
-  background-color: var(--box-background);
-  color: var(--text-color)
+  color: var(--text-color);
+  background: rgba(255, 255, 255, 0.1); /* Fondo translúcido */
+  backdrop-filter: blur(10px); /* Efecto de desenfoque */
+  -webkit-backdrop-filter: blur(10px); /* Compatibilidad para Safari */
+  border-radius: 12px; /* Bordes redondeados */
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 @media only screen and (min-width: 900px) {

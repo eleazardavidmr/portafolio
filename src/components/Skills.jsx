@@ -77,7 +77,7 @@ export function Skills() {
   return (
     <>
       <div className={styles.main} id="skills">
-        <span className={styles.title}>Habilidades 💻</span>
+        <h2 className={styles.title}>Habilidades 💻</h2>
         <div>
           <div className={styles.skills}>
             <motion.a
