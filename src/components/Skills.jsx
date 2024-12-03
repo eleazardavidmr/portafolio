@@ -76,8 +76,8 @@ const JSsvg = () => {
 export function Skills() {
   return (
     <>
+      <h2 className={styles.title}>Habilidades 💻</h2>
       <div className={styles.main} id="skills">
-        <h2 className={styles.title}>Habilidades 💻</h2>
         <div>
           <div className={styles.skills}>
             <motion.a
@@ -131,11 +131,17 @@ export function Skills() {
                 <JSsvg />
               </div>
             </motion.div>
-
-            <Link className={styles.more_btn} to="/more">
-              Saber más
-            </Link>
           </div>
+        </div>
+
+        <div className={styles.buttons_container}>
+          <Link className={styles.more_btn} to="/more">
+            Saber más
+          </Link>
+
+          <Link className={styles.more_btn} to="/certificates">
+            Ver mis logros y certificados
+          </Link>
         </div>
       </div>
     </>

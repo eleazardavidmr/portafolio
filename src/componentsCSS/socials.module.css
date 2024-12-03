@@ -31,15 +31,46 @@
   color: #d1d5dc;
   text-decoration: none;
   transition-property: box-shadow;
-  transition-duration: 300ms;
-  transition-timing-function: ease-in;
-  font-size: 1rem;
+  transition-duration: 200ms;
 }
 .social_container:hover {
-  box-shadow: 0 0 0 5px #3c4976;
+  box-shadow: 0 0 0 5px #3c49766c;
 }
+
+.email_div {
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 70%;
+  margin: auto;
+  padding: 10px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  border-radius: 30px;
+  text-align: center;
+  gap: 10px;
+}
+.email_span {
+  opacity: 0.7;
+  margin: auto;
+}
+
+.copy_btn {
+  padding: 10px 15px;
+  border-radius: 20px;
+  border: none;
+  background-color: #0064d7;
+  color: #d1d5dc;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
+  margin: auto;
+}
+
 @media only screen and (min-width: 600px) {
-  .mail_div:hover {
-    scale: 1.02;
+  .email_div {
+    margin-top: 3vh;
+    width: 60%;
   }
 }

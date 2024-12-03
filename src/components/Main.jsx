@@ -1,7 +1,5 @@
 import styles from "../componentsCSS/main.module.css";
-import eleazarmunoz_photo from "../img/eleazarmunoz.jpg";
 import fotoPrueba from "../img/fotopruebaRecortada.jpg";
-import React from "react";
 import { Typewriter } from "react-simple-typewriter";
 export function Main() {
   return (
@@ -29,7 +27,7 @@ export function Main() {
               />
             </span>
           </h1>
-          <p>Un desarrollador web fronted de 16 años nacido en Venezuela.</p>
+          <p>Un desarrollador web fronted de 17 años nacido en Venezuela.</p>
         </div>
       </div>
     </>

@@ -16,8 +16,9 @@
   border-radius: 50%;
 }
 
-.main_span{
-  font-family: 'Space Mono';
+.main_span {
+  font-family: "JetBrains Mono";
+  font-weight: 900;
 }
 
 .main_info {

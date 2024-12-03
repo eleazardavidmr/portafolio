@@ -3,7 +3,18 @@ import githubIcon from "../img/githubIcon.png";
 import linkedinIcon from "../img/linkedinIcon.png";
 import instagramIcon from "../img/instagramIcon.png";
 import { motion } from "framer-motion";
+
 export function Socials() {
+  const copy = () => {
+    let text = "eleazardavidmr@gmail.com";
+
+    let btn = document.getElementById("btn");
+    btn.addEventListener("click", () => {
+      navigator.clipboard.writeText(text).then(() => {
+        console.log("copied");
+      });
+    });
+  };
   return (
     <>
       <div className={styles.socials_main} id="contact">
@@ -58,6 +69,22 @@ export function Socials() {
             Instagram
           </motion.a>
         </div>
+        <motion.div
+          initial={{ x: -300, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className={styles.email_div}
+        >
+          <span className={styles.email_span}>eleazardavidmr@gmail.com</span>
+          <motion.button
+            whileTap={{ scale: 0.9 }}
+            id="btn"
+            className={styles.copy_btn}
+            onClick={copy}
+          >
+            Copiar
+          </motion.button>
+        </motion.div>
       </div>
     </>
   );
