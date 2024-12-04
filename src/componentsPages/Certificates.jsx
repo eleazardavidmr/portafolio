@@ -2,6 +2,7 @@ import historiaYFuncionamientoDeInternet from "../img/certificados/historiaDeLaW
 import computacionBasica from "../img/certificados/computacionBasica.png";
 import fundamentosDeIngenieria from "../img/certificados/fundamentosDeIngenieria.png";
 import programacionBasica from "../img/certificados/programacionBasica.png";
+import diseno from "../img/certificados/diseno.png";
 import styles from "../componentsPages/PagesCSS/certificates.module.css";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -23,6 +24,10 @@ export function Certificates() {
     {
       src: programacionBasica,
       title: "Programación Básica",
+    },
+    {
+      src: diseno,
+      title: "Diseño para Programadores",
     },
   ];
 

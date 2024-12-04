@@ -1,19 +1,12 @@
 * {
   scroll-behavior: smooth;
-  outline: none !important;
+  outline: none;
 }
-
 :root {
-  --background-color: #090f20;
-  --text-color: #d1d5d0;
-
-  --section-title: #26acd0;
-  --title-font-weight: 700;
-  /*----skills section*/
-  --box-background: rgb(51, 62, 111);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  --section-title: #26acd0;
 }
 @media (prefers-color-scheme: light) {
   :root {
