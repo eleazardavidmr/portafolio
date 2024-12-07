@@ -3,9 +3,6 @@
   outline: none;
 }
 :root {
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
   --section-title: #26acd0;
 }
 @media (prefers-color-scheme: light) {
@@ -33,6 +30,7 @@ body {
     rgba(0, 10, 31, 1),
     rgba(0, 29, 61, 1)
   );
+  background-attachment: fixed;
 }
 
 body::-webkit-scrollbar {
@@ -46,7 +44,7 @@ body::-webkit-scrollbar-thumb {
   border-radius: 20px;
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 760px) {
   body {
     transition: background 500ms;
     width: 48rem;

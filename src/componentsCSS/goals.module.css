@@ -2,6 +2,7 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+  width: 100%;
 }
 .title {
   color: var(--section-title);
@@ -20,7 +21,7 @@ ul li span {
   gap: 20px;
 }
 
-@media only screen and(min-width: 600px) {
+@media only screen and(min-width: 800px) {
   .title {
     text-align: left;
   }

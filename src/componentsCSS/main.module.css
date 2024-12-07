@@ -30,7 +30,7 @@
   width: 90%;
   margin-top: 5vw;
 }
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 680px) {
   .main_container {
     flex-direction: row;
     margin: 0;

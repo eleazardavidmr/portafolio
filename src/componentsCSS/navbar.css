@@ -71,9 +71,21 @@ a {
   justify-content: space-between;
   position: sticky;
   top: 0;
-  padding: 10px 20px;
   z-index: 999;
   transition: border, box-shadow 300ms;
+  width: 100%;
+  height: 15vh;
+}
+
+.desktop_navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  width: 100%;
+}
+.desktop_navbar h2 {
+  margin: 10px 10px 10px 20px;
 }
 .scrolled {
   border-bottom: 1px solid rgba(255, 255, 255, 0.18);
@@ -100,7 +112,7 @@ a {
   justify-content: center;
   font-weight: bold;
 }
-@media (min-width: 600px) {
+@media (min-width: 680px) {
   .burger_main {
     display: none;
   }

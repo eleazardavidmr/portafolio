@@ -28,18 +28,19 @@ export function Navbar() {
       <div
         className={`${"desktop_navbar_main"} ${isScrolled ? "scrolled" : ""} `}
       >
-        <h2>
-          <span className="eleazar">Eleazar </span>
-          Muñoz
-        </h2>
-
         <div className="desktop_navbar">
-          <a href="#contact" className="nav_btn">
-            Contáctame
-          </a>
-          <Link to="/certificates" className="nav_btn">
-            Ver mis logros y certificados
-          </Link>
+          <h2>
+            <span className="eleazar">Eleazar </span>
+            Muñoz
+          </h2>
+          <div>
+            <a href="#contact" className="nav_btn">
+              Contáctame
+            </a>
+            <Link to="/certificates" className="nav_btn">
+              Ver mis logros y certificados
+            </Link>
+          </div>
         </div>
       </div>
 
