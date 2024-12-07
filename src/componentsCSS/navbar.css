@@ -10,7 +10,6 @@
   padding: 10px 20px;
   border-radius: 20px;
   color: white;
-  font-weight: 600;
   margin: 0 10px;
   font-size: 0.9rem;
   transition: background 300ms;
@@ -21,7 +20,7 @@
 }
 .nav_btn:hover {
   background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  box-shadow: 0 8px 32px 0 rgba(6, 18, 189, 0.37);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   outline: 1px solid rgba(255, 255, 255, 0.18);
@@ -57,7 +56,6 @@ a {
   top: 0;
   width: 100%;
   z-index: 99999;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
 }
 .burger_container {
   display: flex;
@@ -73,10 +71,17 @@ a {
   justify-content: space-between;
   position: sticky;
   top: 0;
-  width: 100%;
   padding: 10px 20px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
   z-index: 999;
+  transition: border, box-shadow 300ms;
+}
+.scrolled {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px -20px rgba(255, 255, 255, 0.37);
+  /* 
+  
+  box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.37);
+  */
 }
 
 .see_more {
