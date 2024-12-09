@@ -3,3 +3,10 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+@media (min-width: 600px){
+  .app{
+    width: 48rem;
+    margin: auto;
+  }
+}

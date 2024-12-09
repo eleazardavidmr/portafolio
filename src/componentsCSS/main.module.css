@@ -17,7 +17,7 @@
 }
 
 .main_span {
-  font-family: "JetBrains Mono";
+  font-family: "JetBrains Mono", monospace;
   font-weight: 900;
 }
 

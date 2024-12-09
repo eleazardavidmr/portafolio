@@ -1,5 +1,6 @@
 .xp_main {
   margin: 5vw 0;
+  width: 100%;
 }
 .xp_main li {
   list-style: circle;

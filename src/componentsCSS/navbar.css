@@ -70,11 +70,12 @@ a {
   align-items: center;
   justify-content: space-between;
   position: sticky;
-  top: 0;
   z-index: 999;
-  transition: border, box-shadow 300ms;
-  width: 100%;
+  transition: all 300ms;
+  width: 99vw;
   height: 15vh;
+  top: 0;
+  margin: 0;
 }
 
 .desktop_navbar {
@@ -90,10 +91,7 @@ a {
 .scrolled {
   border-bottom: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow: 0 8px 32px -20px rgba(255, 255, 255, 0.37);
-  /* 
-  
-  box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.37);
-  */
+
 }
 
 .see_more {
@@ -118,5 +116,9 @@ a {
   }
   .desktop_navbar_main {
     display: flex;
+
+  }
+  .desktop_navbar{
+    width: 70%;
   }
 }

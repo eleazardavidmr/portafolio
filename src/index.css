@@ -25,12 +25,20 @@ body {
   line-height: 1.5;
   font-family: "Inter";
   font-size: smaller;
+/*
   background: linear-gradient(
     to bottom,
     rgba(0, 10, 31, 1),
     rgba(0, 29, 61, 1)
   );
-  background-attachment: fixed;
+*/
+  background: 
+    radial-gradient(circle at 15% 50%, rgba(0, 30, 80, 0.6), transparent 40%), /* Azul muy oscuro a la izquierda */
+    radial-gradient(circle at 85% 50%, rgba(0, 30, 80, 0.6), transparent 40%), /* Azul muy oscuro a la derecha */
+    radial-gradient(circle at 50% 50%, rgba(0, 10, 30, 0.9), #000208 85%),    /* Centro casi negro */
+    linear-gradient(180deg, #000208, #000A10);
+  background-attachment: fixed; /* Asegura que el fondo no se mueva */
+background-size: cover; /* Ocupa toda la pantalla */
 }
 
 body::-webkit-scrollbar {
@@ -47,9 +55,8 @@ body::-webkit-scrollbar-thumb {
 @media only screen and (min-width: 760px) {
   body {
     transition: background 500ms;
-    width: 48rem;
-    margin: auto;
     z-index: -1;
     font-size: medium;
+    height: 100vh;
   }
 }
