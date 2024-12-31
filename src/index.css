@@ -63,7 +63,6 @@ body::-webkit-scrollbar-thumb {
     z-index: -1;
     font-size: medium;
     height: 100vh;
-    font-size: small;
     width: 48rem;
     margin: auto;
   }

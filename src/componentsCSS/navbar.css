@@ -70,7 +70,7 @@ a {
   position: fixed;
   left: 0;
   z-index: 999;
-  transition: all 500ms;
+  transition: all 700ms;
   width: 99vw;
   height: 15vh;
   top: 0;
@@ -89,7 +89,6 @@ a {
 }
 .scrolled {
   border-bottom: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 0 8px 32px -20px rgba(255, 255, 255, 0.37);
   height: 14vh;
 }
 
