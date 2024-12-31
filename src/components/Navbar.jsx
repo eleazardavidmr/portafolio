@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Hamburger from "hamburger-react";
 import "../componentsCSS/navbar.css";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const handleToggle = (toggled) => {
@@ -34,12 +35,18 @@ export function Navbar() {
             Muñoz
           </h2>
           <div>
-            <a href="#contact" className="nav_btn">
+            <motion.a
+              whileTap={{ scale: 0.9 }}
+              href="#contact"
+              className="nav_btn"
+            >
               Contáctame
-            </a>
-            <Link to="/certificates" className="nav_btn">
-              Ver mis logros y certificados
-            </Link>
+            </motion.a>
+            <motion.span whileTap={{ scale: 0.9 }}>
+              <Link to="/certificates" className="nav_btn">
+                Ver mis logros y certificados
+              </Link>
+            </motion.span>
           </div>
         </div>
       </div>

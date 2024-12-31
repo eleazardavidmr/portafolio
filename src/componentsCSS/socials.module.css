@@ -32,7 +32,6 @@
   text-decoration: none;
   transition-property: box-shadow;
   transition-duration: 200ms;
-  font-size: 0.8rem;
 }
 .social_container:hover {
   box-shadow: 0 0 0 5px #3c49766c;
@@ -54,7 +53,6 @@
 .email_span {
   opacity: 0.7;
   margin: auto;
-  font-size: 1rem;
 }
 
 .copy_btn {
