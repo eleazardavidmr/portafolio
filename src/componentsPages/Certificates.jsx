@@ -1,9 +1,14 @@
+//images
 import historiaYFuncionamientoDeInternet from "../img/certificados/historiaDeLaWeb.png";
 import computacionBasica from "../img/certificados/computacionBasica.png";
 import fundamentosDeIngenieria from "../img/certificados/fundamentosDeIngenieria.png";
 import programacionBasica from "../img/certificados/programacionBasica.png";
 import diseno from "../img/certificados/diseno.png";
+import curso_react_vite_tailwindcss from "../img/certificados/curso-react-vite-tailwindcss.png";
+import mobile_first from "../img/certificados/mobile-first.png";
+//------------------------
 import styles from "../componentsPages/PagesCSS/certificates.module.css";
+
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
@@ -28,6 +33,14 @@ export function Certificates() {
     {
       src: diseno,
       title: "Diseño para Programadores",
+    },
+    {
+      src: curso_react_vite_tailwindcss,
+      title: "Curso de React con Vite y TailwindCSS",
+    },
+    {
+      src: mobile_first,
+      title: "Curso de Maquetación Mobile First",
     },
   ];
 

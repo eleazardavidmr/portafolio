@@ -6,8 +6,8 @@ import { Project } from "./Project";
 export function Projects() {
   return (
     <>
-      <h2 className={styles.title}>Proyectos 📈</h2>
       <div className={styles.projects_main} id="projects">
+        <h2 className={styles.title}>Proyectos 📈</h2>
         <section className={styles.projects_container}>
           <Project
             img={jorgevalbuenaImg}

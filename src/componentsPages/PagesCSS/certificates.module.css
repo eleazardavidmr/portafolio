@@ -21,19 +21,10 @@
 .certificate {
   margin: 10px auto;
   width: 80vw;
-  height: 300px;
   text-align: center;
   padding: 10px;
   transition: all 500ms;
   cursor: pointer;
-}
-
-.certificate:hover {
-  background: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(2.5px);
-  -webkit-backdrop-filter: blur(2.5px);
-  outline: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .image {

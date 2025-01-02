@@ -1,9 +1,5 @@
 .projects_main {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
-  margin: 5vw auto;
+  width: 100%;
 }
 
 .projects_container {
@@ -44,7 +40,6 @@
     margin: auto;
     justify-content: space-between;
     align-items: center;
-    font-size: small;
     padding: 1vw;
   }
   .project_img {

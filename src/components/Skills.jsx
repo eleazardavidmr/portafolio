@@ -76,9 +76,9 @@ const JSsvg = () => {
 export function Skills() {
   return (
     <>
-      <h2 className={styles.title}>Habilidades 💻</h2>
-      <div className={styles.main} id="skills">
-        <div>
+      <div className={styles.skills_main} id="skills">
+        <h2 className={styles.title}>Habilidades 💻</h2>
+        <div className={styles.main}>
           <div className={styles.skills}>
             <motion.a
               initial={{ opacity: 0, scale: 0 }}
