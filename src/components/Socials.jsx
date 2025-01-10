@@ -59,7 +59,7 @@ export function Socials() {
             transition={{ duration: 0.3 }}
             target="_blank"
             className={styles.social_container}
-            href="https://www.instagram.com/davidd.720"
+            href="https://www.instagram.com/edavidmunozr/"
           >
             <img
               src={instagramIcon}
