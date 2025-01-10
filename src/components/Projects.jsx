@@ -2,6 +2,7 @@ import styles from "../componentsCSS/projects.module.css";
 import knockoutsimg from "../img/projectsImg/knockoutspizzas.png";
 import dydcrochet from "../img/projectsImg/dydcrochet.png";
 import jorgevalbuenaImg from "../img/projectsImg/jorgevalbuena.jpg";
+import stizzoplanet from "../img/projectsImg/stizzoplanet.png";
 import { Project } from "./Project";
 export function Projects() {
   return (
@@ -28,6 +29,13 @@ export function Projects() {
             title="Knockouts Pizzas"
             url="https://knockoutspizas.surge.sh"
             urlName="knockoutspizzas.surge.sh"
+          />
+
+          <Project
+            img={stizzoplanet}
+            title="Stizzo Planet"
+            url="https://stizzoplanet.surge.sh"
+            urlName="stizzoplanet.surge.sh"
           />
         </section>
       </div>

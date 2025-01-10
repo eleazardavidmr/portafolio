@@ -40,12 +40,14 @@
     margin: auto;
     justify-content: space-between;
     align-items: center;
-    padding: 1vw;
+    padding: 1rem;
   }
   .project_img {
     width: 50%;
   }
   .info {
+    width: 50%;
     margin-bottom: 10px;
+    text-align: right;
   }
 }
