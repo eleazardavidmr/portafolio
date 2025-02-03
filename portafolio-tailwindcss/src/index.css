@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+  background: radial-gradient(
+      circle at 15% 50%,
+      rgba(0, 30, 80, 0.6),
+      transparent 40%
+    ),
+    radial-gradient(circle at 85% 50%, rgba(0, 30, 80, 0.6), transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(0, 10, 30, 0.9), #000208 85%),
+    linear-gradient(180deg, #000208, #000a10);
+  background-attachment: fixed;
+  background-size: cover;
+  color: #d1d5d0;
+  scroll-behavior: smooth;
+}
+ul {
+  list-style-type: circle;
+}
