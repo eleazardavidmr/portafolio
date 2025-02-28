@@ -1,6 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+html {
+  scroll-behavior: smooth;
+}
 body {
   background: radial-gradient(
       circle at 15% 50%,
@@ -13,7 +16,6 @@ body {
   background-attachment: fixed;
   background-size: cover;
   color: #d1d5d0;
-  scroll-behavior: smooth;
 }
 ul {
   list-style-type: circle;

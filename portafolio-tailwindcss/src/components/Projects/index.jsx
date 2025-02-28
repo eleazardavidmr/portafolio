@@ -37,7 +37,7 @@ export default function Projects() {
   ];
   return (
     <>
-      <h1 className="font-bold text-primary text-xl self-start mt-20 ml-5">
+      <h1 className="font-bold text-primary text-2xl self-start mt-20 ml-5">
         Proyectos 📈
       </h1>
       <section className="mt-5 " id="proyectos">

@@ -70,8 +70,8 @@ export default function Contact() {
 
   return (
     <>
-      <section className="px-5 w-full">
-        <h1 className="text-primary font-bold text-xl">Contacto 📞</h1>
+      <section className="px-5 w-full" id="contacto">
+        <h1 className="text-primary font-bold text-2xl">Contacto 📞</h1>
         <div className="flex items-center justify-center gap-5 mt-5 flex-wrap">
           <Social
             name="GitHub"

@@ -1,7 +1,7 @@
 export default function About() {
   return (
     <section>
-      <h1 id="sobre-mi" className="text-primary text-xl font-bold">
+      <h1 id="sobre-mi" className="text-primary text-2xl font-bold">
         Sobre mí 👨‍💻
       </h1>
       <p className="mt-5">

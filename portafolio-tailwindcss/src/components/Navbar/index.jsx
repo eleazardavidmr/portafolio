@@ -3,6 +3,7 @@ import { useState } from "react";
 import "./styles.css";
 import XIcon from "../../icons/XIcon";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const handleToggle = () => {
@@ -10,34 +11,38 @@ export default function Navbar() {
   };
   return (
     <>
-      <div className="navbar-main mb-5 sticky w-[95%] rounded-2xl top-2 z-50 flex justify-between items-center p-5 md:py-8 backdrop-blur-[50px]">
+      <div className="navbar-main mb-5 sticky w-[95%] rounded-2xl top-2 mx-auto z-50 flex justify-between items-center p-5 md:py-8 backdrop-blur-[50px]">
         <div className="hidden md:flex items-center justify-between w-full mx-auto">
-          <h1 className="text-2xl font-bold">
-            <span className="text-primary">Eleazar </span>Muñoz
-          </h1>
+          <Link to="/">
+            <h1 className="text-2xl font-bold">
+              <span className="text-primary">Eleazar </span>Muñoz
+            </h1>
+          </Link>
           <div className="flex gap-5">
+            <motion.a
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.8 }}
+              className="transition-all text-sm font-medium navbar-button px-6 py-2 border border-white/20 rounded-full hover:bg-gray-800"
+              href="#contacto"
+            >
+              Contactame
+            </motion.a>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.8 }}
               className="transition-all text-sm font-medium navbar-button px-6 py-2 border border-white/20 rounded-full hover:bg-gray-800"
             >
-              Ver más
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.8 }}
-              className="transition-all text-sm font-medium navbar-button px-6 py-2 border border-white/20 rounded-full hover:bg-gray-800"
-            >
-              Ver mis logros y certificados
+              <Link to="/certificados">Ver mis logros y certificados</Link>
             </motion.button>
           </div>
         </div>
 
         <div className="flex w-full items-center justify-between md:hidden">
-          <h1 className="text-xl font-bold">
-            <span className="text-primary">Eleazar </span>Muñoz
-          </h1>
-
+          <Link to="/">
+            <h1 className="text-xl font-bold">
+              <span className="text-primary">Eleazar </span>Muñoz
+            </h1>
+          </Link>
           <Hamburger
             size={20}
             label="show menu"
@@ -74,12 +79,11 @@ export default function Navbar() {
             📞 Contacto
           </a>
           <div className="mx-auto flex gap-5 flex-col">
-            <button className="transition-all navbar-button px-6 py-2 border border-white/20 rounded-full hover:bg-gray-800">
-              Ver más
-            </button>
-            <button className="transition-all navbar-button px-6 py-2 border border-white/20 rounded-full hover:bg-gray-800">
-              Ver mis logros y certificados
-            </button>
+            <Link to="/certificados">
+              <button className="transition-all navbar-button px-6 py-2 border border-white/20 rounded-full hover:bg-gray-800">
+                Ver mis logros y certificados
+              </button>
+            </Link>
           </div>
         </div>
       )}

@@ -1,7 +1,7 @@
 export default function Experience() {
   return (
     <section id="experiencia">
-      <h1 className="text-xl font-bold text-primary">Experiencia 🛠️</h1>
+      <h1 className="text-2xl font-bold text-primary">Experiencia 🛠️</h1>
       <ul className="ml-5 mt-5">
         <li>
           Llevo alrededor de 4 años desarrollando páginas web, por practica y
