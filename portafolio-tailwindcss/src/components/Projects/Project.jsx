@@ -6,7 +6,7 @@ export default function Project({ data }) {
       initial={{ x: -500, opacity: 0 }}
       whileInView={{ x: 0, opacity: 1 }}
       transition={{ duration: 0.6 }}
-      className="w-[90%] text-sm flex items-center justify-center flex-col gap-5 md:flex-row md:text-base md:justify-between "
+      className="w-[90%] text-sm flex items-center justify-center flex-col gap-5 md:flex-row md:text-base md:justify-between hover:bg-blue-950 transition-all p-4 rounded-xl min-h-[100px] cursor-pointer"
     >
       <div>
         <img
