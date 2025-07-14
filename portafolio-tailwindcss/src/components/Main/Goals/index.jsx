@@ -1,7 +1,9 @@
+import SectionTitle from "../../SectionTitle";
+
 export default function Goals() {
   return (
-    <section id="metas-y-objetivos">
-      <h1 className="text-2xl font-bold text-primary">Metas y Objetivos 🌟</h1>
+    <section id="metas-y-objetivos" className="mb-5">
+      <SectionTitle title="Metas y Objetivos 🎯" />
       <div className=" mt-5">
         <p>
           ¡Hola! Mi viaje en el mundo del desarrollo web está impulsado por una

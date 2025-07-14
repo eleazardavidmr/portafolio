@@ -1,9 +1,9 @@
+import SectionTitle from "../../SectionTitle";
+
 export default function About() {
   return (
     <section>
-      <h1 id="sobre-mi" className="text-primary text-2xl font-bold">
-        Sobre mí 👨‍💻
-      </h1>
+      <SectionTitle title="Sobre mí 👋" />
       <p className="mt-5">
         Descubrí el mundo de la programación en el año 2020 durante la pandemia.
         Desde ese momento mi pasión por la programación y la tecnología ha

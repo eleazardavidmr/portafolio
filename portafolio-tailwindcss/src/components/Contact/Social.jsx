@@ -8,7 +8,8 @@ export default function Social({ name, icon, to }) {
       whileInView={{ scale: 1 }}
       transition={{ duration: 0.6 }}
       href={to}
-      className="social p-5 flex items-center justify-center flex-col rounded-xl w-[200px]"
+      target="_blank"
+      className="social p-5 flex items-center justify-center flex-col rounded-3xl w-[200px]"
     >
       {icon}
       <p className="text-white/60">{name}</p>

@@ -1,19 +1,19 @@
-import { Typewriter } from "react-simple-typewriter";
 import { motion } from "framer-motion";
+import { Typewriter } from "react-simple-typewriter";
 export default function Intro() {
   return (
     <>
       <motion.section
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 1 }}
         id="inicio"
-        className="min-h-[70vh] w-full px-3 flex flex-col items-center justify-center gap-10 md:flex-row"
+        className="md:min-h-[60vh] min-h-[80vh] w-full px-3 flex flex-col items-center justify-center gap-10 md:flex-row"
       >
         <img
           src="/img/profile.jpg"
           alt="Eleazar Muñoz"
-          className="rounded-full w-[70%] md:w-[50%]"
+          className="rounded-full w-[90%] md:w-[50%]"
         />
         <div className="flex flex-col items-center justify-center mt-5 gap-5 text-center">
           <span className="text-3xl font-extrabold text-primary font-jetbrains">

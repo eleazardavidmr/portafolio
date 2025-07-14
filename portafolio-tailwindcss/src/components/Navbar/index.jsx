@@ -4,6 +4,7 @@ import "./styles.css";
 import XIcon from "../../icons/XIcon";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import logo from "/img/favicon.png";
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const handleToggle = () => {
@@ -11,26 +12,26 @@ export default function Navbar() {
   };
   return (
     <>
-      <div className="navbar-main mb-5 sticky w-[95%] rounded-2xl top-2 mx-auto z-50 flex justify-between items-center p-5 md:py-8 backdrop-blur-[50px]">
+      <div className="navbar-main mb-5 sticky w-[95%] rounded-3xl top-2 mx-auto z-50 flex justify-between items-center p-5 md:py-8 backdrop-blur-[50px]">
         <div className="hidden md:flex items-center justify-between w-full mx-auto">
           <Link to="/">
-            <h1 className="text-2xl font-bold">
-              <span className="text-primary">Eleazar </span>Muñoz
-            </h1>
+            <span className="flex items-center gap-2 ">
+              <img src={logo} alt="Logo" />
+            </span>
           </Link>
           <div className="flex gap-5">
             <motion.a
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.8 }}
-              className="transition-all text-sm font-medium navbar-button px-6 py-2 border border-white/20 rounded-full hover:bg-gray-800"
+              className="transition-all text-sm font-medium navbar-button px-6 py-2 border border-white/20 rounded-full "
               href="#contacto"
             >
               Contactame
             </motion.a>
             <motion.button
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.8 }}
-              className="transition-all text-sm font-medium navbar-button px-6 py-2 border border-white/20 rounded-full hover:bg-gray-800"
+              className="transition-all text-sm font-medium navbar-button px-6 py-2 border border-white/20 rounded-full "
             >
               <Link to="/certificados">Ver mis logros y certificados</Link>
             </motion.button>
@@ -40,7 +41,7 @@ export default function Navbar() {
         <div className="flex w-full items-center justify-between md:hidden">
           <Link to="/">
             <h1 className="text-xl font-bold">
-              <span className="text-primary">Eleazar </span>Muñoz
+              <img src={logo} alt="Logo" />
             </h1>
           </Link>
           <Hamburger

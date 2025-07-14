@@ -1,10 +1,12 @@
+import SectionTitle from "../../SectionTitle";
+
 export default function Experience() {
   return (
     <section id="experiencia">
-      <h1 className="text-2xl font-bold text-primary">Experiencia 🛠️</h1>
+      <SectionTitle title="Experiencia 🛠️" />
       <ul className="ml-5 mt-5">
         <li>
-          Llevo alrededor de 4 años desarrollando páginas web, por practica y
+          Llevo alrededor de 5 años desarrollando páginas web, por practica y
           por pasión.
         </li>
         <li>
@@ -15,6 +17,17 @@ export default function Experience() {
         <li>
           Mis más grandes proyectos son la página web de Jorge Luis Valbuena,
           para Immunotec; y Stizzo Planet, un ecommerce de zapatillas
+        </li>
+        <li>
+          Actual estudiante de:{" "}
+          <a
+            href="https://polisuperior.edu.co/"
+            className="underline underline-offset-2 decoration-red-700 hover:decoration-2 text-red-500 font-medium"
+            target="_blank"
+          >
+            Politénico Superior
+          </a>{" "}
+          en Técnico Laboral en Auxiliar en Sistemas Informáticos
         </li>
       </ul>
     </section>
