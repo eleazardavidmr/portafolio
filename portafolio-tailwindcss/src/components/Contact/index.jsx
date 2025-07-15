@@ -33,12 +33,14 @@ export default function Contact() {
           <Social
             name="Instagram"
             icon={<InstagarmIcon width={50} height={50} />}
-            to="https://www.instagram.com/edavidmunozr"
+            to="https://www.instagram.com/edmr.dev"
           />
 
           <Social
             name="WhatsApp"
-            icon={<WhatsAppIcon width={50} height={50} />}
+            icon={
+              <WhatsAppIcon width={50} height={50} stroke={"currentColor"} />
+            }
             to="https://wa.me/3155614748?text=Hola%20Eleazar,%20quiero%20una%20página%20web."
           />
 
@@ -49,7 +51,7 @@ export default function Contact() {
             className="social p-5 flex items-center justify-center flex-col rounded-3xl w-[200px] cursor-pointer"
             onClick={copy}
           >
-            <MailIcon width={50} height={50} />
+            <MailIcon width={50} height={50} stroke={"currentColor"} />
             <p className="text-white/60">Copiar Email</p>
           </motion.a>
         </div>

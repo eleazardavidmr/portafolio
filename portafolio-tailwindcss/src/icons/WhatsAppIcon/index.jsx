@@ -20,3 +20,9 @@ export default function WhatsAppIcon({ width, height, stroke }) {
     </svg>
   );
 }
+
+WhatsAppIcon.propTypes = {
+  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  stroke: PropTypes.string,
+};
