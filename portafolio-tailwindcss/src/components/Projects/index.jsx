@@ -39,7 +39,7 @@ export const PROJECTS = [
 export default function Projects() {
   return (
     <>
-      <section className="mt-5 w-full" id="proyectos">
+      <section className="mt-5 w-full p-5" id="proyectos">
         <SectionTitle title="Proyectos 💻" />
         <p className="mb-5 mt-5 mx-5">
           Échale un vistazo a mis mejores proyectos:

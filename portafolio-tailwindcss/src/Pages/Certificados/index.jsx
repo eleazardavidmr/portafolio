@@ -1,4 +1,4 @@
-import Navbar from "../../components/Navbar";
+import GoBackButton from "../../components/Navbar/GoBackButton";
 
 export default function Certificados() {
   const CERTIFICADOS = [
@@ -40,21 +40,23 @@ export default function Certificados() {
   ];
   return (
     <>
-      <div className="mx-auto flex items-center justify-between flex-col md:flex-row md:w-[48rem] flex-wrap">
-        <Navbar />
-        {CERTIFICADOS.map((certificado, index) => {
-          return (
-            <div key={index} className="w-auto text-center mb-5">
-              <div className="">
-                <img
-                  className="w-[300px]"
-                  src={certificado.src}
-                  alt={certificado.title}
-                />
+      <div className="mx-auto md:flex-row md:w-[48rem]">
+        <GoBackButton />
+        <div className="flex items-center justify-center flex-col md:flex-row flex-wrap mt-10 w-full gap-5">
+          {CERTIFICADOS.map((certificado, index) => {
+            return (
+              <div key={index} className="w-auto text-center mb-5">
+                <div className="">
+                  <img
+                    className="w-[300px]"
+                    src={certificado.src}
+                    alt={certificado.title}
+                  />
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </>
   );

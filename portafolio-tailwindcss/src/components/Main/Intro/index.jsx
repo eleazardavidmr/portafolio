@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Typewriter } from "react-simple-typewriter";
+import Button from "./Button";
 export default function Intro() {
   return (
     <>
@@ -8,7 +8,7 @@ export default function Intro() {
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1 }}
         id="inicio"
-        className="md:min-h-[60vh] min-h-[80vh] w-full px-3 flex flex-col items-center justify-center gap-10 md:flex-row"
+        className="md:min-h-[60vh] min-h-[80vh] w-full px-3 flex flex-col items-center justify-center gap-10 md:flex-row mt-10"
       >
         <img
           src="/img/profile.jpg"
@@ -16,20 +16,18 @@ export default function Intro() {
           className="rounded-full w-[90%] md:w-[50%]"
         />
         <div className="flex flex-col items-center justify-center mt-5 gap-5 text-center">
-          <span className="text-3xl font-extrabold text-primary font-jetbrains">
-            <Typewriter
-              words={["Eleazar Muñoz"]}
-              loop={5}
-              cursor={true}
-              cursorStyle={"_"}
-              typeSpeed={70}
-              deleteSpeed={50}
-              delaySpeed={1500}
-            />
+          <span className="text-4xl font-extrabold text-primary font-jetbrains">
+            Eleazar Muñoz
           </span>
-          <span className=" w-[80%]">
+          <span className="w-[80%]">
             Un desarrollador web fronted de 17 años nacido en Venezuela.
           </span>
+          <div className="w-full flex items-center justify-center">
+            <Button
+              to={"/certificados"}
+              title="Mira mis logros y certificados"
+            />
+          </div>
         </div>
       </motion.section>
     </>
