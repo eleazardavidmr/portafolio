@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 
 import Project from "./Project";
 import SectionTitle from "../SectionTitle";
+
+import { motion } from "framer-motion";
 export const PROJECTS = [
   {
     id: 1,
@@ -44,14 +46,17 @@ export default function Projects() {
         <p className="mb-5 mt-5 mx-5">
           Échale un vistazo a mis mejores proyectos:
         </p>
-        <div className="flex items-center justify-center flex-col md:flex-row w-full">
+        <div className="grid grid-cols-2 grid-rows-1 md:flex-row w-full gap-5">
           <Project key={PROJECTS[0].id} data={PROJECTS[0]} />
           <Project key={PROJECTS[1].id} data={PROJECTS[1]} />
         </div>
         <Link to="/proyectos" className="w-full flex justify-center mt-5">
-          <button className="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 ">
+          <motion.button
+            whileHover={{ scale: 1.03 }}
+            className=" bg-red-900 text-red-300 focus:outline-none focus:ring-4 focus:ring-red-400 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 "
+          >
             Ver todos
-          </button>
+          </motion.button>
         </Link>
       </section>
     </>

@@ -7,10 +7,10 @@ export default function Project({ data }) {
       initial={{ opacity: 0, scale: 0 }}
       whileInView={{ opacity: 1, scale: 1 }}
       whileHover={{ scale: 1.03 }}
-      className="project p-8 md:h-[260px] rounded-3xl flex items-center justify-between flex-col cursor-pointer mt-5 mx-3 hover:shadow-xl"
+      className="project p-8 rounded-3xl flex items-center justify-center flex-col cursor-pointer hover:shadow-xl w-full h-full"
     >
       <div>
-        <img src={data.img} alt={data.name} className="mx-auto w-[18vw]" />
+        <img src={data.img} alt={data.name} className="mx-auto w-[80%]" />
       </div>
       <div className="p-2 mt-8 text-center w-full">
         <p className="text-xl font-semibold">{data.name}</p>

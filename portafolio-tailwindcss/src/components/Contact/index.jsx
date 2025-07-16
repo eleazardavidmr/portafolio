@@ -47,7 +47,7 @@ export default function Contact() {
           <motion.a
             initial={{ scale: 0 }}
             whileInView={{ scale: 1 }}
-            transition={{ duration: 0.6 }}
+            whileHover={{ scale: 1.03 }}
             className="social p-5 flex items-center justify-center flex-col rounded-3xl w-[200px] cursor-pointer"
             onClick={copy}
           >

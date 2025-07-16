@@ -6,7 +6,8 @@ export default function Social({ name, icon, to }) {
     <motion.a
       initial={{ scale: 0 }}
       whileInView={{ scale: 1 }}
-      transition={{ duration: 0.6 }}
+      whileHover={{ scale: 1.03 }}
+      transition={{ duration: 0.3 }}
       href={to}
       target="_blank"
       className="social p-5 flex items-center justify-center flex-col rounded-3xl w-[200px]"
