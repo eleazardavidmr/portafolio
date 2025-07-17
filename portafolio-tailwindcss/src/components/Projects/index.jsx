@@ -46,7 +46,7 @@ export default function Projects() {
         <p className="mb-5 mt-5 mx-5">
           Échale un vistazo a mis mejores proyectos:
         </p>
-        <div className="grid grid-cols-2 grid-rows-1 md:flex-row w-full gap-5">
+        <div className="md:grid grid-cols-2 grid-rows-1 flex flex-column flex-wrap md:w-full w-[80%] mx-auto gap-5">
           <Project key={PROJECTS[0].id} data={PROJECTS[0]} />
           <Project key={PROJECTS[1].id} data={PROJECTS[1]} />
         </div>
