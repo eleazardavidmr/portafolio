@@ -1,4 +1,5 @@
 import SectionTitle from "../../SectionTitle";
+import { motion } from "framer-motion";
 
 export default function Goals() {
   return (
@@ -12,7 +13,12 @@ export default function Goals() {
         </p>
 
         <ul className="list-none mt-5 flex items-center justify-center flex-col gap-3">
-          <li>
+          <motion.li
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, type: "spring" }}
+            viewport={{ once: true }}
+          >
             <p className="text-primary font-semibold ">
               1. Aprendizaje Perpetuo 🚀
             </p>
@@ -22,8 +28,13 @@ export default function Goals() {
               nuevas tecnologías, técnicas de desarrollo, y mantenerme al tanto
               de las últimas tendencias del sector.
             </p>
-          </li>
-          <li>
+          </motion.li>
+          <motion.li
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, type: "spring", delay: 0.1 }}
+            viewport={{ once: true }}
+          >
             <p className="text-primary font-semibold ">
               2. Contribuir a Proyectos Significativos 🌐
             </p>
@@ -34,8 +45,13 @@ export default function Goals() {
               innovadoras que mejoren la experiencia digital y hagan la
               diferencia en la vida de las personas.
             </p>
-          </li>
-          <li>
+          </motion.li>
+          <motion.li
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, type: "spring", delay: 0.2 }}
+            viewport={{ once: true }}
+          >
             <p className="text-primary font-semibold ">
               3. Creación de Proyectos Personales 🚧
             </p>
@@ -45,7 +61,7 @@ export default function Goals() {
               oportunidades para aplicar mis habilidades de manera práctica y
               continuar aprendiendo a través de la experiencia.
             </p>
-          </li>
+          </motion.li>
         </ul>
       </div>
     </section>

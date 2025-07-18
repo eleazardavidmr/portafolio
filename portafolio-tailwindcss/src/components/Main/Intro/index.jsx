@@ -3,19 +3,29 @@ import Button from "./Button";
 export default function Intro() {
   return (
     <>
-      <motion.section
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1 }}
+      <section
         id="inicio"
         className="md:min-h-[60vh] min-h-[80vh] w-full px-3 flex flex-col items-center justify-center gap-10 md:flex-row mt-10"
       >
-        <img
-          src="/img/profile.jpg"
-          alt="Eleazar Muñoz"
-          className="rounded-full w-[90%] md:w-[50%]"
-        />
-        <div className="flex flex-col items-center justify-center mt-5 gap-5 text-center">
+        <motion.div
+          initial={{ x: -100, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 1, type: "spring" }}
+          className="w-full md:w-[50%]"
+        >
+          <img
+            src="/img/profile.jpg"
+            alt="Eleazar Muñoz"
+            className="rounded-full w-[90%] mx-auto"
+          />
+        </motion.div>
+
+        <motion.div
+          initial={{ x: 100, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 1, type: "spring" }}
+          className="flex flex-col items-center justify-center mt-5 gap-5 text-center w-full md:w-[50%]"
+        >
           <span className="text-4xl font-extrabold text-primary font-jetbrains">
             Eleazar Muñoz
           </span>
@@ -28,8 +38,8 @@ export default function Intro() {
               title="Mira mis logros y certificados"
             />
           </div>
-        </div>
-      </motion.section>
+        </motion.div>
+      </section>
     </>
   );
 }

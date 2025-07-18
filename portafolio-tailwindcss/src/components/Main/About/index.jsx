@@ -1,8 +1,15 @@
 import SectionTitle from "../../SectionTitle";
 import Card2 from "./Card2";
+import { motion } from "framer-motion";
 export default function About() {
   return (
-    <section className="flex items-center justify-between flex-col md:flex-row">
+    <motion.section
+      initial={{ y: 100, opacity: 0 }}
+      whileInView={{ y: 0, opacity: 1 }}
+      transition={{ duration: 1 }}
+      viewport={{ once: true }}
+      className="flex items-center justify-between flex-col md:flex-row"
+    >
       <div className="md:w-[50%]">
         <SectionTitle title="Sobre mí 👋" />
         <p className="mt-5">
@@ -14,6 +21,6 @@ export default function About() {
         </p>
       </div>
       <Card2 />
-    </section>
+    </motion.section>
   );
 }

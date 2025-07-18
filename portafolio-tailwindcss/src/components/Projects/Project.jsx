@@ -1,14 +1,8 @@
 import PropTypes from "prop-types";
-import { motion } from "framer-motion";
 import "./styles.css";
 export default function Project({ data }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      whileHover={{ scale: 1.03 }}
-      className="project p-8 rounded-3xl flex items-center justify-center flex-col cursor-pointer hover:shadow-xl w-full h-full"
-    >
+    <div className="project p-8 rounded-3xl flex items-center justify-center flex-col cursor-pointer hover:shadow-xl w-full h-full">
       <div>
         <img src={data.img} alt={data.name} className="mx-auto w-[80%]" />
       </div>
@@ -18,7 +12,7 @@ export default function Project({ data }) {
           {data.urlName}
         </a>
       </div>
-    </motion.div>
+    </div>
   );
 }
 

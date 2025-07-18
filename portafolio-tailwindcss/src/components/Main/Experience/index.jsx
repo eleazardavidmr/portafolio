@@ -1,8 +1,15 @@
+import { motion } from "framer-motion";
 import SectionTitle from "../../SectionTitle";
 
 export default function Experience() {
   return (
-    <section id="experiencia">
+    <motion.section
+      initial={{ y: 100, opacity: 0 }}
+      whileInView={{ y: 0, opacity: 1 }}
+      transition={{ duration: 1 }}
+      viewport={{ once: true }}
+      id="experiencia"
+    >
       <SectionTitle title="Experiencia 🛠️" />
       <ul className="ml-5 mt-5">
         <li>
@@ -30,6 +37,6 @@ export default function Experience() {
           en Técnico Laboral en Auxiliar en Sistemas Informáticos
         </li>
       </ul>
-    </section>
+    </motion.section>
   );
 }

@@ -10,6 +10,7 @@ body {
   background-image: url("/background-gradient.webp");
   background-repeat: no-repeat;
   background-size: cover;
+  overflow-x: hidden;
 }
 ul {
   list-style-type: circle;
