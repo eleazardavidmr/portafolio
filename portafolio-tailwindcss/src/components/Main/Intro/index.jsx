@@ -10,7 +10,7 @@ export default function Intro() {
         <motion.div
           initial={{ x: -100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 1, type: "spring" }}
+          transition={{ duration: 1.5 }}
           className="w-full md:w-[50%]"
         >
           <img
@@ -23,7 +23,7 @@ export default function Intro() {
         <motion.div
           initial={{ x: 100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 1, type: "spring" }}
+          transition={{ duration: 1.5 }}
           className="flex flex-col items-center justify-center mt-5 gap-5 text-center w-full md:w-[50%]"
         >
           <span className="text-4xl font-extrabold text-primary font-jetbrains">

@@ -3,6 +3,7 @@ import InstagarmIcon from "../../icons/InstagarmIcon";
 import Social from "./Social";
 import MailIcon from "../../icons/MailIcon";
 import WhatsAppIcon from "../../icons/WhatsAppIcon";
+import GitHubIcon from "../../icons/GitHubIcon";
 
 import { useState } from "react";
 import SectionTitle from "../SectionTitle";
@@ -54,6 +55,11 @@ export default function Contact() {
             <MailIcon width={50} height={50} stroke={"currentColor"} />
             <p className="text-white/60">Copiar Email</p>
           </motion.a>
+          <Social
+            icon={<GitHubIcon width={50} height={50} />}
+            to="https://github.com/eleazardavidmr"
+            name="GitHub"
+          />
         </div>
       </section>
       <AnimatePresence>

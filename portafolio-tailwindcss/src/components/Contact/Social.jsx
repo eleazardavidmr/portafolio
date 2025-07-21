@@ -9,7 +9,7 @@ export default function Social({ name, icon, to }) {
       whileHover={{ scale: 1.03 }}
       href={to}
       target="_blank"
-      className="social p-5 flex items-center justify-center flex-col rounded-3xl w-[200px]"
+      className="social p-5 flex items-center justify-center flex-col rounded-3xl w-[200px] hover:shadow-xl transition-shadow"
     >
       {icon}
       <p className="text-white/60">{name}</p>

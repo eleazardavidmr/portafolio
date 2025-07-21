@@ -2,7 +2,10 @@ import PropTypes from "prop-types";
 import "./styles.css";
 export default function Project({ data }) {
   return (
-    <div className="project p-8 rounded-3xl flex items-center justify-center flex-col cursor-pointer hover:shadow-xl w-full h-full">
+    <a
+      href={data.url}
+      className="project p-8 rounded-3xl flex items-center justify-center flex-col cursor-pointer hover:shadow-xl w-full h-full transition-shadow"
+    >
       <div>
         <img src={data.img} alt={data.name} className="mx-auto w-[80%]" />
       </div>
@@ -12,7 +15,7 @@ export default function Project({ data }) {
           {data.urlName}
         </a>
       </div>
-    </div>
+    </a>
   );
 }
 

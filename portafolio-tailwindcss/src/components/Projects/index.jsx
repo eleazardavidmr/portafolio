@@ -67,7 +67,7 @@ export default function Projects() {
         <Link to="/proyectos" className="w-full flex justify-center mt-5">
           <motion.button
             whileHover={{ scale: 1.03 }}
-            className=" bg-red-900 text-red-300 focus:outline-none focus:ring-4 focus:ring-red-400 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 "
+            className=" bg-red-900 text-red-300 focus:outline-none focus:ring-4 focus:ring-red-400 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 hover:shadow-lg transition-shadow"
           >
             Ver todos
           </motion.button>
