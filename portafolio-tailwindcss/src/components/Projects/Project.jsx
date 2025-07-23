@@ -4,7 +4,7 @@ export default function Project({ data }) {
   return (
     <a
       href={data.url}
-      className="project p-8 rounded-3xl flex items-center justify-center flex-col cursor-pointer hover:shadow-xl w-full h-full transition-shadow"
+      className="project p-8 rounded-3xl flex items-center justify-center flex-col cursor-pointer hover:scale-[1.02] hover:shadow-2xl w-full h-full transition-all"
     >
       <div>
         <img src={data.img} alt={data.name} className="mx-auto w-[80%]" />
