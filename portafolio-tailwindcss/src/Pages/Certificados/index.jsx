@@ -56,7 +56,7 @@ export default function Certificados() {
                   delay: index * 0.1,
                 }}
                 viewport={{ once: true }}
-                className="w-auto text-center"
+                className="w-auto text-center aspect-auto"
               >
                 <img
                   className="w-[300px] rounded-xl mx-auto"
