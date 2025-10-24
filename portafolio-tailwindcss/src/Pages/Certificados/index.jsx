@@ -43,6 +43,19 @@ export default function Certificados() {
     <>
       <div className="mx-auto flex flex-col items-center justify-center md:w-[48rem]">
         <GoBackButton />
+        <div>
+          <h1 className="text-xl font-bold">
+            Tengo un{" "}
+            <a
+              href="https://cert.efset.org/en/jX4kiV"
+              className="underline underline-offset-2 decoration-blue-600 decoration-2"
+              target="_blank"
+            >
+              {" "}
+              certificado de ingles con EF SET!
+            </a>
+          </h1>
+        </div>
         <div className="md:grid grid-cols-2 gap-5 mx-auto flex items-center justify-center flex-col md:flex-row flex-wrap mt-10 w-fit ">
           {CERTIFICADOS.map((certificado, index) => {
             return (
