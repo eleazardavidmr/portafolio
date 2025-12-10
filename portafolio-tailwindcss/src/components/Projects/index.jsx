@@ -3,11 +3,11 @@ import dydcrochet from "/img/projects/dydcrochet.png";
 import stizzo_planet from "/img/projects/stizzo-planet.png";
 import atelierdeldulce from "/img/projects/atelierdeldulce.png";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 import Project from "./Project";
 import SectionTitle from "../SectionTitle";
 
-import { motion } from "framer-motion";
 export const PROJECTS = [
   {
     id: 1,
@@ -38,41 +38,82 @@ export const PROJECTS = [
     img: jorgevalbuena,
   },
 ];
+
 export default function Projects() {
+  // Configuración de animación para el contenedor
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2, // Retraso entre cada tarjeta
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
   return (
-    <>
-      <section className="mt-5 w-full p-5" id="proyectos">
+    <section className="w-full py-10 px-4" id="proyectos">
+      <div className="max-w-6xl mx-auto">
         <SectionTitle title="Proyectos 💻" />
-        <p className="mb-5 mt-5 mx-5">
-          Échale un vistazo a mis mejores proyectos:
+        <p className="mb-8 mt-4 text-center text-lg text-gray-600 dark:text-gray-300">
+          Échale un vistazo a una selección de mis trabajos recientes:
         </p>
-        <div className="md:grid grid-cols-2 grid-rows-1 flex flex-column flex-wrap md:w-full mx-auto gap-5">
-          <motion.div
-            initial={{ opacity: 0, x: 100 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, type: "spring" }}
-            viewport={{ once: true }}
-          >
-            <Project key={PROJECTS[0].id} data={PROJECTS[0]} />
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: -100 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, type: "spring", delay: 0.1 }}
-            viewport={{ once: true }}
-          >
-            <Project key={PROJECTS[1].id} data={PROJECTS[1]} />
-          </motion.div>
+
+        {/* Grid Container */}
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+        >
+          {/* Usamos .slice(0, 2) para mostrar solo los primeros 2 proyectos 
+            como tenías antes, pero ahora es dinámico. Si quieres mostrar 4, 
+            solo cambia el 2 por un 4.
+          */}
+          {PROJECTS.slice(0, 2).map((project) => (
+            <motion.div key={project.id} variants={itemVariants}>
+              <Project data={project} />
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Botón Ver Todos */}
+        <div className="w-full flex justify-center mt-12">
+          <Link to="/proyectos">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="group relative inline-flex items-center justify-center px-8 py-3 text-base font-medium text-white transition-all duration-200 bg-gray-900 dark:bg-primary rounded-full hover:shadow-lg hover:shadow-primary/30 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+            >
+              <span>Ver todos los proyectos</span>
+              {/* Icono de flecha que se mueve al hacer hover */}
+              <svg
+                className="w-5 h-5 ml-2 -mr-1 transition-transform duration-200 group-hover:translate-x-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M13 7l5 5m0 0l-5 5m5-5H6"
+                />
+              </svg>
+            </motion.button>
+          </Link>
         </div>
-        <Link to="/proyectos" className="w-full flex justify-center mt-5">
-          <motion.button
-            whileHover={{ scale: 1.03 }}
-            className=" bg-red-900 text-red-300 focus:outline-none focus:ring-4 focus:ring-red-400 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 hover:shadow-lg transition-shadow"
-          >
-            Ver todos
-          </motion.button>
-        </Link>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }

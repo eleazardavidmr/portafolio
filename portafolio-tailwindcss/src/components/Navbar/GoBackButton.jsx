@@ -5,10 +5,18 @@ export default function GoBackButton() {
   return (
     <Link
       to="/"
-      className="m-5 flex items-center justify-left w-[80%] mx-auto backdrop-blur-3xl p-5 rounded-lg bg-black/10 border border-white/10 "
+      // Estilo 'Pill' (Píldora), ancho automático (w-fit) y efectos Glassmorphism
+      className="group inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white/80 dark:bg-slate-900/60 backdrop-blur-md border border-gray-200 dark:border-white-light/10 hover:border-primary hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 w-fit"
     >
-      <ArrowLeftIcon width={30} height={30} stroke={"#26acd0"} />
-      <span className="text-2xl font-bold text-primary">Volver</span>
+      {/* Contenedor del icono para animarlo independientemente */}
+      <span className="transition-transform duration-300 group-hover:-translate-x-1 text-primary">
+        {/* Pasamos 'currentColor' para que herede el color del texto (text-primary) */}
+        <ArrowLeftIcon width={24} height={24} stroke="currentColor" />
+      </span>
+
+      <span className="text-base font-bold font-jetbrains text-gray-700 dark:text-white group-hover:text-primary transition-colors">
+        Volver
+      </span>
     </Link>
   );
 }
