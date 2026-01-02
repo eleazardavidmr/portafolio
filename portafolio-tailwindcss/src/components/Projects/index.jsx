@@ -2,6 +2,7 @@ import jorgevalbuena from "/img/projects/immunotec.jpg";
 import dydcrochet from "/img/projects/dydcrochet.png";
 import stizzo_planet from "/img/projects/stizzo-planet.png";
 import atelierdeldulce from "/img/projects/atelierdeldulce.png";
+import arrozConLeche from "/img/projects/arroz-con-leche.png";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
@@ -36,6 +37,13 @@ export const PROJECTS = [
     url: "https://jorgevalbuena.surge.sh",
     urlName: "jorgevalbuena.surge.sh",
     img: jorgevalbuena,
+  },
+  {
+    id: 5,
+    name: "Arroz con Leche",
+    url: "https://arroces.vercel.app/",
+    urlName: "arroces.vercel.app",
+    img: arrozConLeche,
   },
 ];
 
