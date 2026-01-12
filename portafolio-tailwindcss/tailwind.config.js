@@ -8,7 +8,7 @@ export default {
         "white-light": "rgba(255, 255, 255, 0.3)",
       },
       fontFamily: {
-        jetbrains: ["JetBrains Mono", "monospace"],
+        jetbrains: ["Google Sans Code", "monospace"],
         inter: ["Inter", "sans-serif"],
       },
     },

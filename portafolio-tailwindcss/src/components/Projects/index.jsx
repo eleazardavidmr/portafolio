@@ -3,6 +3,7 @@ import dydcrochet from "/img/projects/dydcrochet.png";
 import stizzo_planet from "/img/projects/stizzo-planet.png";
 import atelierdeldulce from "/img/projects/atelierdeldulce.png";
 import arrozConLeche from "/img/projects/arroz-con-leche.png";
+import retroStack from "/img/projects/retro-stack.png";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
@@ -11,25 +12,18 @@ import SectionTitle from "../SectionTitle";
 
 export const PROJECTS = [
   {
-    id: 1,
-    name: "Atelier del Dulce",
-    url: "https://atelierdeldulce.surge.sh",
-    urlName: "atelierdeldulce.surge.sh",
-    img: atelierdeldulce,
+    id: 6,
+    name: "Retro Stack",
+    url: "https://retro-stack.vercel.app/",
+    urlName: "retro-stack.vercel.app",
+    img: retroStack,
   },
   {
-    id: 2,
-    name: "Stizzo Planet",
-    url: "https://stizzoplanet.surge.sh",
-    urlName: "stizzoplanet.surge.sh",
-    img: stizzo_planet,
-  },
-  {
-    id: 3,
-    name: "Dyd Crochet",
-    url: "https://dydcrochet.surge.sh",
-    urlName: "dydcrochet.surge.sh",
-    img: dydcrochet,
+    id: 5,
+    name: "Arroz con Leche",
+    url: "https://arroces.vercel.app/",
+    urlName: "arroces.vercel.app",
+    img: arrozConLeche,
   },
   {
     id: 4,
@@ -39,11 +33,25 @@ export const PROJECTS = [
     img: jorgevalbuena,
   },
   {
-    id: 5,
-    name: "Arroz con Leche",
-    url: "https://arroces.vercel.app/",
-    urlName: "arroces.vercel.app",
-    img: arrozConLeche,
+    id: 3,
+    name: "Dyd Crochet",
+    url: "https://dydcrochet.surge.sh",
+    urlName: "dydcrochet.surge.sh",
+    img: dydcrochet,
+  },
+  {
+    id: 2,
+    name: "Stizzo Planet",
+    url: "https://stizzoplanet.surge.sh",
+    urlName: "stizzoplanet.surge.sh",
+    img: stizzo_planet,
+  },
+  {
+    id: 1,
+    name: "Atelier del Dulce",
+    url: "https://atelierdeldulce.surge.sh",
+    urlName: "atelierdeldulce.surge.sh",
+    img: atelierdeldulce,
   },
 ];
 
@@ -84,7 +92,7 @@ export default function Projects() {
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
         >
-          {/* Usamos .slice(0, 2) para mostrar solo los primeros 2 proyectos 
+          {/* Usamos .slice(0, 5) para mostrar solo los primeros 2 proyectos 
             como tenías antes, pero ahora es dinámico. Si quieres mostrar 4, 
             solo cambia el 2 por un 4.
           */}
