@@ -2,59 +2,44 @@ import PropTypes from "prop-types";
 import { motion } from "framer-motion";
 
 export default function Social({ name, icon, to, onClick }) {
-  // Definimos las clases base para compartir estilos entre el <a> y el <button>
-  const baseClasses =
-    "group relative flex flex-col items-center justify-center gap-4 p-6 rounded-3xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-white-light/10 shadow-lg hover:shadow-xl hover:shadow-primary/10 hover:border-primary/50 transition-all duration-300 w-full aspect-square md:aspect-auto md:h-48 cursor-pointer";
-
   const content = (
-    <>
-      {/* Fondo decorativo al hacer hover */}
-      <div className="absolute inset-0 bg-primary/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-      {/* Icono con animación */}
-      <div className="relative z-10 text-gray-700 dark:text-gray-300 group-hover:text-primary group-hover:scale-110 transition-all duration-300">
+    <motion.div
+      whileHover={{ scale: 1.05, y: -5 }}
+      whileTap={{ scale: 0.95 }}
+      className="flex flex-col items-center justify-center p-6 gap-4 bg-white/40 dark:bg-slate-800/40 backdrop-blur-md border border-slate-200/50 dark:border-slate-700/50 rounded-3xl shadow-sm hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 w-full group cursor-pointer"
+    >
+      <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-900 text-slate-600 dark:text-slate-400 group-hover:bg-primary/10 group-hover:text-primary transition-colors">
         {icon}
       </div>
-
-      {/* Texto */}
-      <p className="relative z-10 text-sm font-bold font-jetbrains text-gray-500 dark:text-gray-400 group-hover:text-primary transition-colors">
+      <span className="text-sm font-bold font-jetbrains text-slate-700 dark:text-slate-200 group-hover:text-primary transition-colors">
         {name}
-      </p>
-    </>
+      </span>
+    </motion.div>
   );
 
-  // Si hay 'onClick', renderizamos un motion.button (para el email)
   if (onClick) {
     return (
-      <motion.button
-        className={baseClasses}
-        onClick={onClick}
-        whileHover={{ y: -5 }}
-        whileTap={{ scale: 0.95 }}
-      >
+      <button onClick={onClick} className="w-full">
         {content}
-      </motion.button>
+      </button>
     );
   }
 
-  // Si hay 'to', renderizamos un motion.a (para enlaces externos)
   return (
-    <motion.a
+    <a
       href={to}
       target="_blank"
       rel="noopener noreferrer"
-      className={baseClasses}
-      whileHover={{ y: -5 }}
-      whileTap={{ scale: 0.95 }}
+      className="block w-full"
     >
       {content}
-    </motion.a>
+    </a>
   );
 }
 
 Social.propTypes = {
   name: PropTypes.string.isRequired,
-  icon: PropTypes.element.isRequired,
-  to: PropTypes.string, // Ya no es required porque puede ser un botón
-  onClick: PropTypes.func, // Nuevo prop opcional
+  icon: PropTypes.node.isRequired,
+  to: PropTypes.string,
+  onClick: PropTypes.func,
 };

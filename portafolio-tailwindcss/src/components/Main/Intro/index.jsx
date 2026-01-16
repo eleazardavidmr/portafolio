@@ -39,24 +39,34 @@ export default function Intro() {
         // En móvil (default) centrado, en escritorio (md:) alineado a la izquierda. Se ve más profesional.
         className="flex flex-col items-center md:items-start justify-center gap-6 text-center md:text-left w-full md:w-1/2"
       >
-        <div className="space-y-2">
-          <span className="text-sm font-medium tracking-widest text-primary/80 uppercase">
-            Hola, yo soy
+        <div className="space-y-4">
+          <span className="text-sm font-bold tracking-[0.3em] text-primary uppercase">
+            Frontend Developer
           </span>
-          <h1 className="text-5xl md:text-7xl font-extrabold font-jetbrains text-primary tracking-tight leading-tight">
-            {/* Si quieres un efecto degradado en el texto, usa estas clases en lugar de text-primary:
-                bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent */}
-            Eleazar Muñoz
+          <h1 className="text-5xl md:text-8xl font-black font-jetbrains tracking-tighter leading-[0.9]">
+            <span className="block text-slate-800 dark:text-white">
+              Eleazar
+            </span>
+            <span className="block bg-gradient-to-r from-primary to-cyan-400 bg-clip-text text-transparent">
+              Muñoz
+            </span>
           </h1>
         </div>
 
-        <p className="w-[90%] md:w-[80%] text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-          Un desarrollador web frontend de 17 años nacido en Venezuela,
-          apasionado por crear experiencias digitales únicas.
+        <p className="w-[90%] md:w-[85%] text-lg md:text-xl text-slate-600 dark:text-slate-400 leading-relaxed font-inter">
+          Desarrollador web frontend de 17 años apasionado por el diseño
+          minimalista y las experiencias digitales fluidas. Especializado en
+          React y ecosistemas modernos.
         </p>
 
-        <div className="pt-4">
-          <Button to={"/certificados"} title="Mira mis logros y certificados" />
+        <div className="pt-6 flex flex-wrap gap-4 justify-center md:justify-start">
+          <Button to={"/certificados"} title="Ver Certificados" />
+          <a
+            href="#proyectos"
+            className="px-8 py-3 rounded-full border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
+          >
+            Ver Proyectos
+          </a>
         </div>
       </motion.div>
     </section>
