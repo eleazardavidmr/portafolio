@@ -1,22 +1,19 @@
 import { motion } from "framer-motion";
 import Button from "./Button";
+import { Link } from "react-router-dom";
 
 export default function Intro() {
   return (
     <section
       id="inicio"
-      // CAMBIO 1: Altura y fondo. Usamos min-h-screen para llenar la pantalla en móviles de forma inmersiva.
-      // Añadimos overflow-hidden para evitar scroll horizontal por las animaciones.
       className="min-h-[90vh] w-full px-6 flex flex-col md:flex-row items-center justify-center gap-12 md:gap-20 overflow-hidden py-20"
     >
-      {/* --- COLUMNA IMAGEN --- */}
       <motion.div
-        initial={{ x: -50, opacity: 0 }} // Reduje la distancia (-100 a -50) para que sea más sutil
+        initial={{ x: -50, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.8, type: "spring", bounce: 0.4 }} // Animación más rápida y con rebote orgánico
+        transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
         className="w-full md:w-1/2 flex justify-center md:justify-end relative"
       >
-        {/* Elemento decorativo detrás de la imagen (Glow) */}
         <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full scale-75 -z-10" />
 
         <img
@@ -33,7 +30,23 @@ export default function Intro() {
         transition={{ duration: 0.8, delay: 0.2, type: "spring" }}
         className="flex flex-col items-center md:items-start justify-center gap-6 text-center md:text-left w-full md:w-1/2"
       >
-        <div className="space-y-4">
+        <div className="space-y-4 flex flex-col items-center md:items-start">
+          <Link
+            to="/blog"
+            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 hover:bg-primary/20 transition-all group"
+          >
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+            </span>
+            <span className="text-xs font-bold text-primary tracking-wide uppercase">
+              Nuevo Blog Disponible
+            </span>
+            <span className="material-symbols-outlined text-xs text-primary group-hover:translate-x-1 transition-transform">
+              arrow_forward
+            </span>
+          </Link>
+
           <span className="text-sm font-bold tracking-[0.3em] text-primary uppercase">
             Frontend Developer
           </span>

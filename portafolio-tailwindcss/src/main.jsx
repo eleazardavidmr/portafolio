@@ -1,21 +1,51 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import { HelmetProvider } from "react-helmet-async";
 import "./index.css";
 import App from "./App.jsx";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Certificados from "./Pages/Certificados/index.jsx";
 import Proyectos from "./Pages/Proyectos/index.jsx";
 import NotFoundPage from "./components/NotFoundPage/index.jsx";
+import BlogPage from "./Pages/BlogPage/index.jsx";
+import PostPage from "./Pages/BlogPage/PostPage.jsx";
+import BlogLayout from "./Pages/BlogPage/blogpage-components/BlogLayout/index.jsx";
+import LoginPage from "./Pages/LoginPage/index.jsx";
+import { AuthProvider } from "./components/Context/AuthContext.jsx";
+import ProtectedRoute from "./components/ProtectedRoute/index.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <Router>
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/certificados" element={<Certificados />} />
-        <Route path="/proyectos" element={<Proyectos />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
-    </Router>
-  </StrictMode>
+    <HelmetProvider>
+      <AuthProvider>
+        <Router>
+          <Routes>
+            <Route path="/" element={<App />} />
+            <Route path="/certificados" element={<Certificados />} />
+            <Route path="/proyectos" element={<Proyectos />} />
+            <Route element={<BlogLayout />}>
+              <Route
+                path="/blog"
+                element={
+                  <ProtectedRoute>
+                    <BlogPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/blog/:slug"
+                element={
+                  <ProtectedRoute>
+                    <PostPage />
+                  </ProtectedRoute>
+                }
+              />
+            </Route>
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </Router>
+      </AuthProvider>
+    </HelmetProvider>
+  </StrictMode>,
 );
