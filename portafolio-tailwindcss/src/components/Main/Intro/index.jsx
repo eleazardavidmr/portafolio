@@ -22,10 +22,6 @@ export default function Intro() {
         <img
           src="/img/profile.png"
           alt="Eleazar Muñoz"
-          // CAMBIO 2: Estilizado de imagen.
-          // object-cover: asegura que no se deforme.
-          // shadow-2xl: da profundidad.
-          // hover:scale: interacción sutil al pasar el mouse.
           className="rounded-3xl w-[80%] md:w-[70%] max-w-[400px] shadow-2xl border-4 border-white/10 transition-transform duration-300 hover:scale-105 object-cover"
         />
       </motion.div>
@@ -34,9 +30,7 @@ export default function Intro() {
       <motion.div
         initial={{ x: 50, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.2, type: "spring" }} // Delay ligero para efecto cascada
-        // CAMBIO 3: Alineación.
-        // En móvil (default) centrado, en escritorio (md:) alineado a la izquierda. Se ve más profesional.
+        transition={{ duration: 0.8, delay: 0.2, type: "spring" }}
         className="flex flex-col items-center md:items-start justify-center gap-6 text-center md:text-left w-full md:w-1/2"
       >
         <div className="space-y-4">
@@ -54,9 +48,9 @@ export default function Intro() {
         </div>
 
         <p className="w-[90%] md:w-[85%] text-lg md:text-xl text-slate-600 dark:text-slate-400 leading-relaxed font-inter">
-          Desarrollador web frontend de 17 años apasionado por el diseño
-          minimalista y las experiencias digitales fluidas. Especializado en
-          React y ecosistemas modernos.
+          Desarrollador web frontend apasionado por el diseño minimalista y las
+          experiencias digitales fluidas. Especializado en React y ecosistemas
+          modernos.
         </p>
 
         <div className="pt-6 flex flex-wrap gap-4 justify-center md:justify-start">
