@@ -39,7 +39,7 @@ export default function Navbar() {
   };
 
   const { session } = useContext(AuthContext);
-
+  const isInBlogPage = window.location.pathname === "/blog";
   const handleLogOut = async () => {
     await logout();
     navigate("/");
@@ -72,18 +72,22 @@ export default function Navbar() {
               {link.name}
             </Link>
           ))}
-          <a
-            href="#proyectos"
-            className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"
-          >
-            Proyectos
-          </a>
-          <a
-            href="#contacto"
-            className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"
-          >
-            Contacto
-          </a>
+          {!isInBlogPage && (
+            <>
+              <a
+                href="#proyectos"
+                className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"
+              >
+                Proyectos
+              </a>
+              <a
+                href="#contacto"
+                className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"
+              >
+                Contacto
+              </a>
+            </>
+          )}
 
           {!session ? (
             <Link
@@ -150,18 +154,22 @@ export default function Navbar() {
                 {link.name}
               </a>
             ))}
-            <a
-              href="#proyectos"
-              className="text-lg font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"
-            >
-              Proyectos
-            </a>
-            <a
-              href="#contacto"
-              className="text-lg font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"
-            >
-              Contacto
-            </a>
+            {!isInBlogPage && (
+              <>
+                <a
+                  href="#proyectos"
+                  className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"
+                >
+                  Proyectos
+                </a>
+                <a
+                  href="#contacto"
+                  className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"
+                >
+                  Contacto
+                </a>
+              </>
+            )}
             {!session ? (
               <Link
                 to="/login"
