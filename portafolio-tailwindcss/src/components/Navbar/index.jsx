@@ -39,7 +39,9 @@ export default function Navbar() {
   };
 
   const { session } = useContext(AuthContext);
-  const isInBlogPage = window.location.pathname === "/blog";
+  const isInBlogPage =
+    window.location.pathname === "/blog" ||
+    window.location.pathname === "/blog/como-construi-mi-sistema-de-blog";
   const handleLogOut = async () => {
     await logout();
     navigate("/");
