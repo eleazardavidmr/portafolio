@@ -2,11 +2,16 @@ import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Main from "./components/Main";
 import Layout from "./components/Layout";
-
+import SEO from "./components/SEO";
 function App() {
   return (
     <>
       <Layout>
+        <SEO
+          title="Eleazar Munoz | Web Portfolio & Blog"
+          description="Explora artículos sobre desarrollo frontend, tutoriales de React, y recursos para desarrolladores. Aprende y mejora tus habilidades de programación."
+          keywords="blog programacion, desarrollo web, frontend, react, javascript, tutoriales"
+        />
         <Main />
         <Projects />
         <Contact />
