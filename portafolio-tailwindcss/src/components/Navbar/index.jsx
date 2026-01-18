@@ -63,7 +63,11 @@ export default function Navbar() {
             <Link
               key={link.name}
               to={link.href}
-              className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"
+              className={`text-sm font-medium transition-all duration-300 ${
+                link.name === "Blog"
+                  ? "px-4 py-1.5 rounded-full border border-primary/20 bg-primary/10 text-primary hover:bg-primary hover:text-white hover:shadow-[0_0_20px_rgba(38,172,208,0.5)] hover:-translate-y-0.5"
+                  : "text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary"
+              }`}
             >
               {link.name}
             </Link>
@@ -137,7 +141,11 @@ export default function Navbar() {
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="text-lg font-medium text-slate-600 dark:text-slate-300 hover:text-primary"
+                className={`text-lg font-medium transition-all ${
+                  link.name === "Blog"
+                    ? "px-4 py-2 rounded-xl border border-primary/20 bg-primary/10 text-primary text-center hover:bg-primary hover:text-white hover:shadow-[0_0_20px_rgba(38,172,208,0.5)]"
+                    : "text-slate-600 dark:text-slate-300 hover:text-primary"
+                }`}
               >
                 {link.name}
               </a>
