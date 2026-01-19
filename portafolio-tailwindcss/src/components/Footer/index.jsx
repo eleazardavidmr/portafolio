@@ -6,7 +6,7 @@ export default function Footer() {
           <div className="text-primary font-bold text-lg font-mono">
             <img src="/logo.png" alt="Logo" className="w-14 h-14" />
           </div>
-          <div className="text-slate-400 text-sm">
+          <div className="text-slate-700 dark:text-slate-400 text-sm">
             © 2026 Eleazar Muñoz. Hecho con React y Vercel.
           </div>
         </div>

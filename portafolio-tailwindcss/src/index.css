@@ -5,7 +5,7 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  color: #d1d5d0;
+  @apply text-slate-900 dark:text-slate-100;
   margin: 0;
   background-repeat: no-repeat;
   background-size: cover;

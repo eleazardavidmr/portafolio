@@ -90,7 +90,7 @@ export default function Navbar() {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="nav-link-desktop"
+                  className="text-sm font-bold text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"
                 >
                   {link.name}
                 </a>
@@ -98,7 +98,7 @@ export default function Navbar() {
                 <Link
                   key={link.name}
                   to={link.href}
-                  className="nav-link-desktop"
+                  className="text-sm font-bold text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"
                 >
                   {link.name}
                 </Link>
@@ -109,7 +109,7 @@ export default function Navbar() {
 
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+            className="p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-700 dark:text-slate-300"
           >
             {theme === "dark" ? <FiSun size={20} /> : <FiMoon size={20} />}
           </button>
@@ -135,7 +135,7 @@ export default function Navbar() {
         <div className="flex md:hidden items-center gap-2">
           <button
             onClick={toggleTheme}
-            className="p-2.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300"
+            className="p-2.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300"
           >
             {theme === "dark" ? <FiSun size={20} /> : <FiMoon size={20} />}
           </button>
@@ -167,12 +167,12 @@ export default function Navbar() {
               className="fixed top-0 right-0 bottom-0 w-[280px] bg-white dark:bg-slate-900 shadow-2xl z-50 p-6 flex flex-col"
             >
               <div className="flex justify-between items-center mb-10">
-                <span className="text-xs font-black uppercase tracking-widest text-slate-400">
+                <span className="text-xs font-black uppercase tracking-widest text-slate-500 dark:text-slate-400">
                   Menú
                 </span>
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="p-2 rounded-full bg-slate-100 dark:bg-slate-800"
+                  className="p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300"
                 >
                   <HiX size={20} />
                 </button>
@@ -221,7 +221,7 @@ export default function Navbar() {
                         EM
                       </div>
                       <div className="flex flex-col min-w-0">
-                        <span className="text-sm font-black truncate">
+                        <span className="text-sm font-black truncate text-slate-900 dark:text-slate-100">
                           Mi Perfil
                         </span>
                         <span className="text-[10px] text-primary font-bold uppercase tracking-tighter">
@@ -253,20 +253,6 @@ export default function Navbar() {
           </>
         )}
       </AnimatePresence>
-
-      {/* Estilos locales rápidos para limpieza */}
-      <style
-        dangerouslySetInnerHTML={{
-          __html: `
-        .nav-link-desktop {
-          @apply text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors;
-        }
-        .mobile-link {
-          @apply flex items-center gap-4 p-3 text-xl font-bold text-slate-800 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-xl transition-all;
-        }
-      `,
-        }}
-      />
     </nav>
   );
 }
