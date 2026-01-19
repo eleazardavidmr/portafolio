@@ -3,12 +3,13 @@ import { useEffect } from "react";
 import PostCard from "./PostCard";
 import SEO from "@/components/SEO";
 import { motion } from "framer-motion";
+import Loader from "@/components/Loader";
 
 export default function BlogPage() {
-  const { loadPosts, posts } = usePosts();
+  const { loadPosts, posts, loading } = usePosts();
   useEffect(() => {
     loadPosts();
-  }, []);
+  }, [loadPosts]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -57,18 +58,22 @@ export default function BlogPage() {
           </p>
         </motion.header>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="grid grid-cols-1 md:grid-cols-2 gap-6"
-        >
-          {posts.map((post) => (
-            <motion.div key={post.id} variants={itemVariants}>
-              <PostCard post={post} />
-            </motion.div>
-          ))}
-        </motion.div>
+        {loading ? (
+          <Loader />
+        ) : (
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+          >
+            {posts.map((post) => (
+              <motion.div key={post.id} variants={itemVariants}>
+                <PostCard post={post} />
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
       </div>
     </>
   );

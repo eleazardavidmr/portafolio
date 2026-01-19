@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import Button from "./Button";
 import { Link } from "react-router-dom";
+import { IoMdArrowForward } from "react-icons/io";
 
 export default function Intro() {
   return (
@@ -42,9 +43,7 @@ export default function Intro() {
             <span className="text-xs font-bold text-primary tracking-wide uppercase">
               Nuevo Blog Disponible
             </span>
-            <span className="material-symbols-outlined text-xs text-primary group-hover:translate-x-1 transition-transform">
-              arrow_forward
-            </span>
+            <IoMdArrowForward className="text-xs text-primary group-hover:translate-x-1 transition-transform" />
           </Link>
 
           <span className="text-sm font-bold tracking-[0.3em] text-primary uppercase">

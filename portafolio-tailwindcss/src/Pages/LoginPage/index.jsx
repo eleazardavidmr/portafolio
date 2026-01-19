@@ -31,6 +31,16 @@ export default function LoginPage() {
     }
   };
 
+  const onGoogleLogin = async () => {
+    setLoading(true);
+    try {
+      await handleGoogleLogin();
+    } catch (error) {
+      toast.error("Error connecting with Google");
+      setLoading(false);
+    }
+  };
+
   return (
     <Layout>
       <main className="flex-grow flex items-center justify-center p-4">
@@ -77,8 +87,17 @@ export default function LoginPage() {
                 className="w-full bg-primary hover:bg-cyan-600 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-200 flex items-center justify-center gap-2 transform active:scale-[0.98] disabled:opacity-50"
                 type="submit"
               >
-                {loading ? "Enviando..." : "Continuar con Email"}
-                <IoIosArrowForward className="text-sm" />
+                {loading ? (
+                  <>
+                    <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                    <span>Procesando...</span>
+                  </>
+                ) : (
+                  <>
+                    <span>Continuar con Email</span>
+                    <IoIosArrowForward className="text-sm" />
+                  </>
+                )}
               </button>
             </form>
 
@@ -94,10 +113,15 @@ export default function LoginPage() {
             </div>
 
             <button
-              onClick={handleGoogleLogin}
-              className="w-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-medium py-3 px-4 rounded-lg transition-all flex items-center justify-center gap-3 hover:opacity-90 active:scale-[0.98]"
+              onClick={onGoogleLogin}
+              disabled={loading}
+              className="w-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-medium py-3 px-4 rounded-lg transition-all flex items-center justify-center gap-3 hover:opacity-90 active:scale-[0.98] disabled:opacity-50"
             >
-              <FaGoogle />
+              {loading ? (
+                <div className="w-4 h-4 border-2 border-slate-500 border-t-slate-800 rounded-full animate-spin" />
+              ) : (
+                <FaGoogle />
+              )}
               Continuar con Google
             </button>
 

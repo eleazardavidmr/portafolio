@@ -3,7 +3,7 @@ import usePosts from "@/hooks/usePosts";
 import Post from "./Post";
 import { useEffect, useState } from "react";
 import SEO from "@/components/SEO";
-import LikeButton from "./Post/LikeButton";
+import Loader from "@/components/Loader";
 
 export default function PostPage() {
   const { slug } = useParams();
@@ -24,11 +24,7 @@ export default function PostPage() {
   }, [posts, slug]);
 
   if (loading) {
-    return (
-      <div className="flex justify-center items-center min-h-[50vh]">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
-      </div>
-    );
+    return <Loader fullScreen />;
   }
 
   if (!post) {

@@ -73,3 +73,19 @@ export const hasUserLiked = async (post_id, user_id) => {
 
   return Boolean(data);
 };
+
+//for getting likes count
+export const getProfileLikesCount = async (userId) => {
+  if (!userId) throw new Error("User ID is required");
+  const { count, error } = await client
+    .from("likes")
+    .select("*", { count: "exact", head: true })
+    .eq("user_id", userId);
+
+  if (error) {
+    console.error(error);
+    throw error;
+  }
+
+  return count ?? 0;
+};

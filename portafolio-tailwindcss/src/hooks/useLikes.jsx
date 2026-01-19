@@ -2,33 +2,42 @@ import {
   getLikeCount,
   toggleLike,
   hasUserLiked,
+  getProfileLikesCount,
 } from "@/services/likes.service";
 import { useEffect, useState } from "react";
 
 export default function useLikes(postId, userId) {
-  const [likes, setLikes] = useState(0);
-  const [liked, setLiked] = useState(false);
+  const [postLikes, setPostLikes] = useState(0);
+  const [isPostLiked, setIsPostLiked] = useState(false);
+  const [userLikes, setUserLikes] = useState(0);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (!postId) return;
-
-    const loadLikes = async () => {
+    const loadPostLikes = async () => {
+      if (!postId) return;
       const total = await getLikeCount(postId);
-      setLikes(total);
+      setPostLikes(total);
 
       if (!userId) {
-        setLiked(false);
+        setIsPostLiked(false);
         return;
       }
 
-      if (userId) {
-        const userLiked = await hasUserLiked(postId, userId);
-        setLiked(userLiked);
+      const userLiked = await hasUserLiked(postId, userId);
+      setIsPostLiked(userLiked);
+    };
+
+    const loadUserLikes = async () => {
+      if (!userId) {
+        setUserLikes(0);
+      } else {
+        const total = await getProfileLikesCount(userId);
+        setUserLikes(total);
       }
     };
 
-    loadLikes();
+    if (postId) loadPostLikes();
+    if (userId) loadUserLikes();
   }, [postId, userId]);
 
   const handleToggleLike = async () => {
@@ -41,16 +50,17 @@ export default function useLikes(postId, userId) {
     const total = await getLikeCount(postId);
     const userLiked = await hasUserLiked(postId, userId);
 
-    setLikes(total);
-    setLiked(userLiked);
+    setPostLikes(total);
+    setIsPostLiked(userLiked);
 
     setLoading(false);
   };
 
   return {
-    likes,
-    liked,
+    postLikes,
+    isPostLiked,
     toggleLike: handleToggleLike,
     loading,
+    userLikes,
   };
 }

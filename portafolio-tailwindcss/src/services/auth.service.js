@@ -44,7 +44,7 @@ export const signInWithEmail = async (email, password) => {
 
     if (error) throw error;
 
-    return handleApiSuccess(data, "Successfully signed in");
+    return handleApiSuccess(data);
   } catch (error) {
     return handleApiError(error, "Invalid credentials");
   }
@@ -59,7 +59,7 @@ export const signOut = async () => {
 
     if (error) throw error;
 
-    return handleApiSuccess(null, "Successfully signed out");
+    return handleApiSuccess(null);
   } catch (error) {
     return handleApiError(error, "Error signing out");
   }

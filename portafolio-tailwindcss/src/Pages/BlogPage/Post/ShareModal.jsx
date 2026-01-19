@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { toast } from "react-hot-toast";
+import PropTypes from "prop-types";
 export default function ShareModal({ isOpen, onClose, postTitle, slug }) {
   const postUrl = `https://edmr.dev/blog/${slug}`;
 
@@ -15,6 +16,13 @@ export default function ShareModal({ isOpen, onClose, postTitle, slug }) {
       </button>
     );
   }
+
+  SocialButton.propTypes = {
+    icon: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    color: PropTypes.string,
+  };
+
   if (!isOpen) return null;
 
   const copyToClipboard = () => {
@@ -43,7 +51,9 @@ export default function ShareModal({ isOpen, onClose, postTitle, slug }) {
         >
           <div className="p-6">
             <div className="flex justify-between items-center mb-6">
-              <h3 className="text-xl font-bold">Compartir post</h3>
+              <h3 className="text-xl font-bold">
+                Compartir {postTitle ? `"${postTitle}"` : "post"}
+              </h3>
               <button
                 onClick={onClose}
                 className="text-slate-400 hover:text-slate-600 dark:hover:text-white"
@@ -73,27 +83,6 @@ export default function ShareModal({ isOpen, onClose, postTitle, slug }) {
                 </button>
               </div>
             </div>
-
-            {/* Redes Sociales
-            
-  <div className="grid grid-cols-3 gap-4">
-              <SocialButton
-                icon="hub"
-                name="X"
-                color="hover:bg-black hover:text-white"
-              />
-              <SocialButton
-                icon="facebook"
-                name="FB"
-                color="hover:bg-blue-600 hover:text-white"
-              />
-              <SocialButton
-                icon="send"
-                name="WA"
-                color="hover:bg-green-500 hover:text-white"
-              />
-            </div>
-            */}
           </div>
         </motion.div>
       </div>
@@ -101,4 +90,9 @@ export default function ShareModal({ isOpen, onClose, postTitle, slug }) {
   );
 }
 
-// Sub-componente para botones sociales
+ShareModal.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
+  postTitle: PropTypes.string,
+  slug: PropTypes.string.isRequired,
+};

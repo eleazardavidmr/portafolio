@@ -3,15 +3,17 @@ import { motion } from "framer-motion";
 import ReactMarkdown from "react-markdown";
 import { useMemo } from "react";
 import { useState } from "react";
+import PropTypes from "prop-types";
+import { FiArrowLeft, FiCalendar, FiClock, FiShare2 } from "react-icons/fi";
 
 import LikeButton from "./LikeButton";
 import PostCover from "../blogpage-components/PostCover";
-import useUser from "@/hooks/useUser";
+import useProfile from "@/hooks/useProfile";
 import ShareModal from "./ShareModal";
 
 export default function Post({ postInfo }) {
   const [isShareModalOpen, setIsShareModalOpen] = useState(false);
-  const { userId } = useUser();
+  const { id: userId } = useProfile();
 
   const {
     id,
@@ -60,9 +62,7 @@ export default function Post({ postInfo }) {
           to="/blog"
           className="inline-flex items-center gap-2 mb-8 text-sm font-bold text-slate-500 hover:text-primary group"
         >
-          <span className="material-symbols-outlined text-lg group-hover:-translate-x-1 transition-transform">
-            arrow_back
-          </span>
+          <FiArrowLeft className="text-lg group-hover:-translate-x-1 transition-transform" />
           Volver al Blog
         </Link>
       </motion.div>
@@ -102,18 +102,14 @@ export default function Post({ postInfo }) {
         <div className="flex flex-wrap items-center gap-6 text-sm text-slate-500">
           {formattedDate && (
             <div className="flex items-center gap-2">
-              <span className="material-symbols-outlined text-lg">
-                calendar_today
-              </span>
+              <FiCalendar className="text-lg" />
               {formattedDate}
             </div>
           )}
 
           {read_time && (
             <div className="flex items-center gap-2">
-              <span className="material-symbols-outlined text-lg">
-                schedule
-              </span>
+              <FiClock className="text-lg" />
               {read_time}
             </div>
           )}
@@ -151,7 +147,7 @@ export default function Post({ postInfo }) {
             onClick={(e) => handleOpenShareModal(e)}
             className="text-slate-500 hover:text-primary transition-colors"
           >
-            <span className="material-symbols-outlined text-xl">share</span>
+            <FiShare2 className="text-xl" />
           </button>
         </div>
       </div>
@@ -167,3 +163,16 @@ export default function Post({ postInfo }) {
     </motion.div>
   );
 }
+
+Post.propTypes = {
+  postInfo: PropTypes.shape({
+    id: PropTypes.string,
+    title: PropTypes.string,
+    created_at: PropTypes.string,
+    tags: PropTypes.arrayOf(PropTypes.string),
+    content: PropTypes.string,
+    summary: PropTypes.string,
+    read_time: PropTypes.string,
+    slug: PropTypes.string,
+  }),
+};

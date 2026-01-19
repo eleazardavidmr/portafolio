@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import { HelmetProvider } from "react-helmet-async";
 import "./index.css";
 import App from "./App.jsx";
+import { Toaster } from "react-hot-toast";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Certificados from "./Pages/Certificados/index.jsx";
 import Proyectos from "./Pages/Proyectos/index.jsx";
@@ -13,6 +14,7 @@ import BlogLayout from "./Pages/BlogPage/blogpage-components/BlogLayout/index.js
 import LoginPage from "./Pages/LoginPage/index.jsx";
 import { AuthProvider } from "./components/Context/AuthContext.jsx";
 import ProtectedRoute from "./components/ProtectedRoute/index.jsx";
+import ProfilePage from "./Pages/ProfilePage/index.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -27,7 +29,7 @@ createRoot(document.getElementById("root")).render(
               <Route
                 path="/blog"
                 element={
-                  <ProtectedRoute>
+                  <ProtectedRoute redirectTo="/">
                     <BlogPage />
                   </ProtectedRoute>
                 }
@@ -35,17 +37,26 @@ createRoot(document.getElementById("root")).render(
               <Route
                 path="/blog/:slug"
                 element={
-                  <ProtectedRoute>
+                  <ProtectedRoute redirectTo="/">
                     <PostPage />
                   </ProtectedRoute>
                 }
               />
             </Route>
+            <Route
+              path="/profile"
+              element={
+                <ProtectedRoute redirectTo="/">
+                  <ProfilePage />
+                </ProtectedRoute>
+              }
+            />
             <Route path="/login" element={<LoginPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </Router>
       </AuthProvider>
+      <Toaster position="bottom-right" />
     </HelmetProvider>
   </StrictMode>,
 );
