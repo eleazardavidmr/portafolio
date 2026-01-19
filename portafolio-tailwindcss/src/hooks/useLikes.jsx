@@ -17,6 +17,11 @@ export default function useLikes(postId, userId) {
       const total = await getLikeCount(postId);
       setLikes(total);
 
+      if (!userId) {
+        setLiked(false);
+        return;
+      }
+
       if (userId) {
         const userLiked = await hasUserLiked(postId, userId);
         setLiked(userLiked);

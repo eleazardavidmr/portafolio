@@ -19,25 +19,40 @@ export const getLikeCount = async (post_id) => {
 export const toggleLike = async (post_id, user_id) => {
   if (!post_id || !user_id) return null;
 
-  // Intentar borrar primero
-  const { error: deleteError } = await client
+  // 1. Ver si existe
+  const { data: existingLike } = await client
     .from("likes")
-    .delete()
+    .select("id")
     .eq("post_id", post_id)
-    .eq("user_id", user_id);
+    .eq("user_id", user_id)
+    .maybeSingle();
 
-  // Si se borró algo → estaba likeado
-  if (!deleteError) {
+  // 2. Si existe → delete
+  if (existingLike) {
+    const { error } = await client
+      .from("likes")
+      .delete()
+      .eq("post_id", post_id)
+      .eq("user_id", user_id);
+
+    if (error) {
+      console.error(error);
+      return null;
+    }
+
     return { liked: false };
   }
 
-  // Si no existía → insert con protección
-  const { error: insertError } = await client
-    .from("likes")
-    .insert([{ post_id, user_id }]);
+  // 3. Si no existe → insert
+  const { error } = await client.from("likes").insert([
+    {
+      post_id,
+      user_id,
+    },
+  ]);
 
-  if (insertError) {
-    console.error(insertError);
+  if (error) {
+    console.error(error);
     return null;
   }
 
@@ -47,12 +62,14 @@ export const toggleLike = async (post_id, user_id) => {
 export const hasUserLiked = async (post_id, user_id) => {
   if (!post_id || !user_id) return false;
 
-  const { data } = await client
+  const { data, error } = await client
     .from("likes")
     .select("id")
     .eq("post_id", post_id)
     .eq("user_id", user_id)
     .maybeSingle();
 
-  return !!data;
+  if (error) return false;
+
+  return Boolean(data);
 };
