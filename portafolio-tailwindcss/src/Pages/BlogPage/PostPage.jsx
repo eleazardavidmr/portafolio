@@ -3,6 +3,7 @@ import usePosts from "@/hooks/usePosts";
 import Post from "./Post";
 import { useEffect, useState } from "react";
 import SEO from "@/components/SEO";
+import LikeButton from "./Post/LikeButton";
 
 export default function PostPage() {
   const { slug } = useParams();

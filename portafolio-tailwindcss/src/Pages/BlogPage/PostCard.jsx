@@ -2,7 +2,9 @@ import { Link } from "react-router-dom";
 import PostCover from "./blogpage-components/PostCover";
 
 export default function PostCard({ post }) {
-  const { title, resume, created_at, slug, tags, read_time } = post;
+  const { title, resume, created_at, slug, tags, read_time, id } = post;
+
+  const { likes } = useLikes(id, null);
 
   const formatDate = (dateString) => {
     if (!dateString) return "";
@@ -25,7 +27,7 @@ export default function PostCard({ post }) {
           className="h-full w-full transition-transform duration-500 group-hover:scale-105"
         />
       </Link>
-      <div className="p-6">
+      <div className="p-6 ">
         <div className="flex items-center gap-3 text-xs font-mono text-slate-500 mb-4">
           <span className="flex items-center gap-1">
             <span className="material-symbols-outlined text-sm">
@@ -54,7 +56,30 @@ export default function PostCard({ post }) {
           {resume || "No summary available."}
         </p>
       </div>
+      {/* LIKES AND COMMENTS COUNT */}
+      <div className="flex items-center gap-4 px-6 mb-4">
+        {/* Likes Count */}
+        <div className="flex items-center gap-1.5 group/stat">
+          <span className="material-symbols-outlined text-[25px] text-rose-500 transition-transform group-hover/stat:scale-110">
+            favorite
+          </span>
+          <span className="text-xl font-mono font-medium text-slate-600 dark:text-slate-400">
+            {likes || 0}
+          </span>
+        </div>
 
+        {/* Comments Count (Placeholder para el futuro)
+        
+        <div className="flex items-center gap-1.5 group/stat">
+          <span className="material-symbols-outlined text-[18px] text-slate-400 dark:text-slate-500 transition-transform group-hover/stat:scale-110">
+            chat_bubble
+          </span>
+          <span className="text-xs font-mono font-medium text-slate-600 dark:text-slate-400">
+            0
+          </span>
+        </div>
+        */}
+      </div>
       <div className="flex items-center justify-between mt-auto mx-6 pt-4 pb-6 border-t border-slate-200 dark:border-slate-800">
         <div className="flex gap-2">
           {tags &&
@@ -85,6 +110,7 @@ export default function PostCard({ post }) {
 }
 
 import PropTypes from "prop-types";
+import useLikes from "@/hooks/useLikes";
 
 PostCard.propTypes = {
   post: PropTypes.shape({
