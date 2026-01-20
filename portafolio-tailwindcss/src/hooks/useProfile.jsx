@@ -3,11 +3,7 @@ import { useEffect, useState } from "react";
 import { getProfileInfo as fetchProfileInfo } from "@/services/profile.service";
 
 export default function useProfile() {
-  const [profile, setProfile] = useState({
-    username: "",
-    location: "",
-    avatar: null,
-  });
+  const [profile, setProfile] = useState(null);
 
   const [id, setId] = useState(null);
   const [loading, setLoading] = useState(true);

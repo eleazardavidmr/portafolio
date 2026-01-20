@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import usePosts from "@/hooks/usePosts";
-import Post from "./Post";
+import Post from "@pages/BlogPage/Post";
 import { useEffect, useState } from "react";
 import SEO from "@/components/SEO";
 import Loader from "@/components/Loader";

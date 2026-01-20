@@ -1,6 +1,6 @@
 import usePosts from "@/hooks/usePosts";
 import { useEffect } from "react";
-import PostCard from "./PostCard";
+import PostCard from "@pages/BlogPage/Post/PostCard";
 import SEO from "@/components/SEO";
 import { motion } from "framer-motion";
 import Loader from "@/components/Loader";

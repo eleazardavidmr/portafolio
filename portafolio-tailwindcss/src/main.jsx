@@ -9,7 +9,7 @@ import Certificados from "./Pages/Certificados/index.jsx";
 import Proyectos from "./Pages/Proyectos/index.jsx";
 import NotFoundPage from "./components/NotFoundPage/index.jsx";
 import BlogPage from "./Pages/BlogPage/index.jsx";
-import PostPage from "./Pages/BlogPage/PostPage.jsx";
+import PostPage from "@pages/BlogPage/Post/PostPage.jsx";
 import BlogLayout from "./Pages/BlogPage/blogpage-components/BlogLayout/index.jsx";
 import LoginPage from "./Pages/LoginPage/index.jsx";
 import { AuthProvider } from "./components/Context/AuthContext.jsx";

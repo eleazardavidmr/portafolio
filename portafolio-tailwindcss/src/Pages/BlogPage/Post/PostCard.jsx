@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import PostCover from "./blogpage-components/PostCover";
+import PostCover from "@pages/BlogPage/blogpage-components/PostCover";
 import { FiCalendar, FiClock, FiHeart, FiArrowRight } from "react-icons/fi";
 
 export default function PostCard({ post }) {

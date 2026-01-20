@@ -5,11 +5,13 @@ import { useMemo } from "react";
 import { useState } from "react";
 import PropTypes from "prop-types";
 import { FiArrowLeft, FiCalendar, FiClock, FiShare2 } from "react-icons/fi";
+import { MdForum } from "react-icons/md";
 
 import LikeButton from "./LikeButton";
 import PostCover from "../blogpage-components/PostCover";
 import useProfile from "@/hooks/useProfile";
 import ShareModal from "./ShareModal";
+import CommentSection from "../CommentSection";
 
 export default function Post({ postInfo }) {
   const [isShareModalOpen, setIsShareModalOpen] = useState(false);
@@ -138,11 +140,11 @@ export default function Post({ postInfo }) {
           <p className="text-slate-500 italic">No content available.</p>
         )}
       </motion.article>
-
-      <div className="sticky mt-20 mb-0 bottom-8 left-0 right-0 flex justify-center pointer-events-none">
-        <div className="pointer-events-auto flex items-center gap-4 px-6 py-3 bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md border border-slate-200 dark:border-slate-800 rounded-full shadow-2xl">
+      <hr className="border-t border-slate-200 dark:border-white/10 mt-16" />
+      <div className="mt-5 ">
+        <div className="flex gap-5 my-5">
           <LikeButton post_id={id} user_id={userId} />
-          <div className="w-[1px] h-4 bg-slate-300 dark:bg-slate-700" />
+
           <button
             onClick={(e) => handleOpenShareModal(e)}
             className="text-slate-500 hover:text-primary transition-colors"
@@ -150,8 +152,9 @@ export default function Post({ postInfo }) {
             <FiShare2 className="text-xl" />
           </button>
         </div>
-      </div>
 
+        <CommentSection postId={postInfo.id} />
+      </div>
       {isShareModalOpen && (
         <ShareModal
           isOpen={isShareModalOpen}
