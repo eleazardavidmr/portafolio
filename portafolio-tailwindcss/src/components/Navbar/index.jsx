@@ -78,7 +78,7 @@ export default function Navbar() {
           to="/"
           className="text-2xl font-bold tracking-tighter text-primary font-jetbrains"
         >
-          <img src="/logo.png" alt="logo" className="w-16 h-16 rounded-full" />
+          <img src="/logo.png" alt="logo" className="w-10 h-10 rounded-full" />
         </Link>
 
         {/* Desktop Navigation */}
