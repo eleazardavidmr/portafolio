@@ -15,6 +15,7 @@ import LoginPage from "./Pages/LoginPage/index.jsx";
 import { AuthProvider } from "./components/Context/AuthContext.jsx";
 import ProtectedRoute from "./components/ProtectedRoute/index.jsx";
 import ProfilePage from "./Pages/ProfilePage/index.jsx";
+import MembersPage from "./Pages/MembersPage/index.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -52,6 +53,8 @@ createRoot(document.getElementById("root")).render(
               }
             />
             <Route path="/login" element={<LoginPage />} />
+            {/* <Route path="/miembros" element={<MembersPage />} />
+            <Route path="/miembros/:username" element={<MembersPage />} /> */}
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </Router>

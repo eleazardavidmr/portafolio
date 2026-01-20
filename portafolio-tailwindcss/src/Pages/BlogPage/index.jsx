@@ -4,12 +4,21 @@ import PostCard from "@pages/BlogPage/Post/PostCard";
 import SEO from "@/components/SEO";
 import { motion } from "framer-motion";
 import Loader from "@/components/Loader";
+import useNotifications from "@/hooks/useNotifications";
 
 export default function BlogPage() {
   const { loadPosts, posts, loading } = usePosts();
+  const { markAsRead } = useNotifications();
+
   useEffect(() => {
     loadPosts();
   }, [loadPosts]);
+
+  useEffect(() => {
+    if (!loading && posts.length > 0) {
+      markAsRead();
+    }
+  }, [loading, posts, markAsRead]);
 
   const containerVariants = {
     hidden: { opacity: 0 },

@@ -40,3 +40,12 @@ export const updateProfileInfo = async (userId, newInfo) => {
 
   return data;
 };
+
+export const getAllProfiles = async () => {
+  const { data, error } = await client.from("profiles").select("*");
+
+  if (error) console.error(error);
+  return {
+    data,
+  };
+};

@@ -10,14 +10,17 @@ import {
   FiHome,
   FiBookOpen,
 } from "react-icons/fi";
+import { FaUserFriends } from "react-icons/fa";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../Context/AuthContext";
+import useNotifications from "@/hooks/useNotifications";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const { session, logout } = useContext(AuthContext); // Consolidado
+  const { session, logout } = useContext(AuthContext);
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
+  const { hasNewPosts } = useNotifications();
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -56,6 +59,12 @@ export default function Navbar() {
   const links = [
     { name: "Inicio", href: "/", icon: <FiHome />, show: true },
     { name: "Blog", href: "/blog", icon: <FiBookOpen />, show: true },
+    {
+      name: "Miembros",
+      href: "/miembros",
+      icon: <FaUserFriends />,
+      show: true,
+    },
     { name: "Proyectos", href: "#proyectos", show: isHomePage, isAnchor: true },
     { name: "Contacto", href: "#contacto", show: isHomePage, isAnchor: true },
   ];
@@ -98,9 +107,15 @@ export default function Navbar() {
                 <Link
                   key={link.name}
                   to={link.href}
-                  className="text-sm font-bold text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"
+                  className="relative text-sm font-bold text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"
                 >
                   {link.name}
+                  {link.name === "Blog" && hasNewPosts && (
+                    <span className="absolute -top-1 -right-2 flex h-2 w-2">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                    </span>
+                  )}
                 </Link>
               ),
             )}
@@ -203,6 +218,12 @@ export default function Navbar() {
                           </div>
                         )}
                         <span className="text-lg font-bold">{link.name}</span>
+                        {link.name === "Blog" && hasNewPosts && (
+                          <span className="ml-auto flex h-2.5 w-2.5">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
+                          </span>
+                        )}
                       </Link>
                     </motion.div>
                   ))}
