@@ -9,7 +9,14 @@
   <url>
     <loc>https://edmr.dev/blog</loc>
   </url>
+      <url>
+    <loc>https://edmr.dev/blog/vim-sin-sufrir</loc>
+  </url>
+      <url>
+    <loc>https://edmr.dev/blog/como-construi-mi-sistema-de-blog</loc>
+  </url>
     <url>
     <loc>https://edmr.dev/profile</loc>
   </url>
+  
 </urlset>
