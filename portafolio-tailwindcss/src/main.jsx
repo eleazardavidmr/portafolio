@@ -30,7 +30,7 @@ createRoot(document.getElementById("root")).render(
               <Route
                 path="/blog"
                 element={
-                  <ProtectedRoute redirectTo="/">
+                  <ProtectedRoute redirectTo="/login">
                     <BlogPage />
                   </ProtectedRoute>
                 }
@@ -38,7 +38,7 @@ createRoot(document.getElementById("root")).render(
               <Route
                 path="/blog/:slug"
                 element={
-                  <ProtectedRoute redirectTo="/">
+                  <ProtectedRoute redirectTo="/login">
                     <PostPage />
                   </ProtectedRoute>
                 }
