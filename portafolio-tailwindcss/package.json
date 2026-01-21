@@ -10,7 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@supabase/supabase-js": "^2.90.1",
+    "emailjs": "^5.0.0",
     "framer-motion": "^12.0.6",
     "hamburger-react": "^2.5.2",
     "html-to-image": "^1.11.13",

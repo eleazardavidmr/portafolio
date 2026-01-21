@@ -24,6 +24,7 @@ export const handleApiError = (error, defaultMessage = "An error occurred") => {
   };
 };
 
+
 /**
  * Handle API success responses
  * @param {*} data - The response data

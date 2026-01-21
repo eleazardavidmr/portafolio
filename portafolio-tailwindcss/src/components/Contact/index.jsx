@@ -70,7 +70,7 @@ export default function Contact() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-3 gap-6"
         >
           {/* Item 1: Instagram */}
           <motion.div variants={itemVariants}>
@@ -98,15 +98,6 @@ export default function Contact() {
               name="GitHub"
               icon={<GitHubIcon width={32} height={32} />}
               to="https://github.com/eleazardavidmr"
-            />
-          </motion.div>
-
-          {/* Item 4: Email (Acción de Copiar) */}
-          <motion.div variants={itemVariants}>
-            <Social
-              name="Copiar Email"
-              icon={<MailIcon width={32} height={32} stroke="currentColor" />}
-              onClick={copyEmail} // Pasamos la función en lugar del link
             />
           </motion.div>
         </motion.div>

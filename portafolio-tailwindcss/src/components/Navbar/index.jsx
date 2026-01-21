@@ -10,7 +10,7 @@ import {
   FiHome,
   FiBookOpen,
 } from "react-icons/fi";
-import { FaUserFriends } from "react-icons/fa";
+// import { FaUserFriends } from "react-icons/fa";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../Context/AuthContext";
 import useNotifications from "@/hooks/useNotifications";
@@ -54,6 +54,8 @@ export default function Navbar() {
     toast.success("Sesión cerrada");
     navigate("/");
   };
+
+  //probando calidad, sigue viendose muy lento xd
 
   // Definición de links dinámicos
   const links = [

@@ -3,6 +3,7 @@ import Contact from "./components/Contact";
 import Main from "./components/Main";
 import Layout from "./components/Layout";
 import SEO from "./components/SEO";
+import ContactForm from "./components/Contact/ContactForm";
 function App() {
   return (
     <>
@@ -14,7 +15,8 @@ function App() {
         />
         <Main />
         <Projects />
-        <Contact />
+        <ContactForm />
+        {/* <Contact /> */}
       </Layout>
     </>
   );

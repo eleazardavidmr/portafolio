@@ -7,7 +7,7 @@ export default function Intro() {
   return (
     <section
       id="inicio"
-      className="min-h-[90vh] w-full px-6 flex flex-col md:flex-row items-center justify-center gap-12 md:gap-20 overflow-hidden py-20"
+      className="min-h-[60vh] w-full px-6 flex flex-col md:flex-row items-center justify-center gap-12 md:gap-20 overflow-hidden py-20"
     >
       <motion.div
         initial={{ x: -50, opacity: 0 }}
