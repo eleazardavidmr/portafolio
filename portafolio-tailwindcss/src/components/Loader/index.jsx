@@ -21,7 +21,7 @@ export default function Loader({ fullScreen = false }) {
 
         {/* Inner Logo/Symbol */}
         <div className="absolute text-primary font-black text-xl font-jetbrains">
-          {"< />"}
+          <img src="/logo.png" className="w-10 h-10" />
         </div>
       </div>
 
