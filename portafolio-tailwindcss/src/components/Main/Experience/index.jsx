@@ -104,7 +104,7 @@ export default function Experience() {
           Estudiante actual en el{" "}
           <a
             href="https://polisuperior.edu.co/"
-            className="text-primary font-bold hover:text-primary/80 hover:underline decoration-2 underline-offset-4 transition-all font-jetbrains"
+            className="text-cyan-700 dark:text-primary font-bold hover:text-primary hover:underline decoration-2 underline-offset-4 transition-all font-jetbrains"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -164,11 +164,11 @@ export default function Experience() {
 
             {/* Contenido de Texto */}
             <div className="flex flex-col">
-              <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-2 font-jetbrains group-hover:text-primary transition-colors">
+              <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2 font-jetbrains group-hover:text-primary transition-colors">
                 {item.title}
               </h3>
 
-              <p className="text-gray-600 dark:text-gray-400 leading-relaxed font-inter text-sm sm:text-base">
+              <p className="text-slate-700 dark:text-slate-300 leading-relaxed font-inter text-sm sm:text-base">
                 {item.content}
               </p>
             </div>

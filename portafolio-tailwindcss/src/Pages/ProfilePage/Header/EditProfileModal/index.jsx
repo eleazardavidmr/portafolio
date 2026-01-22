@@ -2,7 +2,7 @@ import { useRef, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Cropper from "react-easy-crop";
 import PropTypes from "prop-types";
-import { getCroppedImg } from "@/utils/cropImage";
+import { getCroppedImg } from "@utils";
 import {
   FiX,
   FiCamera,
