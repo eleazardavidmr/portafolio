@@ -7,11 +7,11 @@ import PropTypes from "prop-types";
 import { FiArrowLeft, FiCalendar, FiClock, FiShare2 } from "react-icons/fi";
 import { MdForum } from "react-icons/md";
 
-import LikeButton from "./LikeButton";
-import PostCover from "../blogpage-components/PostCover";
-import useProfile from "@/hooks/useProfile";
-import ShareModal from "./ShareModal";
-import CommentSection from "../CommentSection";
+import LikeButton from "@pages/BlogPage/Post/LikeButton";
+import PostCover from "@pages/BlogPage/blogpage-components/PostCover";
+import useProfile from "@hooks/useProfile";
+import ShareModal from "@pages/BlogPage/Post/ShareModal";
+import CommentSection from "@pages/BlogPage/CommentSection";
 
 export default function Post({ postInfo }) {
   const [isShareModalOpen, setIsShareModalOpen] = useState(false);

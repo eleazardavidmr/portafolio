@@ -12,7 +12,7 @@ import {
 } from "react-icons/fi";
 // import { FaUserFriends } from "react-icons/fa";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { AuthContext } from "../Context/AuthContext";
+import { AuthContext } from "@contexts/AuthContext";
 import useNotifications from "@/hooks/useNotifications";
 
 export default function Navbar() {
@@ -89,7 +89,7 @@ export default function Navbar() {
           to="/"
           className="text-2xl font-bold tracking-tighter text-primary font-jetbrains"
         >
-          <img src="/logo.png" alt="logo" className="w-10 h-10 rounded-full" />
+          <img src="/logo.webp" alt="logo" className="w-10 h-10 rounded-full" />
         </Link>
 
         {/* Desktop Navigation */}
@@ -127,6 +127,7 @@ export default function Navbar() {
           <button
             onClick={toggleTheme}
             className="p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-700 dark:text-slate-300"
+            aria-label="Change page theme"
           >
             {theme === "dark" ? <FiSun size={20} /> : <FiMoon size={20} />}
           </button>
@@ -152,6 +153,7 @@ export default function Navbar() {
         <div className="flex md:hidden items-center gap-2">
           <button
             onClick={toggleTheme}
+            aria-label="Open navbar menu"
             className="p-2.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300"
           >
             {theme === "dark" ? <FiSun size={20} /> : <FiMoon size={20} />}

@@ -1,14 +1,14 @@
 import jorgevalbuena from "/img/projects/immunotec.jpg";
-import dydcrochet from "/img/projects/dydcrochet.png";
-import stizzo_planet from "/img/projects/stizzo-planet.png";
-import atelierdeldulce from "/img/projects/atelierdeldulce.png";
-import arrozConLeche from "/img/projects/arroz-con-leche.png";
-import retroStack from "/img/projects/retro-stack.png";
+import dydcrochet from "/img/projects/dydcrochet.webp";
+import stizzo_planet from "/img/projects/stizzo-planet.webp";
+import atelierdeldulce from "/img/projects/atelierdeldulce.webp";
+import arrozConLeche from "/img/projects/arroz-con-leche.jpg";
+import retroStack from "/img/projects/retro-stack.webp";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
-import Project from "./Project";
-import SectionTitle from "../SectionTitle";
+import Project from "@components/Projects/Project";
+import SectionTitle from "@components/SectionTitle";
 
 export const PROJECTS = [
   {

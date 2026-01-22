@@ -1,5 +1,5 @@
-import { client } from "../supabase/client";
-import { handleApiError, handleApiSuccess } from "./api.service";
+import { client } from "@/supabase/client";
+import { handleApiError, handleApiSuccess } from "@services/api.service";
 
 /**
  * Authentication Service

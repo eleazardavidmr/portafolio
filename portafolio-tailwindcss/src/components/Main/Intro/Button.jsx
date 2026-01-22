@@ -5,7 +5,7 @@ const Button = ({ title, to }) => {
   return (
     <Link
       to={to}
-      className="px-2 py-2 rounded-md backdrop-blur-md items-center justify-center flex border-2 border-sky-500 shadow-lg hover:bg-sky-500 text-sky-500 hover:text-white duration-300 cursor-pointer active:scale-[0.98] w-full"
+      className="px-8 py-3 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-950 font-bold text-base transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg hover:shadow-primary/20 flex items-center justify-center min-w-[180px]"
     >
       {title}
     </Link>

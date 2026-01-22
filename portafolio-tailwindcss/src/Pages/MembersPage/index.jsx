@@ -1,7 +1,7 @@
-import Layout from "@/components/Layout";
-import useProfile from "@/hooks/useProfile";
-import MemberCard from "./MemberCard";
-import Loader from "@/components/Loader";
+import Layout from "@components/Layout";
+import useProfile from "@hooks/useProfile";
+import MemberCard from "@pages/MembersPage/MemberCard";
+import Loader from "@components/Loader";
 
 export default function MembersPage() {
   const { allProfiles, loading } = useProfile();

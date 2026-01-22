@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import SectionTitle from "../SectionTitle";
+import SectionTitle from "@components/SectionTitle";
 import { FiArrowUp } from "react-icons/fi";
 
 // Iconos (Asegúrate de que las rutas sean correctas en tu proyecto)
-import InstagarmIcon from "../../icons/InstagarmIcon";
-import MailIcon from "../../icons/MailIcon";
-import WhatsAppIcon from "../../icons/WhatsAppIcon";
-import GitHubIcon from "../../icons/GitHubIcon";
+import InstagarmIcon from "@icons/InstagarmIcon";
+import WhatsAppIcon from "@icons/WhatsAppIcon";
+import GitHubIcon from "@icons/GitHubIcon";
 
 import Social from "./Social";
 
@@ -25,18 +24,6 @@ export default function Contact() {
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
-  const copyEmail = () => {
-    const text = "eleazardavidmr@gmail.com";
-    navigator.clipboard.writeText(text).then(() => {
-      showAlert("¡Email copiado al portapapeles! 📋");
-    });
-  };
-
-  const showAlert = (message) => {
-    setAlertMessage(message);
-    setTimeout(() => setAlertMessage(null), 3000); // 3 segundos
   };
 
   // Configuración de animación para el Grid

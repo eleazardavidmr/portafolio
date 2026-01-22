@@ -1,7 +1,7 @@
-import Header from "./Header";
-import useProfile from "@/hooks/useProfile";
-import useLikes from "@/hooks/useLikes";
-import StatsCard from "./StatsCard";
+import Header from "@pages/ProfilePage/Header";
+import useProfile from "@hooks/useProfile";
+import useLikes from "@hooks/useLikes";
+import StatsCard from "@pages/ProfilePage/StatsCard";
 import Loader from "@/components/Loader";
 import Layout from "@/components/Layout";
 import { MdFavorite } from "react-icons/md";

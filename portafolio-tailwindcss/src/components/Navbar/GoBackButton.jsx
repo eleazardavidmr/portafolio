@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import ArrowLeftIcon from "../../icons/ArrowLeftIcon";
+import ArrowLeftIcon from "@icons/ArrowLeftIcon";
 
 export default function GoBackButton() {
   return (

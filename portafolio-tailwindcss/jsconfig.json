@@ -6,9 +6,11 @@
       "@components/*": ["src/components/*"],
       "@pages/*": ["src/Pages/*"],
       "@services/*": ["src/services/*"],
-      "@hooks/*": ["src/Hooks/*"],
+      "@hooks/*": ["src/hooks/*"],
       "@utils/*": ["src/utils/*"],
-      "@constants/*": ["src/constants/*"]
+      "@constants/*": ["src/constants/*"],
+      "@contexts/*": ["src/contexts/*"],
+      "@icons/*": ["src/icons/*"]
     },
     "target": "ES2020",
     "module": "ESNext",

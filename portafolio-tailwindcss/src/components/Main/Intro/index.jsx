@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import Button from "./Button";
+import Button from "@components/Main/Intro/Button";
 import { Link } from "react-router-dom";
 import { IoMdArrowForward } from "react-icons/io";
 
@@ -18,7 +18,7 @@ export default function Intro() {
         <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full scale-75 -z-10" />
 
         <img
-          src="/img/profile.png"
+          src="/img/profile.jpg"
           alt="Eleazar Muñoz"
           className="rounded-3xl w-[80%] md:w-[70%] max-w-[400px] shadow-2xl border-4 border-white/10 transition-transform duration-300 hover:scale-105 object-cover"
         />
@@ -46,10 +46,10 @@ export default function Intro() {
             <IoMdArrowForward className="text-xs text-primary group-hover:translate-x-1 transition-transform" />
           </Link>
 
-          <span className="text-sm font-bold tracking-[0.3em] text-primary uppercase">
+          <span className="text-sm font-bold tracking-[0.3em] text-cyan-700 dark:text-cyan-400 uppercase">
             Frontend Developer
           </span>
-          <h1 className="text-5xl md:text-8xl font-black font-jetbrains tracking-tighter leading-[0.9]">
+          <h1 className="text-5xl md:text-8xl font-extrabold font-jetbrains tracking-tighter leading-[0.9]">
             <span className="block text-slate-800 dark:text-white">
               Eleazar
             </span>
@@ -59,7 +59,7 @@ export default function Intro() {
           </h1>
         </div>
 
-        <p className="w-[90%] md:w-[85%] text-lg md:text-xl text-slate-600 dark:text-slate-400 leading-relaxed font-inter">
+        <p className="w-[90%] md:w-[85%] text-lg md:text-xl text-slate-700 dark:text-slate-300 leading-relaxed font-inter">
           Desarrollador web frontend apasionado por el diseño minimalista y las
           experiencias digitales fluidas. Especializado en React y ecosistemas
           modernos.
@@ -69,7 +69,7 @@ export default function Intro() {
           <Button to={"/certificados"} title="Ver Certificados" />
           <a
             href="#proyectos"
-            className="px-8 py-3 rounded-full border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
+            className="px-8 py-3 rounded-full border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all flex items-center justify-center min-w-[180px]"
           >
             Ver Proyectos
           </a>

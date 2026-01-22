@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import SectionTitle from "../../SectionTitle";
+import SectionTitle from "@components/SectionTitle";
 
 export default function Experience() {
   const experienceItems = [

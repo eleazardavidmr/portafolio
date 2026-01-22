@@ -1,4 +1,4 @@
-import SectionTitle from "../../SectionTitle";
+import SectionTitle from "@components/SectionTitle";
 import { motion } from "framer-motion";
 
 export default function Goals() {

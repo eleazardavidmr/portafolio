@@ -1,4 +1,4 @@
-import { client } from "../supabase/client";
+import { client } from "@/supabase/client";
 import toast from "react-hot-toast";
 
 /**
@@ -23,7 +23,6 @@ export const handleApiError = (error, defaultMessage = "An error occurred") => {
     data: null,
   };
 };
-
 
 /**
  * Handle API success responses

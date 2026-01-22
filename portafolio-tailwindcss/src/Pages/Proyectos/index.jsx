@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import GoBackButton from "../../components/Navbar/GoBackButton";
-import { PROJECTS } from "../../components/Projects"; // Asegúrate de que la ruta sea correcta
-import Project from "../../components/Projects/Project";
-import Background from "../../components/Background";
+import GoBackButton from "@components/Navbar/GoBackButton";
+import { PROJECTS } from "@components/Projects"; // Asegúrate de que la ruta sea correcta
+import Project from "@components/Projects/Project";
+import Background from "@components/Background";
 
 export default function Proyectos() {
   // Variantes para la animación escalonada (Stagger)

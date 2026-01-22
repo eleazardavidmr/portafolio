@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import Background from "../../components/Background";
-import GoBackButton from "../../components/Navbar/GoBackButton";
+import Background from "@components/Background";
+import GoBackButton from "@components/Navbar/GoBackButton";
 
 export default function Certificados() {
   const CERTIFICADOS = [

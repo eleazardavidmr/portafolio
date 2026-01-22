@@ -1,10 +1,10 @@
-import { updateProfileInfo } from "@/services/profile.service";
+import { updateProfileInfo } from "@services/profile.service";
 import toast from "react-hot-toast";
-import useProfile from "@/hooks/useProfile";
-import EditProfileModal from "./EditProfileModal";
+import useProfile from "@hooks/useProfile";
+import EditProfileModal from "@pages/ProfilePage/Header/EditProfileModal";
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "@/components/Context/AuthContext";
+import { AuthContext } from "@contexts/AuthContext";
 import { FaLocationDot } from "react-icons/fa6";
 import { FaCalendarAlt } from "react-icons/fa";
 import { FiLogOut } from "react-icons/fi";

@@ -1,6 +1,6 @@
-import useComments from "@/hooks/useComments";
-import CreateCommentInput from "./CreateCommentInput";
-import Comment from "./Comment";
+import useComments from "@hooks/useComments";
+import CreateCommentInput from "@pages/BlogPage/CommentSection/CreateCommentInput";
+import Comment from "@pages/BlogPage/CommentSection/Comment";
 
 export default function CommentSection({ postId }) {
   const { postComments } = useComments(postId);

@@ -1,5 +1,5 @@
-import SectionTitle from "../../SectionTitle";
-import DeveloperCard from "./DeveloperCard";
+import SectionTitle from "@components/SectionTitle";
+import DeveloperCard from "@components/Main/About/DeveloperCard";
 import { motion } from "framer-motion";
 
 export default function About() {

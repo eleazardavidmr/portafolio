@@ -1,62 +1,74 @@
-import { StrictMode } from "react";
+import { StrictMode, lazy, Suspense } from "react";
 import { createRoot } from "react-dom/client";
 import { HelmetProvider } from "react-helmet-async";
-import "./index.css";
-import App from "./App.jsx";
+import "@/index.css";
+import App from "@/App.jsx";
 import { Toaster } from "react-hot-toast";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Certificados from "./Pages/Certificados/index.jsx";
-import Proyectos from "./Pages/Proyectos/index.jsx";
-import NotFoundPage from "./components/NotFoundPage/index.jsx";
-import BlogPage from "./Pages/BlogPage/index.jsx";
-import PostPage from "@pages/BlogPage/Post/PostPage.jsx";
-import BlogLayout from "./Pages/BlogPage/blogpage-components/BlogLayout/index.jsx";
-import LoginPage from "./Pages/LoginPage/index.jsx";
-import { AuthProvider } from "./components/Context/AuthContext.jsx";
-import ProtectedRoute from "./components/ProtectedRoute/index.jsx";
-import ProfilePage from "./Pages/ProfilePage/index.jsx";
-import MembersPage from "./Pages/MembersPage/index.jsx";
+import Loader from "@components/Loader";
+import Layout from "@components/Layout";
+
+const Certificados = lazy(() => import("@pages/Certificados/index.jsx"));
+const Proyectos = lazy(() => import("@pages/Proyectos/index.jsx"));
+const BlogPage = lazy(() => import("@pages/BlogPage/index.jsx"));
+const PostPage = lazy(() => import("@pages/BlogPage/Post/PostPage.jsx"));
+const ProfilePage = lazy(() => import("@pages/ProfilePage/index.jsx"));
+const NotFoundPage = lazy(() => import("@components/NotFoundPage/index.jsx"));
+const LoginPage = lazy(() => import("@pages/LoginPage/index.jsx"));
+
+import { AuthProvider } from "@contexts/AuthContext";
+import ProtectedRoute from "@components/ProtectedRoute/index.jsx";
+// import MembersPage from "@pages/MembersPage/index.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <HelmetProvider>
       <AuthProvider>
         <Router>
-          <Routes>
-            <Route path="/" element={<App />} />
-            <Route path="/certificados" element={<Certificados />} />
-            <Route path="/proyectos" element={<Proyectos />} />
-            <Route element={<BlogLayout />}>
+          <Suspense fallback={<Loader fullScreen />}>
+            <Routes>
+              <Route path="/" element={<App />} />
+              <Route path="/certificados" element={<Certificados />} />
+              <Route path="/proyectos" element={<Proyectos />} />
               <Route
-                path="/blog"
                 element={
-                  <ProtectedRoute redirectTo="/login">
-                    <BlogPage />
+                  <Layout
+                    fullHeight
+                    containerClassName="flex-grow pt-24 pb-12 px-4 md:px-8 relative z-10"
+                  />
+                }
+              >
+                <Route
+                  path="/blog"
+                  element={
+                    <ProtectedRoute redirectTo="/login">
+                      <BlogPage />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="/blog/:slug"
+                  element={
+                    <ProtectedRoute redirectTo="/login">
+                      <PostPage />
+                    </ProtectedRoute>
+                  }
+                />
+              </Route>
+              <Route
+                path="/profile"
+                element={
+                  <ProtectedRoute redirectTo="/">
+                    <ProfilePage />
                   </ProtectedRoute>
                 }
               />
-              <Route
-                path="/blog/:slug"
-                element={
-                  <ProtectedRoute redirectTo="/login">
-                    <PostPage />
-                  </ProtectedRoute>
-                }
-              />
-            </Route>
-            <Route
-              path="/profile"
-              element={
-                <ProtectedRoute redirectTo="/">
-                  <ProfilePage />
-                </ProtectedRoute>
-              }
-            />
-            <Route path="/login" element={<LoginPage />} />
-            {/* <Route path="/miembros" element={<MembersPage />} />
-            <Route path="/miembros/:username" element={<MembersPage />} /> */}
-            <Route path="*" element={<NotFoundPage />} />
-          </Routes>
+              <Route path="/login" element={<LoginPage />} />
+              {/* <Route path="/miembros" element={<MembersPage />} />
+              <Route path="/miembros/:username" element={<MembersPage />} /> */}
+              <Route path="*" element={<NotFoundPage />} />
+            </Routes>
+          </Suspense>
         </Router>
       </AuthProvider>
       <Toaster position="bottom-right" />
