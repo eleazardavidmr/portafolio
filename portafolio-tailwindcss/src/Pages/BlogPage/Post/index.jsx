@@ -5,7 +5,6 @@ import { useMemo } from "react";
 import { useState } from "react";
 import PropTypes from "prop-types";
 import { FiArrowLeft, FiCalendar, FiClock, FiShare2 } from "react-icons/fi";
-import { MdForum } from "react-icons/md";
 
 import LikeButton from "@pages/BlogPage/Post/LikeButton";
 import PostCover from "@pages/BlogPage/blogpage-components/PostCover";
