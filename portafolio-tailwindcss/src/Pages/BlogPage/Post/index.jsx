@@ -5,13 +5,12 @@ import { useMemo } from "react";
 import { useState } from "react";
 import PropTypes from "prop-types";
 import { FiArrowLeft, FiCalendar, FiClock, FiShare2 } from "react-icons/fi";
-
 import LikeButton from "@pages/BlogPage/Post/LikeButton";
 import PostCover from "@pages/BlogPage/blogpage-components/PostCover";
 import useProfile from "@hooks/useProfile";
 import ShareModal from "@pages/BlogPage/Post/ShareModal";
 import CommentSection from "@pages/BlogPage/CommentSection";
-
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 export default function Post({ postInfo }) {
   const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const { id: userId } = useProfile();
@@ -134,7 +133,29 @@ export default function Post({ postInfo }) {
         )}
 
         {content ? (
-          <ReactMarkdown>{content}</ReactMarkdown>
+          <ReactMarkdown
+            components={{
+              code(props) {
+                const { children, className, node, ...rest } = props;
+                const match = /language-(\w+)/.exec(className || "");
+                return match ? (
+                  <SyntaxHighlighter
+                    {...rest}
+                    PreTag="div"
+                    children={String(children).replace(/\n$/, "")}
+                    language={match[1]}
+                    style={dark}
+                  />
+                ) : (
+                  <code {...rest} className={className}>
+                    {children}
+                  </code>
+                );
+              },
+            }}
+          >
+            {content}
+          </ReactMarkdown>
         ) : (
           <p className="text-slate-500 italic">No content available.</p>
         )}
