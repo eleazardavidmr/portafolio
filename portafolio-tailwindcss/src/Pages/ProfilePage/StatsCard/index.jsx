@@ -7,7 +7,7 @@ export default function StatsCard({ delay, icon, label, value }) {
       style={{ animationDelay: `${delay}ms` }}
     >
       {/* Background with Glassmorphism */}
-      <div className="absolute inset-0 bg-white/40 dark:bg-slate-900/40 backdrop-blur-xl border border-white/50 dark:border-white/10 shadow-xl group-hover:shadow-primary/20 transition-all duration-500" />
+      <div className="absolute inset-0 bg-white/40 dark:bg-slate-900/40 backdrop-blur-xl shadow-xl group-hover:shadow-primary/20 transition-all duration-500" />
 
       {/* Decorative gradient blur */}
       <div className="absolute -top-12 -right-12 w-24 h-24 bg-primary/20 blur-3xl rounded-full group-hover:bg-primary/40 transition-colors duration-700" />

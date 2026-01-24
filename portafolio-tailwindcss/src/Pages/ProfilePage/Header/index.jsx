@@ -87,8 +87,8 @@ export default function Header() {
 
       <div className="relative w-full mb-16 pt-12 overflow-hidden md:overflow-visible">
         {/* Atmospheric Background Effects */}
-        <div className="absolute top-0 -left-20 w-96 h-96 bg-primary/10 blur-[120px] rounded-full pointer-events-none" />
-        <div className="absolute top-20 -right-20 w-80 h-80 bg-blue-600/10 blur-[100px] rounded-full pointer-events-none" />
+        <div className=" hidden md:block absolute top-0 -left-20 w-full h-full bg-primary/10 blur-[120px] rounded-full pointer-events-none" />
+        <div className=" hidden md:block absolute top-20 -right-20 w-full h-ful bg-blue-600/10 blur-[100px] rounded-full pointer-events-none" />
 
         <div className="relative flex flex-col md:flex-row items-end gap-10">
           {/* Avatar Section */}
@@ -108,8 +108,8 @@ export default function Header() {
           {/* Info Section */}
           <div className="flex-1 text-center md:text-left">
             <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 mb-4">
-              <div className="rounded-full bg-white/10 dark:bg-primary/10 border border-white/20 dark:border-primary/20 backdrop-blur-md shadow-sm">
-                <span className="py-2 px-4 text-primary text-[10px] font-black tracking-[0.2em] uppercase">
+              <div className="flex items-center justify-center rounded-full bg-white/10 dark:bg-primary/10 border border-white/20 dark:border-primary/20 backdrop-blur-md shadow-sm h-6 px-3">
+                <span className="text-primary text-[10px] font-black tracking-[0.2em] uppercase leading-none">
                   {profile?.username === "eleazardavidmr"
                     ? "Project Owner"
                     : "Community Member"}
