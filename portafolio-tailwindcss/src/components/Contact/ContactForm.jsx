@@ -4,6 +4,7 @@ import { FaLocationDot } from "react-icons/fa6";
 import { AiFillInstagram } from "react-icons/ai";
 import { IoSend } from "react-icons/io5";
 import { useState, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import { toast } from "react-hot-toast";
 export default function ContactForm() {
@@ -121,24 +122,83 @@ export default function ContactForm() {
         setIsLoading(false);
       });
   };
-  return (
-    <main className="flex-grow pt-32 pb-20 px-6  relative overflow-hidden">
-      {/* Animated gradient orbs */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[128px] pointer-events-none animate-pulse"></div>
-      <div
-        className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-600/20 rounded-full blur-[128px] pointer-events-none animate-pulse"
-        style={{ animationDelay: "1s" }}
-      ></div>
-      <div
-        className="absolute top-1/2 right-1/3 w-64 h-64 bg-purple-500/10 rounded-full blur-[100px] pointer-events-none animate-pulse"
-        style={{ animationDelay: "2s" }}
-      ></div>
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
+    },
+  };
 
-      <div className="container mx-auto max-w-6xl relative z-10">
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 10,
+      },
+    },
+  };
+
+  return (
+    <main className="flex-grow pt-32 pb-20 px-6 relative overflow-hidden">
+      {/* Animated gradient orbs */}
+      <motion.div
+        animate={{
+          scale: [1, 1.2, 1],
+          opacity: [0.2, 0.3, 0.2],
+        }}
+        transition={{
+          duration: 4,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[128px] pointer-events-none"
+      />
+      <motion.div
+        animate={{
+          scale: [1, 1.5, 1],
+          opacity: [0.2, 0.3, 0.2],
+        }}
+        transition={{
+          duration: 5,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1,
+        }}
+        className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-600/20 rounded-full blur-[128px] pointer-events-none"
+      />
+      <motion.div
+        animate={{
+          scale: [1, 1.3, 1],
+          opacity: [0.1, 0.2, 0.1],
+        }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 2,
+        }}
+        className="absolute top-1/2 right-1/3 w-64 h-64 bg-purple-500/10 rounded-full blur-[100px] pointer-events-none"
+      />
+
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="container mx-auto max-w-6xl relative z-10"
+      >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           {/* Left Column - Info */}
-          <div className="space-y-8 animate-fade-in">
-            <div>
+          <motion.div className="space-y-8" variants={itemVariants}>
+            <motion.div variants={itemVariants}>
               <span className="inline-block text-primary font-bold tracking-widest text-sm uppercase mb-4 px-4 py-2 bg-primary/10 rounded-full border border-primary/20">
                 Hablemos
               </span>
@@ -153,11 +213,15 @@ export default function ContactForm() {
                 Estoy disponible para proyectos freelance y oportunidades de
                 tiempo completo. Escríbeme y responderé lo antes posible.
               </p>
-            </div>
+            </motion.div>
 
             {/* Contact Info Cards */}
             <div className="space-y-4">
-              <div className="flex items-center group p-4 rounded-2xl bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10">
+              <motion.div
+                variants={itemVariants}
+                whileHover={{ scale: 1.02, x: 5 }}
+                className="flex items-center group p-4 rounded-2xl bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10"
+              >
                 <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-blue-500/20 flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-300 shadow-lg">
                   <MdEmail className="text-2xl" />
                 </div>
@@ -172,9 +236,13 @@ export default function ContactForm() {
                     eleazardavidmr@gmail.com
                   </a>
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="flex items-center group p-4 rounded-2xl bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10">
+              <motion.div
+                variants={itemVariants}
+                whileHover={{ scale: 1.02, x: 5 }}
+                className="flex items-center group p-4 rounded-2xl bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10"
+              >
                 <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-blue-500/20 flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-300 shadow-lg">
                   <FaLocationDot className="text-2xl" />
                 </div>
@@ -186,42 +254,49 @@ export default function ContactForm() {
                     Cali, Colombia
                   </p>
                 </div>
-              </div>
+              </motion.div>
             </div>
 
             {/* Social Links */}
-            <div className="pt-8">
+            <motion.div variants={itemVariants} className="pt-8">
               <p className="text-sm font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-6">
                 Sígueme
               </p>
               <div className="flex space-x-4">
-                <a
-                  href="https://github.com/eleazardavidmr"
-                  aria-label="GitHub"
-                  className="w-12 h-12 flex items-center justify-center rounded-xl bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50 text-slate-700 dark:text-slate-300 hover:bg-primary hover:text-white hover:border-primary hover:scale-110 hover:shadow-lg hover:shadow-primary/30 transition-all duration-300"
-                >
-                  <FaGithub className="text-xl" />
-                </a>
-                <a
-                  href="www.linkedin.com/in/eleazarmunoz-4101542a2"
-                  aria-label="LinkedIn"
-                  className="w-12 h-12 flex items-center justify-center rounded-xl bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50 text-slate-700 dark:text-slate-300 hover:bg-primary hover:text-white hover:border-primary hover:scale-110 hover:shadow-lg hover:shadow-primary/30 transition-all duration-300"
-                >
-                  <FaLinkedin className="text-xl" />
-                </a>
-                <a
-                  href="https://instagram.com/edmr.dev"
-                  aria-label="Instagram"
-                  className="w-12 h-12 flex items-center justify-center rounded-xl bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50 text-slate-700 dark:text-slate-300 hover:bg-primary hover:text-white hover:border-primary hover:scale-110 hover:shadow-lg hover:shadow-primary/30 transition-all duration-300"
-                >
-                  <AiFillInstagram className="text-xl" />
-                </a>
+                {[
+                  {
+                    href: "https://github.com/eleazardavidmr",
+                    icon: FaGithub,
+                    label: "GitHub",
+                  },
+                  {
+                    href: "www.linkedin.com/in/eleazarmunoz-4101542a2",
+                    icon: FaLinkedin,
+                    label: "LinkedIn",
+                  },
+                  {
+                    href: "https://instagram.com/edmr.dev",
+                    icon: AiFillInstagram,
+                    label: "Instagram",
+                  },
+                ].map((social, index) => (
+                  <motion.a
+                    key={index}
+                    whileHover={{ y: -5 }}
+                    whileTap={{ scale: 0.95 }}
+                    href={social.href}
+                    aria-label={social.label}
+                    className="w-12 h-12 flex items-center justify-center rounded-xl bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50 text-slate-700 dark:text-slate-300 hover:bg-primary hover:text-white hover:border-primary hover:shadow-lg hover:shadow-primary/30 transition-all duration-300"
+                  >
+                    <social.icon className="text-xl" />
+                  </motion.a>
+                ))}
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Right Column - Form */}
-          <div className="relative group">
+          <motion.div variants={itemVariants} className="relative group">
             {/* Glow effect on hover */}
             <div className="absolute -inset-1 bg-gradient-to-r from-primary to-blue-500 rounded-3xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-500"></div>
 
@@ -239,7 +314,8 @@ export default function ContactForm() {
                     >
                       Nombre <span className="text-red-500">*</span>
                     </label>
-                    <input
+                    <motion.input
+                      whileFocus={{ scale: 1.02 }}
                       className={`w-full px-5 py-4 bg-white/50 dark:bg-slate-900/50 border rounded-xl focus:outline-none focus:ring-2 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 transition-all duration-300 backdrop-blur-sm ${
                         errors.name
                           ? "border-red-500 dark:border-red-500 focus:ring-red-500/50 focus:border-red-500"
@@ -251,11 +327,18 @@ export default function ContactForm() {
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                     />
-                    {errors.name && (
-                      <p className="text-sm text-red-500 dark:text-red-400 flex items-center gap-1">
-                        <span>⚠</span> {errors.name}
-                      </p>
-                    )}
+                    <AnimatePresence>
+                      {errors.name && (
+                        <motion.p
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -10 }}
+                          className="text-sm text-red-500 dark:text-red-400 flex items-center gap-1"
+                        >
+                          <span>⚠</span> {errors.name}
+                        </motion.p>
+                      )}
+                    </AnimatePresence>
                   </div>
                   <div className="space-y-2">
                     <label
@@ -264,7 +347,8 @@ export default function ContactForm() {
                     >
                       Email <span className="text-red-500">*</span>
                     </label>
-                    <input
+                    <motion.input
+                      whileFocus={{ scale: 1.02 }}
                       className={`w-full px-5 py-4 bg-white/50 dark:bg-slate-900/50 border rounded-xl focus:outline-none focus:ring-2 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 transition-all duration-300 backdrop-blur-sm ${
                         errors.email
                           ? "border-red-500 dark:border-red-500 focus:ring-red-500/50 focus:border-red-500"
@@ -276,11 +360,18 @@ export default function ContactForm() {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                     />
-                    {errors.email && (
-                      <p className="text-sm text-red-500 dark:text-red-400 flex items-center gap-1">
-                        <span>⚠</span> {errors.email}
-                      </p>
-                    )}
+                    <AnimatePresence>
+                      {errors.email && (
+                        <motion.p
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -10 }}
+                          className="text-sm text-red-500 dark:text-red-400 flex items-center gap-1"
+                        >
+                          <span>⚠</span> {errors.email}
+                        </motion.p>
+                      )}
+                    </AnimatePresence>
                   </div>
                 </div>
                 <div className="space-y-2">
@@ -290,7 +381,8 @@ export default function ContactForm() {
                   >
                     Asunto <span className="text-red-500">*</span>
                   </label>
-                  <input
+                  <motion.input
+                    whileFocus={{ scale: 1.02 }}
                     className={`w-full px-5 py-4 bg-white/50 dark:bg-slate-900/50 border rounded-xl focus:outline-none focus:ring-2 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 transition-all duration-300 backdrop-blur-sm ${
                       errors.subject
                         ? "border-red-500 dark:border-red-500 focus:ring-red-500/50 focus:border-red-500"
@@ -302,11 +394,18 @@ export default function ContactForm() {
                     value={subject}
                     onChange={(e) => setSubject(e.target.value)}
                   />
-                  {errors.subject && (
-                    <p className="text-sm text-red-500 dark:text-red-400 flex items-center gap-1">
-                      <span>⚠</span> {errors.subject}
-                    </p>
-                  )}
+                  <AnimatePresence>
+                    {errors.subject && (
+                      <motion.p
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        className="text-sm text-red-500 dark:text-red-400 flex items-center gap-1"
+                      >
+                        <span>⚠</span> {errors.subject}
+                      </motion.p>
+                    )}
+                  </AnimatePresence>
                 </div>
                 <div className="space-y-2">
                   <label
@@ -315,7 +414,8 @@ export default function ContactForm() {
                   >
                     Mensaje <span className="text-red-500">*</span>
                   </label>
-                  <textarea
+                  <motion.textarea
+                    whileFocus={{ scale: 1.02 }}
                     className={`w-full px-5 py-4 bg-white/50 dark:bg-slate-900/50 border rounded-xl focus:outline-none focus:ring-2 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 transition-all duration-300 resize-none backdrop-blur-sm ${
                       errors.message
                         ? "border-red-500 dark:border-red-500 focus:ring-red-500/50 focus:border-red-500"
@@ -326,15 +426,24 @@ export default function ContactForm() {
                     rows="5"
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                  ></textarea>
-                  {errors.message && (
-                    <p className="text-sm text-red-500 dark:text-red-400 flex items-center gap-1">
-                      <span>⚠</span> {errors.message}
-                    </p>
-                  )}
+                  ></motion.textarea>
+                  <AnimatePresence>
+                    {errors.message && (
+                      <motion.p
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        className="text-sm text-red-500 dark:text-red-400 flex items-center gap-1"
+                      >
+                        <span>⚠</span> {errors.message}
+                      </motion.p>
+                    )}
+                  </AnimatePresence>
                 </div>
-                <button
-                  className="w-full py-4 bg-gradient-to-r from-primary to-blue-500 text-white font-bold text-lg rounded-xl hover:shadow-2xl hover:shadow-primary/40 transform hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-2 group relative overflow-hidden disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="w-full py-4 bg-gradient-to-r from-primary to-blue-500 text-white font-bold text-lg rounded-xl hover:shadow-2xl hover:shadow-primary/40 transform transition-all duration-300 flex items-center justify-center gap-2 group relative overflow-hidden disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                   type="submit"
                   disabled={isLoading}
                 >
@@ -366,12 +475,12 @@ export default function ContactForm() {
                   ) : (
                     <IoSend className="relative text-xl group-hover:translate-x-1 transition-transform duration-300" />
                   )}
-                </button>
+                </motion.button>
               </form>
             </div>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </main>
   );
 }
