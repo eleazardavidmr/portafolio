@@ -6,7 +6,7 @@ export const getProfileInfo = async (userId) => {
 
   const { data, error } = await client
     .from("profiles")
-    .select("*")
+    .select("username, location, avatar_url, bio")
     .eq("id", userId)
     .single();
 

@@ -5,6 +5,7 @@ import SEO from "@/components/SEO";
 import { motion } from "framer-motion";
 import Loader from "@/components/Loader";
 import useNotifications from "@/hooks/useNotifications";
+import Layout from "@components/Layout";
 
 export default function BlogPage() {
   const { loadPosts, posts, loading } = usePosts();
@@ -31,8 +32,6 @@ export default function BlogPage() {
     },
   };
 
-
-
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
     visible: {
@@ -43,7 +42,7 @@ export default function BlogPage() {
   };
 
   return (
-    <>
+    <Layout>
       <SEO
         title="Blog & Recursos"
         description="Explora artículos sobre desarrollo frontend, tutoriales de React, y recursos para desarrolladores. Aprende y mejora tus habilidades de programación."
@@ -86,6 +85,6 @@ export default function BlogPage() {
           </motion.div>
         )}
       </div>
-    </>
+    </Layout>
   );
 }

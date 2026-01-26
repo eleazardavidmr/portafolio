@@ -1,5 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import useProfile from "@/hooks/useProfile";
 import toast from "react-hot-toast";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
 import {
@@ -71,6 +72,7 @@ export default function Navbar() {
     { name: "Contacto", href: "#contacto", show: isHomePage, isAnchor: true },
   ];
 
+  const { profile } = useProfile();
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 flex justify-center p-4 ${
@@ -242,8 +244,12 @@ export default function Navbar() {
                       onClick={() => setIsOpen(false)}
                       className="flex items-center flex-row gap-4 p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700"
                     >
-                      <div className="shrink-0 w-12 h-12 rounded-xl bg-primary flex items-center justify-center text-slate-950 font-black shadow-lg shadow-primary/20">
-                        EM
+                      <div className="shrink-0 w-12 h-12 rounded-xl flex items-center justify-center text-slate-950 font-black shadow-lg shadow-primary/20">
+                        <img
+                          src={profile?.avatar_url}
+                          alt="avatar"
+                          className="w-full h-full rounded-full"
+                        />
                       </div>
                       <div className="flex flex-col min-w-0">
                         <span className="text-sm font-black truncate text-slate-900 dark:text-slate-100">

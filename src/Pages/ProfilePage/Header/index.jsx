@@ -2,15 +2,14 @@ import { updateProfileInfo } from "@services/profile.service";
 import toast from "react-hot-toast";
 import useProfile from "@hooks/useProfile";
 import EditProfileModal from "@pages/ProfilePage/Header/EditProfileModal";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "@contexts/AuthContext";
 import { FaLocationDot } from "react-icons/fa6";
 import { FaCalendarAlt } from "react-icons/fa";
 import { FiLogOut } from "react-icons/fi";
 import { IoIosWarning } from "react-icons/io";
-export default function Header() {
-  const { profile, id, refreshProfile } = useProfile();
+export default function Header({ profile, userId }) {
   const [isEditProfileModalOpen, setIsEditProfileModalOpen] = useState(false);
   const { logout } = useContext(AuthContext);
   const navigate = useNavigate();

@@ -31,30 +31,21 @@ createRoot(document.getElementById("root")).render(
               <Route path="/certificados" element={<Certificados />} />
               <Route path="/proyectos" element={<Proyectos />} />
               <Route
+                path="/blog"
                 element={
-                  <Layout
-                    fullHeight
-                    containerClassName="flex-grow pt-24 pb-12 px-4 md:px-8 relative z-10"
-                  />
+                  <ProtectedRoute redirectTo="/login">
+                    <BlogPage />
+                  </ProtectedRoute>
                 }
-              >
-                <Route
-                  path="/blog"
-                  element={
-                    <ProtectedRoute redirectTo="/login">
-                      <BlogPage />
-                    </ProtectedRoute>
-                  }
-                />
-                <Route
-                  path="/blog/:slug"
-                  element={
-                    <ProtectedRoute redirectTo="/login">
-                      <PostPage />
-                    </ProtectedRoute>
-                  }
-                />
-              </Route>
+              />
+              <Route
+                path="/blog/:slug"
+                element={
+                  <ProtectedRoute redirectTo="/login">
+                    <PostPage />
+                  </ProtectedRoute>
+                }
+              />
               <Route
                 path="/profile"
                 element={

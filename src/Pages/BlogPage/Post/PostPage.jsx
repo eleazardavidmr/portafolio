@@ -3,6 +3,7 @@ import usePosts from "@/hooks/usePosts";
 import Post from "@pages/BlogPage/Post";
 import { useEffect, useState } from "react";
 import SEO from "@/components/SEO";
+import Layout from "@components/Layout";
 import Loader from "@/components/Loader";
 
 export default function PostPage() {
@@ -29,7 +30,7 @@ export default function PostPage() {
 
   if (!post) {
     return (
-      <>
+      <Layout>
         <SEO
           title="Post Not Found"
           description="The requested blog post could not be found."
@@ -45,12 +46,12 @@ export default function PostPage() {
             Back to Blog
           </a>
         </div>
-      </>
+      </Layout>
     );
   }
 
   return (
-    <>
+    <Layout>
       <SEO
         title={post.title}
         description={post.summary || `Read ${post.title} on Edmr Portfolio`}
@@ -58,6 +59,6 @@ export default function PostPage() {
         // image={post.cover_image} // Uncomment if cover image is available in post object
       />
       <Post postInfo={post} />
-    </>
+    </Layout>
   );
 }

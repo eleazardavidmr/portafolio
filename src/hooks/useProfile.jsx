@@ -51,7 +51,6 @@ export default function useProfile() {
       getUserId();
     } else {
       getProfileInfo();
-      getAllProfiles();
     }
   }, [id]);
 
