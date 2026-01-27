@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import Button from "@components/Main/Intro/Button";
 import { Link } from "react-router-dom";
 import { IoMdArrowForward } from "react-icons/io";
+import BlurText from "@components/react-bits/BlurText";
 
 export default function Intro() {
   return (
@@ -50,12 +51,13 @@ export default function Intro() {
             Frontend Developer
           </span>
           <h1 className="text-5xl md:text-8xl font-extrabold font-jetbrains tracking-tighter leading-[0.9]">
-            <span className="block text-slate-800 dark:text-white">
-              Eleazar
-            </span>
-            <span className="block bg-gradient-to-r from-primary to-cyan-400 bg-clip-text text-transparent">
-              Muñoz
-            </span>
+            <BlurText
+              text="Eleazar Muñoz"
+              delay={200}
+              animateBy="words"
+              direction="top"
+              className="text-5xl md:text-8xl font-extrabold font-jetbrains tracking-tighter leading-[0.9]"
+            />
           </h1>
         </div>
 

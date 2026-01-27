@@ -9,7 +9,13 @@ import { motion } from "framer-motion";
 
 import Project from "@components/Projects/Project";
 import SectionTitle from "@components/SectionTitle";
-
+import {
+  SiReact,
+  SiTypescript,
+  SiTailwindcss,
+  SiSupabase,
+} from "react-icons/si";
+import LogoLoop from "@components/react-bits/LogoLoop";
 export const PROJECTS = [
   {
     id: 6,
@@ -52,6 +58,21 @@ export const PROJECTS = [
     url: "https://atelierdeldulce.surge.sh",
     urlName: "atelierdeldulce.surge.sh",
     img: atelierdeldulce,
+  },
+];
+
+const techLogos = [
+  { node: <SiReact />, title: "React", href: "https://react.dev" },
+  { node: <SiSupabase />, title: "Supabase", href: "https://supabase.com" },
+  {
+    node: <SiTypescript />,
+    title: "TypeScript",
+    href: "https://www.typescriptlang.org",
+  },
+  {
+    node: <SiTailwindcss />,
+    title: "Tailwind CSS",
+    href: "https://tailwindcss.com",
   },
 ];
 
@@ -129,6 +150,19 @@ export default function Projects() {
             </motion.button>
           </Link>
         </div>
+      </div>
+      <div className="w-full flex justify-center mt-12">
+        {/* <LogoLoop
+          logos={techLogos}
+          speed={100}
+          direction="left"
+          logoHeight={60}
+          gap={60}
+          hoverSpeed={0}
+          scaleOnHover
+          fadeOut
+          ariaLabel="Technology partners"
+        /> */}
       </div>
     </section>
   );
