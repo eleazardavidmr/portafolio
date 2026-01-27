@@ -7,6 +7,8 @@ import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import { toast } from "react-hot-toast";
+import BlurText from "@components/react-bits/BlurText";
+
 export default function ContactForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -202,12 +204,14 @@ export default function ContactForm() {
               <span className="inline-block text-primary font-bold tracking-widest text-sm uppercase mb-4 px-4 py-2 bg-primary/10 rounded-full border border-primary/20">
                 Hablemos
               </span>
-              <h1 className="text-5xl md:text-6xl font-display font-extrabold text-slate-900 dark:text-white leading-tight mt-4">
-                ¿Tienes un{" "}
-                <span className="bg-gradient-to-r from-primary to-blue-500 bg-clip-text text-transparent">
-                  proyecto
-                </span>{" "}
-                en mente?
+              <h1 className="text-2xl md:text-6xl font-display font-extrabold text-slate-900 dark:text-white leading-tight mt-4">
+                <BlurText
+                  text="¿Tienes un proyecto en mente?"
+                  delay={200}
+                  animateBy="words"
+                  direction="top"
+                  className="text-2xl md:text-6xl font-extrabold font-jetbrains tracking-tighter leading-[0.9]"
+                />
               </h1>
               <p className="mt-6 text-lg text-slate-600 dark:text-slate-400 max-w-md leading-relaxed">
                 Estoy disponible para proyectos freelance y oportunidades de
