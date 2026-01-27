@@ -12,7 +12,7 @@ import {
   FiBookOpen,
 } from "react-icons/fi";
 // import { FaUserFriends } from "react-icons/fa";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { NavLink, Link, useNavigate, useLocation } from "react-router-dom";
 import { AuthContext } from "@contexts/AuthContext";
 import useNotifications from "@/hooks/useNotifications";
 
@@ -103,15 +103,19 @@ export default function Navbar() {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-sm font-bold text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"
+                  className="text-sm font-bold text-slate-700 dark:text-slate-300 hover:text-primary hover:underline hover:underline-offset-2 hover:underline-primary dark:hover:text-primary transition-colors"
                 >
                   {link.name}
                 </a>
               ) : (
-                <Link
+                <NavLink
                   key={link.name}
                   to={link.href}
-                  className="relative text-sm font-bold text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "relative text-sm font-bold  text-primary transition-colors underline underline-offset-4 decoration-2 decoration-primary"
+                      : "relative text-sm font-bold text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors hover:underline hover:underline-offset-2 hover:underline-primary"
+                  }
                 >
                   {link.name}
                   {link.name === "Blog" && hasNewPosts && (
@@ -120,7 +124,7 @@ export default function Navbar() {
                       <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
                     </span>
                   )}
-                </Link>
+                </NavLink>
               ),
             )}
 
