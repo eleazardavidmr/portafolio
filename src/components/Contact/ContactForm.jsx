@@ -16,7 +16,6 @@ export default function ContactForm() {
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  // Error states
   const [errors, setErrors] = useState({
     name: "",
     email: "",
@@ -26,7 +25,6 @@ export default function ContactForm() {
 
   const form = useRef();
 
-  // Validation functions
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
@@ -42,7 +40,6 @@ export default function ContactForm() {
 
     let isValid = true;
 
-    // Validate name
     if (!name || name.trim().length === 0) {
       newErrors.name = "El nombre es requerido";
       isValid = false;
@@ -149,7 +146,10 @@ export default function ContactForm() {
   };
 
   return (
-    <main className="flex-grow pt-32 pb-20 px-6 relative overflow-hidden">
+    <main
+      className="flex-grow pt-32 pb-20 px-6 relative overflow-hidden"
+      id="contact"
+    >
       {/* Animated gradient orbs */}
       <motion.div
         animate={{
