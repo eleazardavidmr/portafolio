@@ -50,13 +50,13 @@ export default function Intro() {
           <span className="text-sm font-bold tracking-[0.3em] text-cyan-700 dark:text-cyan-400 uppercase">
             Frontend Developer
           </span>
-          <h1 className="text-5xl md:text-8xl font-extrabold font-jetbrains tracking-tighter leading-[0.9]">
+          <h1 className="text-center flex justify-center w-full items-center">
             <BlurText
               text="Eleazar Muñoz"
               delay={200}
               animateBy="words"
               direction="top"
-              className="text-5xl md:text-8xl font-extrabold font-jetbrains tracking-tighter leading-[0.9]"
+              className="text-5xl md:text-8xl font-extrabold font-jetbrains flex justify-center w-full"
             />
           </h1>
         </div>
