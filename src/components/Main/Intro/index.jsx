@@ -62,7 +62,7 @@ export default function Intro() {
         </div>
 
         <p className="w-[90%] md:w-[85%] text-lg md:text-xl text-slate-700 dark:text-slate-300 leading-relaxed font-inter">
-          Desarrollador web frontend apasionado por el diseño minimalista y las
+          Desarrollador frontend apasionado por el diseño minimalista y las
           experiencias digitales fluidas. Especializado en React y ecosistemas
           modernos.
         </p>

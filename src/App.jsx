@@ -1,5 +1,5 @@
 import Projects from "@components/Projects";
-import Contact from "@components/Contact";
+// import Contact from "@components/Contact";
 import Main from "@components/Main";
 import Layout from "@components/Layout";
 import SEO from "@components/SEO";
