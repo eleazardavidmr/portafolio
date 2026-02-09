@@ -1,9 +1,11 @@
-import Projects from "@components/Projects";
-// import Contact from "@components/Contact";
+import { lazy, Suspense } from "react";
 import Main from "@components/Main";
 import Layout from "@components/Layout";
 import SEO from "@components/SEO";
-import ContactForm from "@components/Contact/ContactForm";
+
+const Projects = lazy(() => import("@components/Projects"));
+const ContactForm = lazy(() => import("@components/Contact/ContactForm"));
+
 function App() {
   return (
     <>
@@ -14,9 +16,10 @@ function App() {
           keywords="blog programacion, desarrollo web, frontend, react, javascript, tutoriales"
         />
         <Main />
-        <Projects />
-        <ContactForm />
-        {/* <Contact /> */}
+        <Suspense fallback={null}>
+          <Projects />
+          <ContactForm />
+        </Suspense>
       </Layout>
     </>
   );
