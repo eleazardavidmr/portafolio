@@ -14,7 +14,11 @@ const BlogPage = lazy(() => import("@pages/BlogPage/index.jsx"));
 const PostPage = lazy(() => import("@pages/BlogPage/Post/PostPage.jsx"));
 const ProfilePage = lazy(() => import("@pages/ProfilePage/index.jsx"));
 const NotFoundPage = lazy(() => import("@components/NotFoundPage/index.jsx"));
+const ServicesPage = lazy(() => import("@pages/ServicesPage/index.jsx"));
 const LoginPage = lazy(() => import("@pages/LoginPage/index.jsx"));
+const ProjectDetail = lazy(
+  () => import("@components/Projects/ProjectDetail.jsx"),
+);
 
 import { AuthProvider } from "@contexts/AuthContext";
 import ProtectedRoute from "@components/ProtectedRoute/index.jsx";
@@ -30,6 +34,8 @@ createRoot(document.getElementById("root")).render(
               <Route path="/" element={<App />} />
               <Route path="/certificados" element={<Certificados />} />
               <Route path="/proyectos" element={<Proyectos />} />
+              <Route path="/proyectos/:slug" element={<ProjectDetail />} />
+              <Route path="/servicios" element={<ServicesPage />} />
               <Route
                 path="/blog"
                 element={

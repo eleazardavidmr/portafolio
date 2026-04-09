@@ -1,11 +1,12 @@
 import PropTypes from "prop-types";
 import { motion } from "framer-motion";
 import { FiExternalLink } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 export default function Project({ data }) {
   return (
-    <motion.a
-      href={data.url}
+    <Link
+      to={`/proyectos/${data.slug}`}
       target="_blank"
       rel="noopener noreferrer"
       whileHover={{ y: -8, transition: { duration: 0.2 } }}
@@ -49,7 +50,7 @@ export default function Project({ data }) {
 
       {/* Modern Hover Accent */}
       <div className="absolute bottom-0 left-0 w-full h-1.5 bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-    </motion.a>
+    </Link>
   );
 }
 
@@ -57,6 +58,7 @@ Project.propTypes = {
   data: PropTypes.shape({
     img: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
+    slug: PropTypes.string.isRequired,
     url: PropTypes.string.isRequired,
     urlName: PropTypes.string.isRequired,
   }).isRequired,

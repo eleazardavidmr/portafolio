@@ -62,14 +62,14 @@ export default function Navbar() {
   const links = [
     { name: "Inicio", href: "/", icon: <FiHome />, show: true },
     { name: "Blog", href: "/blog", icon: <FiBookOpen />, show: true },
-    // {
-    //   name: "Miembros",
-    //   href: "/miembros",
-    //   icon: <FaUserFriends />,
-    //   show: true,
-    // },
     { name: "Proyectos", href: "#proyectos", show: isHomePage, isAnchor: true },
     { name: "Contacto", href: "#contacto", show: isHomePage, isAnchor: true },
+    {
+      name: "Servicios",
+      href: "/servicios",
+      show: isHomePage,
+      isAnchor: false,
+    },
   ];
 
   const { profile } = useProfile();
