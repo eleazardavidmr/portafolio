@@ -148,7 +148,7 @@ export default function ContactForm() {
   return (
     <main
       className="flex-grow pt-32 pb-20 px-6 relative overflow-hidden"
-      id="contact"
+      id="contacto"
     >
       {/* Animated gradient orbs */}
       <motion.div

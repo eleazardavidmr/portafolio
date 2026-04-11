@@ -12,7 +12,7 @@ import {
   FiBookOpen,
 } from "react-icons/fi";
 // import { FaUserFriends } from "react-icons/fa";
-import { NavLink, Link, useNavigate, useLocation } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "@contexts/AuthContext";
 import useNotifications from "@/hooks/useNotifications";
 
@@ -24,8 +24,6 @@ export default function Navbar() {
   const { hasNewPosts } = useNotifications();
 
   const navigate = useNavigate();
-  const location = useLocation();
-  const isHomePage = location.pathname === "/";
 
   // Control de scroll para el estilo del navbar
   useEffect(() => {
@@ -62,12 +60,12 @@ export default function Navbar() {
   const links = [
     { name: "Inicio", href: "/", icon: <FiHome />, show: true },
     { name: "Blog", href: "/blog", icon: <FiBookOpen />, show: true },
-    { name: "Proyectos", href: "#proyectos", show: isHomePage, isAnchor: true },
-    { name: "Contacto", href: "#contacto", show: isHomePage, isAnchor: true },
+    { name: "Proyectos", href: "/#proyectos", show: true, isAnchor: true },
+    { name: "Contacto", href: "/#contacto", show: true, isAnchor: true },
     {
       name: "Servicios",
       href: "/servicios",
-      show: isHomePage,
+      show: true,
       isAnchor: false,
     },
   ];
@@ -216,25 +214,47 @@ export default function Navbar() {
                       transition={{ delay: i * 0.1 }}
                     >
                       {/* Usamos un componente común para evitar repetir estilos */}
-                      <Link
-                        to={link.href}
-                        onClick={() => setIsOpen(false)}
-                        className="flex items-center flex-row gap-4 p-3 w-full rounded-xl text-slate-800 dark:text-slate-100 hover:bg-primary/10 group transition-all"
-                      >
-                        {/* Contenedor del icono con tamaño fijo para que todo esté alineado */}
-                        {link.icon && (
-                          <div className="text-primary text-2xl flex items-center justify-center w-8">
-                            {link.icon}
-                          </div>
-                        )}
-                        <span className="text-lg font-bold">{link.name}</span>
-                        {link.name === "Blog" && hasNewPosts && (
-                          <span className="ml-auto flex h-2.5 w-2.5">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
-                          </span>
-                        )}
-                      </Link>
+                      {link.isAnchor ? (
+                        <a
+                          href={link.href}
+                          onClick={() => setIsOpen(false)}
+                          className="flex items-center flex-row gap-4 p-3 w-full rounded-xl text-slate-800 dark:text-slate-100 hover:bg-primary/10 group transition-all"
+                        >
+                          {/* Contenedor del icono con tamaño fijo para que todo esté alineado */}
+                          {link.icon && (
+                            <div className="text-primary text-2xl flex items-center justify-center w-8">
+                              {link.icon}
+                            </div>
+                          )}
+                          <span className="text-lg font-bold">{link.name}</span>
+                          {link.name === "Blog" && hasNewPosts && (
+                            <span className="ml-auto flex h-2.5 w-2.5">
+                              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
+                            </span>
+                          )}
+                        </a>
+                      ) : (
+                        <Link
+                          to={link.href}
+                          onClick={() => setIsOpen(false)}
+                          className="flex items-center flex-row gap-4 p-3 w-full rounded-xl text-slate-800 dark:text-slate-100 hover:bg-primary/10 group transition-all"
+                        >
+                          {/* Contenedor del icono con tamaño fijo para que todo esté alineado */}
+                          {link.icon && (
+                            <div className="text-primary text-2xl flex items-center justify-center w-8">
+                              {link.icon}
+                            </div>
+                          )}
+                          <span className="text-lg font-bold">{link.name}</span>
+                          {link.name === "Blog" && hasNewPosts && (
+                            <span className="ml-auto flex h-2.5 w-2.5">
+                              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
+                            </span>
+                          )}
+                        </Link>
+                      )}
                     </motion.div>
                   ))}
               </div>
