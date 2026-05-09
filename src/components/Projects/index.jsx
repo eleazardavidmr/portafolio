@@ -2,7 +2,7 @@ import jorgevalbuena from "/img/projects/immunotec/immunotec.jpg";
 import dydcrochet from "/img/projects/dydcrochet/dydcrochet.webp";
 import stizzo_planet from "/img/projects/stizzoplanet/stizzo-planet.webp";
 import atelierdeldulce from "/img/projects/atelierdeldulce/atelierdeldulce.webp";
-import arrozConLeche from "/img/projects/arroz-con-leche/arroz-con-leche.jpg";
+import mineroz from "/img/projects/mineroz/mineroz.jpg";
 import retroStack from "/img/projects/retro-stack/retro-stack.webp";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -19,39 +19,40 @@ import LogoLoop from "@components/react-bits/LogoLoop";
 export const PROJECTS = [
   {
     id: 6,
-    name: "Retro Stack",
-    slug: "retro-stack",
-    url: "https://retro-stack.vercel.app/",
-    urlName: "retro-stack.vercel.app",
-    img: retroStack,
+    name: "Atelier del Dulce",
+    slug: "atelier-del-dulce",
+    url: "https://atelierdeldulce.online",
+    urlName: "atelierdeldulce.online",
+    img: atelierdeldulce,
     description:
-      "Un IDE visual de alto rendimiento diseñado para manipulación de código de baja latencia. Construido durante un sprint de 48 horas, desafía los límites tradicionales de la edición basada en terminal al introducir una capa visual espacial sobre comandos de shell estándar.",
+      "Un sitio web hermosamente diseñado para un negocio de pasteles y postres. Presenta galerías de productos, información de pedidos e una interfaz elegante que refleja el arte de la confitería.",
     longDescription:
-      "El desafío principal fue gestionar la sincronización de estado en tiempo real entre el árbol de sintaxis abstracta y el gráfico visual del nodo sin introducir lag detectable. A través de algoritmos de diferencia personalizados, logramos tiempos de renderizado sub-5ms incluso en estructuras de archivos complejas. El resultado final es una herramienta utilizada por desarrolladores para visualizar arquitecturas de código.",
-    technologies: ["React", "Tailwind CSS", "Vercel", "TypeScript"],
+      "Este proyecto combina diseño estético con experiencia de usuario funcional para mostrar creaciones de postres artesanales. El sitio incluye galerías, sección acerca de e información de contacto para una presencia en línea completa.",
+    technologies: ["React", "Tailwind CSS", "JavaScript", "Responsive Design"],
     screenshots: [
-      "/img/projects/retro-stack/screenshot1.jpg", // Reemplaza con captura de pantalla real
-      "/img/projects/retro-stack/screenshot2.jpg", // Reemplaza con captura de pantalla real
+      "/img/projects/atelierdeldulce/screenshot1.jpg", // Reemplaza con captura de pantalla real
+      "/img/projects/atelierdeldulce/screenshot2.jpg", // Reemplaza con captura de pantalla real
     ],
     branch: "main",
     status: "DESPLEGADO",
-    client: "Proyecto Personal",
+    client: "Panadería Atelier del Dulce",
   },
+
   {
     id: 5,
-    name: "Arroz con Leche",
-    slug: "arroz-con-leche",
-    url: "https://arroces.vercel.app/",
-    urlName: "arroces.vercel.app",
-    img: arrozConLeche,
+    name: "Mineroz",
+    slug: "mineroz",
+    url: "https://mineroz.online",
+    urlName: "mineroz.online",
+    img: mineroz,
     description:
       "Una aplicación web moderna para un proyecto culinario. Cuenta con una interfaz elegante para mostrar recetas y contenido de alimentos con animaciones suaves y diseño responsivo.",
     longDescription:
       "Construida con React y Tailwind CSS, este proyecto demuestra principios limpios de diseño UI/UX y desarrollo web responsivo. La aplicación proporciona una experiencia de usuario atractiva para los entusiastas de la comida.",
     technologies: ["React", "Tailwind CSS", "Vercel", "JavaScript"],
     screenshots: [
-      "/img/projects/arroz-con-leche/screenshot1.jpg", // Reemplaza con captura de pantalla real
-      "/img/projects/arroz-con-leche/screenshot2.jpg", // Reemplaza con captura de pantalla real
+      "/img/projects/mineroz/screenshot1.jpg", // Reemplaza con captura de pantalla real
+      "/img/projects/mineroz/screenshot2.jpg", // Reemplaza con captura de pantalla real
     ],
     branch: "main",
     status: "DESPLEGADO",
@@ -117,25 +118,26 @@ export const PROJECTS = [
     status: "DESPLEGADO",
     client: "Marca Stizzo",
   },
+
   {
     id: 1,
-    name: "Atelier del Dulce",
-    slug: "atelier-del-dulce",
-    url: "https://atelierdeldulce.surge.sh",
-    urlName: "atelierdeldulce.surge.sh",
-    img: atelierdeldulce,
+    name: "Retro Stack",
+    slug: "retro-stack",
+    url: "https://retro-stack.vercel.app/",
+    urlName: "retro-stack.vercel.app",
+    img: retroStack,
     description:
-      "Un sitio web hermosamente diseñado para un negocio de pasteles y postres. Presenta galerías de productos, información de pedidos e una interfaz elegante que refleja el arte de la confitería.",
+      "Un IDE visual de alto rendimiento diseñado para manipulación de código de baja latencia. Construido durante un sprint de 48 horas, desafía los límites tradicionales de la edición basada en terminal al introducir una capa visual espacial sobre comandos de shell estándar.",
     longDescription:
-      "Este proyecto combina diseño estético con experiencia de usuario funcional para mostrar creaciones de postres artesanales. El sitio incluye galerías, sección acerca de e información de contacto para una presencia en línea completa.",
-    technologies: ["React", "Tailwind CSS", "JavaScript", "Responsive Design"],
+      "El desafío principal fue gestionar la sincronización de estado en tiempo real entre el árbol de sintaxis abstracta y el gráfico visual del nodo sin introducir lag detectable. A través de algoritmos de diferencia personalizados, logramos tiempos de renderizado sub-5ms incluso en estructuras de archivos complejas. El resultado final es una herramienta utilizada por desarrolladores para visualizar arquitecturas de código.",
+    technologies: ["React", "Tailwind CSS", "Vercel", "TypeScript"],
     screenshots: [
-      "/img/projects/atelierdeldulce/screenshot1.jpg", // Reemplaza con captura de pantalla real
-      "/img/projects/atelierdeldulce/screenshot2.jpg", // Reemplaza con captura de pantalla real
+      "/img/projects/retro-stack/screenshot1.jpg", // Reemplaza con captura de pantalla real
+      "/img/projects/retro-stack/screenshot2.jpg", // Reemplaza con captura de pantalla real
     ],
     branch: "main",
     status: "DESPLEGADO",
-    client: "Panadería Atelier del Dulce",
+    client: "Proyecto Personal",
   },
 ];
 
