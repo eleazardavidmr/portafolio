@@ -15,6 +15,7 @@ const PostPage = lazy(() => import("@pages/BlogPage/Post/PostPage.jsx"));
 const ProfilePage = lazy(() => import("@pages/ProfilePage/index.jsx"));
 const NotFoundPage = lazy(() => import("@components/NotFoundPage/index.jsx"));
 const ServicesPage = lazy(() => import("@pages/ServicesPage/index.jsx"));
+const ContactPage = lazy(() => import("@pages/ContactPage/index.jsx"));
 const LoginPage = lazy(() => import("@pages/LoginPage/index.jsx"));
 const ProjectDetail = lazy(
   () => import("@components/Projects/ProjectDetail.jsx"),
@@ -36,6 +37,7 @@ createRoot(document.getElementById("root")).render(
               <Route path="/proyectos" element={<Proyectos />} />
               <Route path="/proyectos/:slug" element={<ProjectDetail />} />
               <Route path="/servicios" element={<ServicesPage />} />
+              <Route path="/contacto" element={<ContactPage />} />
               <Route
                 path="/blog"
                 element={

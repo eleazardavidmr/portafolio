@@ -4,7 +4,6 @@ import Layout from "@components/Layout";
 import SEO from "@components/SEO";
 
 const Projects = lazy(() => import("@components/Projects"));
-const ContactForm = lazy(() => import("@components/Contact/ContactForm"));
 
 function App() {
   return (
@@ -18,7 +17,6 @@ function App() {
         <Main />
         <Suspense fallback={null}>
           <Projects />
-          <ContactForm />
         </Suspense>
       </Layout>
     </>

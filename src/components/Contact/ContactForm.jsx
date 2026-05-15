@@ -3,15 +3,22 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { AiFillInstagram } from "react-icons/ai";
 import { IoSend } from "react-icons/io5";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import { toast } from "react-hot-toast";
 import BlurText from "@components/react-bits/BlurText";
+import {
+  CONTACT_SERVICE_SELECT_OPTIONS,
+  CONTACT_SERVICE_SLUG_TO_LABEL,
+} from "@constants/contactServiceSelect";
 
 export default function ContactForm() {
+  const [searchParams] = useSearchParams();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [servicioInteres, setServicioInteres] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -19,9 +26,17 @@ export default function ContactForm() {
   const [errors, setErrors] = useState({
     name: "",
     email: "",
+    servicio: "",
     subject: "",
     message: "",
   });
+
+  useEffect(() => {
+    const slug = searchParams.get("servicio");
+    if (slug && CONTACT_SERVICE_SLUG_TO_LABEL[slug]) {
+      setServicioInteres(CONTACT_SERVICE_SLUG_TO_LABEL[slug]);
+    }
+  }, [searchParams]);
 
   const form = useRef();
 
@@ -34,6 +49,7 @@ export default function ContactForm() {
     const newErrors = {
       name: "",
       email: "",
+      servicio: "",
       subject: "",
       message: "",
     };
@@ -54,6 +70,11 @@ export default function ContactForm() {
       isValid = false;
     } else if (!validateEmail(email)) {
       newErrors.email = "Por favor ingresa un email válido";
+      isValid = false;
+    }
+
+    if (!servicioInteres || servicioInteres.trim().length === 0) {
+      newErrors.servicio = "Selecciona el servicio de tu interés";
       isValid = false;
     }
 
@@ -103,11 +124,13 @@ export default function ContactForm() {
           // Reset form
           setName("");
           setEmail("");
+          setServicioInteres("");
           setSubject("");
           setMessage("");
           setErrors({
             name: "",
             email: "",
+            servicio: "",
             subject: "",
             message: "",
           });
@@ -146,7 +169,7 @@ export default function ContactForm() {
   };
 
   return (
-    <main
+    <section
       className="flex-grow pt-32 pb-20 px-6 relative overflow-hidden"
       id="contacto"
     >
@@ -381,6 +404,50 @@ export default function ContactForm() {
                 <div className="space-y-2">
                   <label
                     className="text-sm font-semibold text-slate-700 dark:text-slate-300"
+                    htmlFor="servicio_interes"
+                  >
+                    Servicio de interés <span className="text-red-500">*</span>
+                  </label>
+                  <select
+                    id="servicio_interes"
+                    name="servicio_interes"
+                    value={servicioInteres}
+                    onChange={(e) => setServicioInteres(e.target.value)}
+                    className={`w-full px-5 py-4 bg-white/50 dark:bg-slate-900/50 border rounded-xl focus:outline-none focus:ring-2 text-slate-900 dark:text-white transition-all duration-300 backdrop-blur-sm appearance-none cursor-pointer ${
+                      errors.servicio
+                        ? "border-red-500 dark:border-red-500 focus:ring-red-500/50 focus:border-red-500"
+                        : "border-slate-300/50 dark:border-slate-600/50 focus:ring-primary/50 focus:border-primary focus:shadow-lg focus:shadow-primary/20"
+                    }`}
+                    style={{
+                      backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2394a3b8'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`,
+                      backgroundRepeat: "no-repeat",
+                      backgroundPosition: "right 1rem center",
+                      backgroundSize: "1.25rem",
+                    }}
+                  >
+                    <option value="">Selecciona un servicio…</option>
+                    {CONTACT_SERVICE_SELECT_OPTIONS.map((opt) => (
+                      <option key={opt.value} value={opt.label}>
+                        {opt.label}
+                      </option>
+                    ))}
+                  </select>
+                  <AnimatePresence>
+                    {errors.servicio && (
+                      <motion.p
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        className="text-sm text-red-500 dark:text-red-400 flex items-center gap-1"
+                      >
+                        <span>⚠</span> {errors.servicio}
+                      </motion.p>
+                    )}
+                  </AnimatePresence>
+                </div>
+                <div className="space-y-2">
+                  <label
+                    className="text-sm font-semibold text-slate-700 dark:text-slate-300"
                     htmlFor="subject"
                   >
                     Asunto <span className="text-red-500">*</span>
@@ -485,6 +552,6 @@ export default function ContactForm() {
           </motion.div>
         </div>
       </motion.div>
-    </main>
+    </section>
   );
 }

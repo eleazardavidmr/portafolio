@@ -8,34 +8,69 @@ import {
 import { FaPaintBrush, FaTerminal } from "react-icons/fa";
 import { IoIosTrendingUp } from "react-icons/io";
 import { CiChat1 } from "react-icons/ci";
+import { SiN8N } from "react-icons/si";
 import SectionTile from "@/components/SectionTitle";
 import PropTypes from "prop-types";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const SERVICES = [
   {
     id: 1,
+    contactSlug: "landing",
     title: "Landing Page",
     icon: MdOutlineRocketLaunch,
     description:
       "Ideal para captar clientes rápidamente. Enfoque total en conversión, integración de botón de WhatsApp y optimización móvil extrema.",
+    details: [
+      "Enfoque en conversión y tiempos de carga rápidos.",
+      "CTAs claros (WhatsApp, formularios) listos para medir resultados.",
+      "Diseño mobile-first con base SEO técnica sólida.",
+    ],
     tags: ["Estéticas", "Consultores"],
   },
   {
     id: 2,
+    contactSlug: "sitio-profesional",
     title: "Sitio Web Profesional",
     icon: MdCorporateFare,
     description:
       "Para construir una marca sólida y confiable. Estructura multipágina: Home, Servicios, Nosotros y Contacto con diseño editorial.",
+    details: [
+      "Arquitectura multipágina alineada a tu marca.",
+      "Sistema visual consistente: tipografía, color y componentes.",
+      "Listo para escalar con blog, CRM o automatizaciones.",
+    ],
     tags: ["Academias", "Empresas"],
   },
   {
     id: 3,
+    contactSlug: "citas",
     title: "Sitio Web con Sistema de Citas",
     icon: MdEventAvailable,
     description:
       "Automatiza tu negocio por completo. Gestión de disponibilidad en tiempo real y reserva de turnos integrada sin fricciones.",
+    details: [
+      "Disponibilidad y reservas en tiempo real para tu equipo.",
+      "Flujos que reducen inasistencias y trabajo administrativo.",
+      "Encaje con pagos o depósitos según tu modelo de negocio.",
+    ],
     tags: ["Barberías", "Spas", "Psicólogos"],
+  },
+  {
+    id: 4,
+    contactSlug: "web-automatizacion",
+    title: "Desarrollo Web con Automatización Integrada",
+    icon: SiN8N,
+    description:
+      "Tu web no termina en el front: formularios, leads, pagos y datos crudos conectados a procesos internos confiables y medibles.",
+    detailsVariant: "n8n",
+    details: [
+      "Flujos en n8n: webhooks desde el sitio hacia CRM, email y hojas de cálculo sin reescribir integraciones a mano.",
+      "Orquestación con nodos HTTP, triggers programados y respuestas en tiempo real para mantener datos siempre al día.",
+      "Menos copiar/pegar entre herramientas: un solo tablero de automatización junto a tu producto web.",
+    ],
+    tags: ["Startups", "Equipos de ops", "Agencias"],
   },
 ];
 
@@ -72,6 +107,7 @@ const FEATURES = [
 
 function ServiceCard({ service }) {
   const IconComponent = service.icon;
+  const isN8nAccent = service.detailsVariant === "n8n";
 
   return (
     <motion.div
@@ -80,14 +116,18 @@ function ServiceCard({ service }) {
       whileHover={{ y: -8 }}
       transition={{ duration: 0.5 }}
       viewport={{ once: true, margin: "-50px" }}
-      className="group bg-surface-container-highest p-8 rounded-2xl transition-all duration-300 hover:bg-surface-bright flex flex-col h-full border border-outline-variant/30 hover:border-primary/30"
+      className="group bg-surface-container-highest p-8 rounded-2xl transition-all duration-300 hover:bg-surface-bright flex flex-col h-full border border-transparent shadow-sm shadow-black/[0.04] dark:shadow-black/25 hover:border-primary/35 hover:shadow-md hover:shadow-black/[0.07] dark:hover:shadow-black/45"
     >
       <motion.div
         className="mb-8"
         whileHover={{ scale: 1.1, rotate: 5 }}
         transition={{ duration: 0.3 }}
       >
-        <span className="material-symbols-outlined text-primary text-4xl">
+        <span
+          className={`material-symbols-outlined text-4xl ${
+            isN8nAccent ? "text-[#EA4B71]" : "text-primary"
+          }`}
+        >
           <IconComponent />
         </span>
       </motion.div>
@@ -97,6 +137,17 @@ function ServiceCard({ service }) {
       <p className="font-body text-on-surface-variant text-sm mb-6 leading-relaxed">
         {service.description}
       </p>
+      <ul
+        className={`list-disc pl-4 space-y-2 text-xs leading-relaxed mb-6 ${
+          isN8nAccent
+            ? "text-[#EA4B71] marker:text-[#EA4B71]/80"
+            : "text-on-surface-variant marker:text-on-surface-variant/60"
+        }`}
+      >
+        {service.details.map((line) => (
+          <li key={line}>{line}</li>
+        ))}
+      </ul>
       <div className="mt-auto">
         <p className="text-xs font-label uppercase tracking-widest text-primary/60 mb-4">
           Perfecto para:
@@ -115,6 +166,12 @@ function ServiceCard({ service }) {
             </motion.span>
           ))}
         </div>
+        <Link
+          to={`/contacto?servicio=${service.contactSlug}`}
+          className="mt-6 inline-flex w-full items-center justify-center rounded-xl border border-primary/40 bg-primary/10 px-4 py-3 text-center text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+        >
+          Solicitar este servicio
+        </Link>
       </div>
     </motion.div>
   );
@@ -123,9 +180,12 @@ function ServiceCard({ service }) {
 ServiceCard.propTypes = {
   service: PropTypes.shape({
     id: PropTypes.number.isRequired,
+    contactSlug: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     icon: PropTypes.elementType.isRequired,
     description: PropTypes.string.isRequired,
+    details: PropTypes.arrayOf(PropTypes.string).isRequired,
+    detailsVariant: PropTypes.oneOf(["n8n"]),
     tags: PropTypes.arrayOf(PropTypes.string).isRequired,
   }).isRequired,
 };
@@ -219,7 +279,7 @@ export default function ServicesPage() {
         >
           <div className="max-w-screen-2xl mx-auto">
             <motion.div
-              className="grid grid-cols-1 md:grid-cols-3 gap-8"
+              className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8"
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, margin: "-50px" }}

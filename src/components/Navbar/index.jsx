@@ -61,7 +61,7 @@ export default function Navbar() {
     { name: "Inicio", href: "/", icon: <FiHome />, show: true },
     { name: "Blog", href: "/blog", icon: <FiBookOpen />, show: true },
     { name: "Proyectos", href: "/#proyectos", show: true, isAnchor: true },
-    { name: "Contacto", href: "/#contacto", show: true, isAnchor: true },
+    { name: "Contacto", href: "/contacto", show: true, isAnchor: false },
     {
       name: "Servicios",
       href: "/servicios",
