@@ -21,24 +21,7 @@ export default function About() {
 
         <div className="font-inter space-y-6">
           <p className="mt-8 text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-            Descubrí el mundo de la programación en el año{" "}
-            {/* Resaltado con Primary y fuente técnica */}
-            <span className="font-bold text-primary font-jetbrains text-xl">
-              2020
-            </span>{" "}
-            durante la pandemia. Desde ese momento, mi pasión por el desarrollo
-            web y la tecnología ha crecido exponencialmente, convirtiéndose en
-            mi estilo de vida.
-          </p>
-
-          <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-            Mis primeros proyectos fueron básicos, pero con dedicación y
-            práctica constante me he ido perfeccionando. Hoy me especializo en{" "}
-            <span className="font-bold text-primary font-jetbrains">
-              Frontend Development
-            </span>
-            , transformando diseños complejos en experiencias de usuario
-            fluidas, rápidas y accesibles.
+            Soy Eleazar, desarrollador web con experiencia en React y tecnologías modernas. Mi enfoque es simple: sitios que se vean bien y que trabajen para tu negocio.
           </p>
         </div>
       </div>

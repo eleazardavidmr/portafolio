@@ -146,11 +146,35 @@ export default function Navbar() {
           ) : (
             <Link
               to="/login"
-              className="bg-primary text-slate-950 px-5 py-2 rounded-xl font-bold hover:scale-105 transition-transform"
+              className="text-sm font-bold text-slate-700 dark:text-slate-300 hover:text-primary transition-colors"
             >
               Entrar
             </Link>
           )}
+
+          <a
+            href="https://wa.me/573155614748?text=Hola%20Eleazar,%20quiero%20una%20página%20web."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-primary text-slate-950 px-5 py-2 rounded-xl font-bold hover:scale-105 transition-transform flex items-center gap-2 shadow-md shadow-primary/20"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
+              <path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" />
+            </svg>
+            <span>Hablemos</span>
+          </a>
         </div>
 
         {/* Mobile Toggle */}
@@ -294,14 +318,39 @@ export default function Navbar() {
                     </button>
                   </div>
                 ) : (
-                  <Link
-                    to="/login"
-                    onClick={() => setIsOpen(false)}
-                    className="flex items-center justify-center gap-2 w-full py-4 rounded-2xl bg-primary text-slate-950 font-black uppercase tracking-widest"
-                  >
-                    <span>Entrar</span>
-                    <FiLogOut className="rotate-180" />
-                  </Link>
+                  <div className="flex flex-col gap-3 w-full">
+                    <a
+                      href="https://wa.me/573155614748?text=Hola%20Eleazar,%20quiero%20una%20página%20web."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setIsOpen(false)}
+                      className="flex items-center justify-center gap-2 w-full py-4 rounded-2xl bg-primary text-slate-950 font-black uppercase tracking-widest hover:scale-105 transition-transform"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
+                        <path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" />
+                      </svg>
+                      <span>Hablemos</span>
+                    </a>
+                    <Link
+                      to="/login"
+                      onClick={() => setIsOpen(false)}
+                      className="text-center text-slate-500 dark:text-slate-400 font-bold hover:text-primary transition-colors text-sm py-2"
+                    >
+                      Entrar
+                    </Link>
+                  </div>
                 )}
               </div>
             </motion.div>

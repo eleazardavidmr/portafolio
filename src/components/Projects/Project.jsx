@@ -38,6 +38,12 @@ export default function Project({ data }) {
           {data.name}
         </h3>
 
+        {data.context && (
+          <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-inter">
+            {data.context}
+          </p>
+        )}
+
         <div className="flex items-center gap-2">
           <span className="text-xs font-semibold px-2 py-1 rounded-md bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400">
             Web App
@@ -61,5 +67,6 @@ Project.propTypes = {
     slug: PropTypes.string.isRequired,
     url: PropTypes.string.isRequired,
     urlName: PropTypes.string.isRequired,
+    context: PropTypes.string,
   }).isRequired,
 };

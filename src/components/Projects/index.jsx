@@ -24,6 +24,7 @@ export const PROJECTS = [
     url: "https://atelierdeldulce.online",
     urlName: "atelierdeldulce.online",
     img: atelierdeldulce,
+    context: "Sitio para repostería artesanal — necesitaban mostrar su catálogo de forma elegante y captar clientes directamente.",
     description:
       "Un sitio web hermosamente diseñado para un negocio de pasteles y postres. Presenta galerías de productos, información de pedidos e una interfaz elegante que refleja el arte de la confitería.",
     longDescription:
@@ -45,10 +46,11 @@ export const PROJECTS = [
     url: "https://mineroz.online",
     urlName: "mineroz.online",
     img: mineroz,
+    context: "Sitio para proyecto culinario — necesitaban una presencia profesional en línea para compartir recetas y conectar con entusiastas de la comida.",
     description:
       "Una aplicación web moderna para un proyecto culinario. Cuenta con una interfaz elegante para mostrar recetas y contenido de alimentos con animaciones suaves y diseño responsivo.",
     longDescription:
-      "Construida con React y Tailwind CSS, este proyecto demuestra principios limpios de diseño UI/UX y desarrollo web responsivo. La aplicación proporciona una experiencia de usuario atractiva para los entusiastas de la comida.",
+      "Construida con React y Tailwind CSS, este proyecto demuestra principios limpios de diseño UI/UX y desarrollo web responsivo. La aplicación proporciona una experiencia de usuario activa para los entusiastas de la comida.",
     technologies: ["React", "Tailwind CSS", "Vercel", "JavaScript"],
     screenshots: [
       "/img/projects/mineroz/screenshot1.jpg", // Reemplaza con captura de pantalla real
@@ -65,6 +67,7 @@ export const PROJECTS = [
     url: "https://jorgevalbuena.surge.sh",
     urlName: "jorgevalbuena.surge.sh",
     img: jorgevalbuena,
+    context: "Sitio para consultor independiente de salud — necesitaba credibilidad médica online y canalizar interesados.",
     description:
       "Un sitio web de cartera profesional para el Dr. Jorge Valbuena que muestra experiencia en inmunología e investigación médica. Presenta un diseño limpio y profesional con énfasis en credibilidad y experiencia.",
     longDescription:
@@ -85,6 +88,7 @@ export const PROJECTS = [
     url: "https://dydcrochet.surge.sh",
     urlName: "dydcrochet.surge.sh",
     img: dydcrochet,
+    context: "Sitio para tienda de artesanías — necesitaban un catálogo digital vistoso para vender sus productos hechos a mano.",
     description:
       "Una plataforma de comercio electrónico para un negocio de crochet. Presenta vitrinas de productos, funcionalidad de carrito de compras y una hermosa galería de artículos de crochet hechos a mano.",
     longDescription:
@@ -105,6 +109,7 @@ export const PROJECTS = [
     url: "https://stizzoplanet.surge.sh",
     urlName: "stizzoplanet.surge.sh",
     img: stizzo_planet,
+    context: "Sitio para marca de indumentaria — necesitaban una experiencia interactiva y moderna para destacar su identidad digital.",
     description:
       "Una experiencia web interactiva para la marca Stizzo. Presenta animaciones atractivas, vitrinas de productos y un enfoque de diseño moderno para la narración de marca.",
     longDescription:
@@ -126,6 +131,7 @@ export const PROJECTS = [
     url: "https://retro-stack.vercel.app/",
     urlName: "retro-stack.vercel.app",
     img: retroStack,
+    context: "IDE visual para desarrolladores — necesitaba una interfaz espacial para simplificar el flujo de trabajo de programación.",
     description:
       "Un IDE visual de alto rendimiento diseñado para manipulación de código de baja latencia. Construido durante un sprint de 48 horas, desafía los límites tradicionales de la edición basada en terminal al introducir una capa visual espacial sobre comandos de shell estándar.",
     longDescription:

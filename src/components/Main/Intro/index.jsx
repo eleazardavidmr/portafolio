@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import Button from "@components/Main/Intro/Button";
 import { Link } from "react-router-dom";
 import { IoMdArrowForward } from "react-icons/io";
 import BlurText from "@components/react-bits/BlurText";
@@ -36,7 +35,7 @@ export default function Intro() {
         transition={{ duration: 0.8, delay: 0.2, type: "spring" }}
         className="flex flex-col items-center md:items-start justify-center gap-6 text-center md:text-left w-full md:w-1/2"
       >
-        <div className="space-y-4 flex flex-col items-center md:items-start">
+        <div className="space-y-4 flex flex-col items-center md:items-start w-full">
           <Link
             to="/blog"
             className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 hover:bg-primary/20 transition-all group"
@@ -52,27 +51,32 @@ export default function Intro() {
           </Link>
 
           <span className="text-sm font-bold tracking-[0.3em] text-cyan-700 dark:text-cyan-400 uppercase">
-            Frontend Developer
+            Desarrollador Web
           </span>
           <h1 className="text-center flex justify-center w-full items-center">
             <BlurText
-              text="Eleazar Muñoz"
+              text="¿Tu negocio no aparece en internet?"
               delay={200}
               animateBy="words"
               direction="top"
-              className="text-5xl md:text-8xl font-extrabold font-jetbrains flex justify-center w-full"
+              className="text-3xl md:text-5xl lg:text-6xl font-extrabold font-jetbrains flex justify-center w-full leading-tight"
             />
           </h1>
         </div>
 
         <p className="w-[90%] md:w-[85%] text-lg md:text-xl text-slate-700 dark:text-slate-300 leading-relaxed font-inter">
-          Desarrollador frontend apasionado por el diseño minimalista y las
-          experiencias digitales fluidas. Especializado en React y ecosistemas
-          modernos.
+          Te construyo un sitio web profesional en menos de 2 semanas — para que tus clientes te encuentren antes que a la competencia.
         </p>
 
         <div className="pt-6 flex flex-wrap gap-4 justify-center md:justify-start">
-          <Button to={"/certificados"} title="Ver Certificados" />
+          <a
+            href="https://wa.me/573155614748?text=Hola%20Eleazar,%20vi%20tu%20sitio%20web%20y%20quiero%20contarte%20sobre%20mi%20proyecto."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-8 py-3 rounded-full bg-primary text-slate-950 font-bold text-base transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg hover:shadow-primary/20 flex items-center justify-center min-w-[180px]"
+          >
+            Cuéntame tu proyecto
+          </a>
           <a
             href="#proyectos"
             className="px-8 py-3 rounded-full border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all flex items-center justify-center min-w-[180px]"

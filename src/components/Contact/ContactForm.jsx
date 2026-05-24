@@ -1,149 +1,11 @@
 import { MdEmail } from "react-icons/md";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { AiFillInstagram } from "react-icons/ai";
-import { IoSend } from "react-icons/io5";
-import { useState, useRef, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
-import emailjs from "@emailjs/browser";
-import { toast } from "react-hot-toast";
+import { motion } from "framer-motion";
 import BlurText from "@components/react-bits/BlurText";
-import {
-  CONTACT_SERVICE_SELECT_OPTIONS,
-  CONTACT_SERVICE_SLUG_TO_LABEL,
-} from "@constants/contactServiceSelect";
 
 export default function ContactForm() {
-  const [searchParams] = useSearchParams();
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [servicioInteres, setServicioInteres] = useState("");
-  const [subject, setSubject] = useState("");
-  const [message, setMessage] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-
-  const [errors, setErrors] = useState({
-    name: "",
-    email: "",
-    servicio: "",
-    subject: "",
-    message: "",
-  });
-
-  useEffect(() => {
-    const slug = searchParams.get("servicio");
-    if (slug && CONTACT_SERVICE_SLUG_TO_LABEL[slug]) {
-      setServicioInteres(CONTACT_SERVICE_SLUG_TO_LABEL[slug]);
-    }
-  }, [searchParams]);
-
-  const form = useRef();
-
-  const validateEmail = (email) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  };
-
-  const validateForm = () => {
-    const newErrors = {
-      name: "",
-      email: "",
-      servicio: "",
-      subject: "",
-      message: "",
-    };
-
-    let isValid = true;
-
-    if (!name || name.trim().length === 0) {
-      newErrors.name = "El nombre es requerido";
-      isValid = false;
-    } else if (name.trim().length < 2) {
-      newErrors.name = "El nombre debe tener al menos 2 caracteres";
-      isValid = false;
-    }
-
-    // Validate email
-    if (!email || email.trim().length === 0) {
-      newErrors.email = "El email es requerido";
-      isValid = false;
-    } else if (!validateEmail(email)) {
-      newErrors.email = "Por favor ingresa un email válido";
-      isValid = false;
-    }
-
-    if (!servicioInteres || servicioInteres.trim().length === 0) {
-      newErrors.servicio = "Selecciona el servicio de tu interés";
-      isValid = false;
-    }
-
-    // Validate subject
-    if (!subject || subject.trim().length === 0) {
-      newErrors.subject = "El asunto es requerido";
-      isValid = false;
-    } else if (subject.trim().length < 3) {
-      newErrors.subject = "El asunto debe tener al menos 3 caracteres";
-      isValid = false;
-    }
-
-    // Validate message
-    if (!message || message.trim().length === 0) {
-      newErrors.message = "El mensaje es requerido";
-      isValid = false;
-    } else if (message.trim().length < 10) {
-      newErrors.message = "El mensaje debe tener al menos 10 caracteres";
-      isValid = false;
-    }
-
-    setErrors(newErrors);
-    return isValid;
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    // Validate form
-    if (!validateForm()) {
-      toast.error("Por favor completa todos los campos correctamente");
-      return;
-    }
-
-    setIsLoading(true);
-
-    emailjs
-      .sendForm("edmr", "template_3gmkzum", form.current, {
-        publicKey: "T1y7QUsFSDy6xYQni",
-      })
-      .then(
-        () => {
-          console.log("SUCCESS!");
-          toast.success(
-            "Email enviado con éxito! Pronto te estaré contactando.",
-          );
-          // Reset form
-          setName("");
-          setEmail("");
-          setServicioInteres("");
-          setSubject("");
-          setMessage("");
-          setErrors({
-            name: "",
-            email: "",
-            servicio: "",
-            subject: "",
-            message: "",
-          });
-        },
-        (error) => {
-          console.log("FAILED...", error.text);
-          toast.error("Error al enviar el email. Por favor intenta de nuevo.");
-        },
-      )
-      .finally(() => {
-        setIsLoading(false);
-      });
-  };
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -170,7 +32,7 @@ export default function ContactForm() {
 
   return (
     <section
-      className="flex-grow pt-32 pb-20 px-6 relative overflow-hidden"
+      className="flex-grow pt-32 pb-20 px-6 relative overflow-hidden min-h-[70vh] flex items-center"
       id="contacto"
     >
       {/* Animated gradient orbs */}
@@ -218,336 +80,134 @@ export default function ContactForm() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="container mx-auto max-w-6xl relative z-10"
+        className="container mx-auto max-w-5xl relative z-10"
       >
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          {/* Left Column - Info */}
-          <motion.div className="space-y-8" variants={itemVariants}>
-            <motion.div variants={itemVariants}>
-              <span className="inline-block text-primary font-bold tracking-widest text-sm uppercase mb-4 px-4 py-2 bg-primary/10 rounded-full border border-primary/20">
-                Hablemos
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          {/* Left Column - Headline & Main CTA */}
+          <motion.div className="lg:col-span-7 space-y-8" variants={itemVariants}>
+            <motion.div variants={itemVariants} className="space-y-6">
+              <span className="inline-block text-primary font-bold tracking-widest text-sm uppercase px-4 py-2 bg-primary/10 rounded-full border border-primary/20">
+                Contacto Directo
               </span>
-              <h1 className="text-2xl md:text-6xl font-display font-extrabold text-slate-900 dark:text-white leading-tight mt-4">
+              <h1 className="text-4xl md:text-6xl font-display font-extrabold text-slate-900 dark:text-white leading-tight tracking-tighter">
                 <BlurText
-                  text="¿Tienes un proyecto en mente?"
-                  delay={200}
+                  text="¿Listo para tener presencia online?"
+                  delay={150}
                   animateBy="words"
                   direction="top"
-                  className="text-2xl md:text-6xl font-extrabold font-jetbrains tracking-tighter leading-[0.9]"
+                  className="text-4xl md:text-6xl font-extrabold font-jetbrains tracking-tighter leading-tight"
                 />
               </h1>
-              <p className="mt-6 text-lg text-slate-600 dark:text-slate-400 max-w-md leading-relaxed">
-                Estoy disponible para proyectos freelance y oportunidades de
-                tiempo completo. Escríbeme y responderé lo antes posible.
+              <p className="text-xl text-slate-600 dark:text-slate-400 max-w-xl leading-relaxed font-inter">
+                Cuéntame en qué está tu negocio y te respondo en menos de 24 horas.
               </p>
             </motion.div>
 
-            {/* Contact Info Cards */}
-            <div className="space-y-4">
-              <motion.div
-                variants={itemVariants}
-                whileHover={{ scale: 1.02, x: 5 }}
-                className="flex items-center group p-4 rounded-2xl bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10"
+            {/* Premium WhatsApp Button */}
+            <motion.div variants={itemVariants} className="pt-2">
+              <motion.a
+                href="https://wa.me/573155614748?text=Hola%20Eleazar,%20vi%20tu%20sitio%20web%20y%20quiero%20que%20hablemos%20sobre%20mi%20negocio."
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                className="inline-flex items-center gap-3 px-8 py-5 bg-gradient-to-r from-primary to-blue-500 text-white font-bold text-lg rounded-2xl hover:shadow-2xl hover:shadow-primary/30 transform transition-all duration-300 group relative overflow-hidden"
               >
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-blue-500/20 flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <MdEmail className="text-2xl" />
-                </div>
-                <div className="ml-4">
-                  <p className="text-xs text-slate-500 dark:text-slate-400 uppercase font-bold tracking-wider">
-                    Email
-                  </p>
-                  <a
-                    className="text-lg font-medium text-slate-900 dark:text-white hover:text-primary transition-colors"
-                    href="mailto:eleazardavidmr@gmail.com"
-                  >
-                    eleazardavidmr@gmail.com
-                  </a>
-                </div>
-              </motion.div>
-
-              <motion.div
-                variants={itemVariants}
-                whileHover={{ scale: 1.02, x: 5 }}
-                className="flex items-center group p-4 rounded-2xl bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10"
-              >
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-blue-500/20 flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <FaLocationDot className="text-2xl" />
-                </div>
-                <div className="ml-4">
-                  <p className="text-xs text-slate-500 dark:text-slate-400 uppercase font-bold tracking-wider">
-                    Ubicación
-                  </p>
-                  <p className="text-lg font-medium text-slate-900 dark:text-white">
-                    Cali, Colombia
-                  </p>
-                </div>
-              </motion.div>
-            </div>
-
-            {/* Social Links */}
-            <motion.div variants={itemVariants} className="pt-8">
-              <p className="text-sm font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-6">
-                Sígueme
-              </p>
-              <div className="flex space-x-4">
-                {[
-                  {
-                    href: "https://github.com/eleazardavidmr",
-                    icon: FaGithub,
-                    label: "GitHub",
-                  },
-                  {
-                    href: "www.linkedin.com/in/eleazarmunoz-4101542a2",
-                    icon: FaLinkedin,
-                    label: "LinkedIn",
-                  },
-                  {
-                    href: "https://instagram.com/edmr.dev",
-                    icon: AiFillInstagram,
-                    label: "Instagram",
-                  },
-                ].map((social, index) => (
-                  <motion.a
-                    key={index}
-                    whileHover={{ y: -5 }}
-                    whileTap={{ scale: 0.95 }}
-                    href={social.href}
-                    aria-label={social.label}
-                    className="w-12 h-12 flex items-center justify-center rounded-xl bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50 text-slate-700 dark:text-slate-300 hover:bg-primary hover:text-white hover:border-primary hover:shadow-lg hover:shadow-primary/30 transition-all duration-300"
-                  >
-                    <social.icon className="text-xl" />
-                  </motion.a>
-                ))}
-              </div>
+                <span className="absolute inset-0 bg-gradient-to-r from-blue-500 to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                <FaWhatsapp className="relative text-2xl group-hover:rotate-12 transition-transform duration-300" />
+                <span className="relative">Cuéntame tu proyecto</span>
+              </motion.a>
             </motion.div>
           </motion.div>
 
-          {/* Right Column - Form */}
-          <motion.div variants={itemVariants} className="relative group">
+          {/* Right Column - Secondary Info Card */}
+          <motion.div variants={itemVariants} className="lg:col-span-5 relative group">
             {/* Glow effect on hover */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-primary to-blue-500 rounded-3xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-500"></div>
+            <div className="absolute -inset-1 bg-gradient-to-r from-primary to-blue-500 rounded-3xl blur-xl opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
 
-            <div className="relative bg-white/70 dark:bg-slate-800/70 backdrop-blur-xl p-8 md:p-10 rounded-3xl shadow-2xl border border-slate-200/50 dark:border-slate-700/50">
-              <form
-                ref={form}
-                className="space-y-6"
-                onSubmit={(e) => handleSubmit(e)}
-              >
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label
-                      className="text-sm font-semibold text-slate-700 dark:text-slate-300"
-                      htmlFor="name"
-                    >
-                      Nombre <span className="text-red-500">*</span>
-                    </label>
-                    <motion.input
-                      whileFocus={{ scale: 1.02 }}
-                      className={`w-full px-5 py-4 bg-white/50 dark:bg-slate-900/50 border rounded-xl focus:outline-none focus:ring-2 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 transition-all duration-300 backdrop-blur-sm ${
-                        errors.name
-                          ? "border-red-500 dark:border-red-500 focus:ring-red-500/50 focus:border-red-500"
-                          : "border-slate-300/50 dark:border-slate-600/50 focus:ring-primary/50 focus:border-primary focus:shadow-lg focus:shadow-primary/20"
-                      }`}
-                      name="name"
-                      placeholder="Tu nombre completo"
-                      type="text"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                    />
-                    <AnimatePresence>
-                      {errors.name && (
-                        <motion.p
-                          initial={{ opacity: 0, y: -10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: -10 }}
-                          className="text-sm text-red-500 dark:text-red-400 flex items-center gap-1"
-                        >
-                          <span>⚠</span> {errors.name}
-                        </motion.p>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                  <div className="space-y-2">
-                    <label
-                      className="text-sm font-semibold text-slate-700 dark:text-slate-300"
-                      htmlFor="email"
-                    >
-                      Email <span className="text-red-500">*</span>
-                    </label>
-                    <motion.input
-                      whileFocus={{ scale: 1.02 }}
-                      className={`w-full px-5 py-4 bg-white/50 dark:bg-slate-900/50 border rounded-xl focus:outline-none focus:ring-2 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 transition-all duration-300 backdrop-blur-sm ${
-                        errors.email
-                          ? "border-red-500 dark:border-red-500 focus:ring-red-500/50 focus:border-red-500"
-                          : "border-slate-300/50 dark:border-slate-600/50 focus:ring-primary/50 focus:border-primary focus:shadow-lg focus:shadow-primary/20"
-                      }`}
-                      name="email"
-                      placeholder="hola@ejemplo.com"
-                      type="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                    />
-                    <AnimatePresence>
-                      {errors.email && (
-                        <motion.p
-                          initial={{ opacity: 0, y: -10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: -10 }}
-                          className="text-sm text-red-500 dark:text-red-400 flex items-center gap-1"
-                        >
-                          <span>⚠</span> {errors.email}
-                        </motion.p>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <label
-                    className="text-sm font-semibold text-slate-700 dark:text-slate-300"
-                    htmlFor="servicio_interes"
-                  >
-                    Servicio de interés <span className="text-red-500">*</span>
-                  </label>
-                  <select
-                    id="servicio_interes"
-                    name="servicio_interes"
-                    value={servicioInteres}
-                    onChange={(e) => setServicioInteres(e.target.value)}
-                    className={`w-full px-5 py-4 bg-white/50 dark:bg-slate-900/50 border rounded-xl focus:outline-none focus:ring-2 text-slate-900 dark:text-white transition-all duration-300 backdrop-blur-sm appearance-none cursor-pointer ${
-                      errors.servicio
-                        ? "border-red-500 dark:border-red-500 focus:ring-red-500/50 focus:border-red-500"
-                        : "border-slate-300/50 dark:border-slate-600/50 focus:ring-primary/50 focus:border-primary focus:shadow-lg focus:shadow-primary/20"
-                    }`}
-                    style={{
-                      backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2394a3b8'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`,
-                      backgroundRepeat: "no-repeat",
-                      backgroundPosition: "right 1rem center",
-                      backgroundSize: "1.25rem",
-                    }}
-                  >
-                    <option value="">Selecciona un servicio…</option>
-                    {CONTACT_SERVICE_SELECT_OPTIONS.map((opt) => (
-                      <option key={opt.value} value={opt.label}>
-                        {opt.label}
-                      </option>
-                    ))}
-                  </select>
-                  <AnimatePresence>
-                    {errors.servicio && (
-                      <motion.p
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -10 }}
-                        className="text-sm text-red-500 dark:text-red-400 flex items-center gap-1"
-                      >
-                        <span>⚠</span> {errors.servicio}
-                      </motion.p>
-                    )}
-                  </AnimatePresence>
-                </div>
-                <div className="space-y-2">
-                  <label
-                    className="text-sm font-semibold text-slate-700 dark:text-slate-300"
-                    htmlFor="subject"
-                  >
-                    Asunto <span className="text-red-500">*</span>
-                  </label>
-                  <motion.input
-                    whileFocus={{ scale: 1.02 }}
-                    className={`w-full px-5 py-4 bg-white/50 dark:bg-slate-900/50 border rounded-xl focus:outline-none focus:ring-2 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 transition-all duration-300 backdrop-blur-sm ${
-                      errors.subject
-                        ? "border-red-500 dark:border-red-500 focus:ring-red-500/50 focus:border-red-500"
-                        : "border-slate-300/50 dark:border-slate-600/50 focus:ring-primary/50 focus:border-primary focus:shadow-lg focus:shadow-primary/20"
-                    }`}
-                    name="subject"
-                    placeholder="¿En qué puedo ayudarte?"
-                    type="text"
-                    value={subject}
-                    onChange={(e) => setSubject(e.target.value)}
-                  />
-                  <AnimatePresence>
-                    {errors.subject && (
-                      <motion.p
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -10 }}
-                        className="text-sm text-red-500 dark:text-red-400 flex items-center gap-1"
-                      >
-                        <span>⚠</span> {errors.subject}
-                      </motion.p>
-                    )}
-                  </AnimatePresence>
-                </div>
-                <div className="space-y-2">
-                  <label
-                    className="text-sm font-semibold text-slate-700 dark:text-slate-300"
-                    htmlFor="message"
-                  >
-                    Mensaje <span className="text-red-500">*</span>
-                  </label>
-                  <motion.textarea
-                    whileFocus={{ scale: 1.02 }}
-                    className={`w-full px-5 py-4 bg-white/50 dark:bg-slate-900/50 border rounded-xl focus:outline-none focus:ring-2 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 transition-all duration-300 resize-none backdrop-blur-sm ${
-                      errors.message
-                        ? "border-red-500 dark:border-red-500 focus:ring-red-500/50 focus:border-red-500"
-                        : "border-slate-300/50 dark:border-slate-600/50 focus:ring-primary/50 focus:border-primary focus:shadow-lg focus:shadow-primary/20"
-                    }`}
-                    name="message"
-                    placeholder="Cuéntame sobre tu proyecto o idea..."
-                    rows="5"
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                  ></motion.textarea>
-                  <AnimatePresence>
-                    {errors.message && (
-                      <motion.p
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -10 }}
-                        className="text-sm text-red-500 dark:text-red-400 flex items-center gap-1"
-                      >
-                        <span>⚠</span> {errors.message}
-                      </motion.p>
-                    )}
-                  </AnimatePresence>
-                </div>
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full py-4 bg-gradient-to-r from-primary to-blue-500 text-white font-bold text-lg rounded-xl hover:shadow-2xl hover:shadow-primary/40 transform transition-all duration-300 flex items-center justify-center gap-2 group relative overflow-hidden disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
-                  type="submit"
-                  disabled={isLoading}
+            <div className="relative bg-white/70 dark:bg-slate-800/70 backdrop-blur-xl p-8 md:p-10 rounded-3xl shadow-2xl border border-slate-200/50 dark:border-slate-700/50 space-y-8">
+              <h3 className="text-xl font-bold font-jetbrains text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-700/50 pb-4">
+                Otros medios de contacto
+              </h3>
+
+              {/* Contact Info Cards */}
+              <div className="space-y-4">
+                <motion.div
+                  whileHover={{ scale: 1.02, x: 5 }}
+                  className="flex items-center group p-4 rounded-2xl bg-white/50 dark:bg-slate-900/40 border border-slate-200/50 dark:border-slate-800/50 hover:border-primary/50 transition-all duration-300"
                 >
-                  <span className="absolute inset-0 bg-gradient-to-r from-blue-500 to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                  <span className="relative">
-                    {isLoading ? "Enviando..." : "Enviar Mensaje"}
-                  </span>
-                  {isLoading ? (
-                    <svg
-                      className="relative animate-spin h-5 w-5 text-white"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-blue-500/20 flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-300 shadow-md">
+                    <MdEmail className="text-xl" />
+                  </div>
+                  <div className="ml-4">
+                    <p className="text-xs text-slate-500 dark:text-slate-400 uppercase font-bold tracking-wider">
+                      Email
+                    </p>
+                    <a
+                      className="text-base font-medium text-slate-900 dark:text-white hover:text-primary transition-colors break-all"
+                      href="mailto:eleazardavidmr@gmail.com"
                     >
-                      <circle
-                        className="opacity-25"
-                        cx="12"
-                        cy="12"
-                        r="10"
-                        stroke="currentColor"
-                        strokeWidth="4"
-                      ></circle>
-                      <path
-                        className="opacity-75"
-                        fill="currentColor"
-                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                      ></path>
-                    </svg>
-                  ) : (
-                    <IoSend className="relative text-xl group-hover:translate-x-1 transition-transform duration-300" />
-                  )}
-                </motion.button>
-              </form>
+                      eleazardavidmr@gmail.com
+                    </a>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  whileHover={{ scale: 1.02, x: 5 }}
+                  className="flex items-center group p-4 rounded-2xl bg-white/50 dark:bg-slate-900/40 border border-slate-200/50 dark:border-slate-800/50 hover:border-primary/50 transition-all duration-300"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-blue-500/20 flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-300 shadow-md">
+                    <FaLocationDot className="text-xl" />
+                  </div>
+                  <div className="ml-4">
+                    <p className="text-xs text-slate-500 dark:text-slate-400 uppercase font-bold tracking-wider">
+                      Ubicación
+                    </p>
+                    <p className="text-base font-medium text-slate-900 dark:text-white">
+                      Cali, Colombia
+                    </p>
+                  </div>
+                </motion.div>
+              </div>
+
+              {/* Social Links */}
+              <div className="pt-4 space-y-4">
+                <p className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest">
+                  Redes Sociales
+                </p>
+                <div className="flex space-x-3">
+                  {[
+                    {
+                      href: "https://github.com/eleazardavidmr",
+                      icon: FaGithub,
+                      label: "GitHub",
+                    },
+                    {
+                      href: "https://www.linkedin.com/in/eleazarmunoz-4101542a2",
+                      icon: FaLinkedin,
+                      label: "LinkedIn",
+                    },
+                    {
+                      href: "https://instagram.com/edmr.dev",
+                      icon: AiFillInstagram,
+                      label: "Instagram",
+                    },
+                  ].map((social, index) => (
+                    <motion.a
+                      key={index}
+                      whileHover={{ y: -4 }}
+                      whileTap={{ scale: 0.95 }}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={social.label}
+                      className="w-11 h-11 flex items-center justify-center rounded-xl bg-white/50 dark:bg-slate-900/40 border border-slate-200/50 dark:border-slate-800/50 text-slate-700 dark:text-slate-300 hover:bg-primary hover:text-white hover:border-primary hover:shadow-lg hover:shadow-primary/30 transition-all duration-300"
+                    >
+                      <social.icon className="text-lg" />
+                    </motion.a>
+                  ))}
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>

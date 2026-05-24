@@ -27,28 +27,6 @@ export default function Experience() {
     },
     {
       id: 2,
-      title: "Formación Autodidacta",
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
-          className="w-full h-full"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"
-          />
-        </svg>
-      ),
-      content:
-        "Cursos completados en freeCodeCamp y Platzi, complementados con investigación continua y aprendizaje autodidacta (YouTube, Documentación Oficial).",
-    },
-    {
-      id: 3,
       title: "Proyectos Destacados",
       icon: (
         <svg
@@ -80,40 +58,6 @@ export default function Experience() {
         </>
       ),
     },
-    {
-      id: 4,
-      title: "Formación Académica",
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
-          className="w-full h-full"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.57 50.57 0 0 0-5.266-2.475c-2.71.912-3.708 2.972-2.302 4.112C6.354 13.238 8 13.9 8 15.5m0-5.353a4.992 4.992 0 0 1-1.096-1.583m8.598 2.055a48.532 48.532 0 0 1-4.896 2.054M19.998 14.5c.386-1.336 1.745-1.95 3.328-1.742m-5.83-4.636a4.995 4.995 0 0 0-1.066-1.583m-3.9 1.583a5.003 5.003 0 0 1-.99-1.583M12 4.5v1.5m0 0a5 5 0 0 1-5 5H3.5a5 5 0 0 1 0-10H15a5 5 0 0 1 5 5h-3.5a5 5 0 0 1-5-5Z"
-          />
-        </svg>
-      ),
-      content: (
-        <>
-          Estudiante actual en el{" "}
-          <a
-            href="https://polisuperior.edu.co/"
-            className="text-cyan-700 dark:text-primary font-bold hover:text-primary hover:underline decoration-2 underline-offset-4 transition-all font-jetbrains"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Politécnico Superior
-          </a>{" "}
-          cursando Técnico Laboral en Auxiliar en Sistemas Informáticos.
-        </>
-      ),
-    },
   ];
 
   const containerVariants = {
@@ -135,7 +79,7 @@ export default function Experience() {
 
   return (
     <section id="experiencia" className="w-full py-10 px-4">
-      <SectionTitle title="Experiencia & Formación 🛠️" />
+      <SectionTitle title="Experiencia 🛠️" />
 
       <motion.div
         variants={containerVariants}

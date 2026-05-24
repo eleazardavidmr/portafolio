@@ -24,9 +24,9 @@ const DeveloperCard = () => {
       "
       >
         {/* TEXTO GRANDE Y JERARQUÍA */}
-        <span className="text-6xl font-extrabold text-white">JR.</span>
-        <p className="text-lg font-medium text-primary tracking-wider">
-          FRONTEND DEVELOPER
+        <span className="text-4xl font-extrabold text-white text-center">DESARROLLADOR</span>
+        <p className="text-xl font-medium text-primary tracking-wider">
+          WEB
         </p>
 
         {/* DETALLE DE FONDO (Glow sutil) */}
