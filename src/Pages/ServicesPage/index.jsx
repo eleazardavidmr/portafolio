@@ -8,7 +8,6 @@ import {
 import { FaPaintBrush, FaTerminal } from "react-icons/fa";
 import { IoIosTrendingUp } from "react-icons/io";
 import { CiChat1 } from "react-icons/ci";
-import { SiN8N } from "react-icons/si";
 import SectionTile from "@/components/SectionTitle";
 import PropTypes from "prop-types";
 import { motion } from "framer-motion";
