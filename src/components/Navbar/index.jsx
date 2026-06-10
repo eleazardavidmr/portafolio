@@ -54,12 +54,9 @@ export default function Navbar() {
     navigate("/");
   };
 
-  //probando calidad, sigue viendose muy lento xd
-
   // Definición de links dinámicos
   const links = [
     { name: "Inicio", href: "/", icon: <FiHome />, show: true },
-    { name: "Blog", href: "/blog", icon: <FiBookOpen />, show: true },
     { name: "Proyectos", href: "/#proyectos", show: true, isAnchor: true },
     { name: "Contacto", href: "/contacto", show: true, isAnchor: false },
     {
@@ -136,22 +133,6 @@ export default function Navbar() {
             {theme === "dark" ? <FiSun size={20} /> : <FiMoon size={20} />}
           </button>
 
-          {session ? (
-            <Link
-              to="/profile"
-              className="flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-xl font-bold hover:bg-primary hover:text-white transition-all"
-            >
-              <FiUser /> Perfil
-            </Link>
-          ) : (
-            <Link
-              to="/login"
-              className="text-sm font-bold text-slate-700 dark:text-slate-300 hover:text-primary transition-colors"
-            >
-              Entrar
-            </Link>
-          )}
-
           <a
             href="https://wa.me/573155614748?text=Hola%20Eleazar,%20quiero%20una%20página%20web."
             target="_blank"
@@ -169,7 +150,7 @@ export default function Navbar() {
               strokeLinecap="round"
               strokeLinejoin="round"
             >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
               <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
               <path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" />
             </svg>
@@ -337,7 +318,7 @@ export default function Navbar() {
                         strokeLinecap="round"
                         strokeLinejoin="round"
                       >
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                         <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
                         <path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" />
                       </svg>

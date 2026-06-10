@@ -36,20 +36,6 @@ export default function Intro() {
         className="flex flex-col items-center md:items-start justify-center gap-6 text-center md:text-left w-full md:w-1/2"
       >
         <div className="space-y-4 flex flex-col items-center md:items-start w-full">
-          <Link
-            to="/blog"
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 hover:bg-primary/20 transition-all group"
-          >
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-            </span>
-            <span className="text-xs font-bold text-primary tracking-wide uppercase">
-              Nuevo Blog Disponible
-            </span>
-            <IoMdArrowForward className="text-xs text-primary group-hover:translate-x-1 transition-transform" />
-          </Link>
-
           <span className="text-sm font-bold tracking-[0.3em] text-cyan-700 dark:text-cyan-400 uppercase">
             Desarrollador Web
           </span>
@@ -65,7 +51,8 @@ export default function Intro() {
         </div>
 
         <p className="w-[90%] md:w-[85%] text-lg md:text-xl text-slate-700 dark:text-slate-300 leading-relaxed font-inter">
-          Te construyo un sitio web profesional en menos de 2 semanas — para que tus clientes te encuentren antes que a la competencia.
+          Te construyo un sitio web profesional en menos de 2 semanas — para que
+          tus clientes te encuentren antes que a la competencia.
         </p>
 
         <div className="pt-6 flex flex-wrap gap-4 justify-center md:justify-start">

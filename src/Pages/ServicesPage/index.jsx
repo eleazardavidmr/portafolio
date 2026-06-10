@@ -57,21 +57,6 @@ const SERVICES = [
     ],
     tags: ["Barberías", "Spas", "Psicólogos"],
   },
-  {
-    id: 4,
-    contactSlug: "web-automatizacion",
-    title: "Desarrollo Web con Automatización Integrada",
-    icon: SiN8N,
-    description:
-      "Tu web no termina en el front: formularios, leads, pagos y datos crudos conectados a procesos internos confiables y medibles.",
-    detailsVariant: "n8n",
-    details: [
-      "Flujos en n8n: webhooks desde el sitio hacia CRM, email y hojas de cálculo sin reescribir integraciones a mano.",
-      "Orquestación con nodos HTTP, triggers programados y respuestas en tiempo real para mantener datos siempre al día.",
-      "Menos copiar/pegar entre herramientas: un solo tablero de automatización junto a tu producto web.",
-    ],
-    tags: ["Startups", "Equipos de ops", "Agencias"],
-  },
 ];
 
 const FEATURES = [
