@@ -3,6 +3,7 @@ import { IoRocketOutline } from "react-icons/io5";
 import { useParams, Link } from "react-router-dom";
 import { PROJECTS } from "./index";
 import { motion } from "framer-motion";
+import SEO from "../SEO";
 
 export default function ProjectDetail() {
   const { slug } = useParams();
@@ -38,6 +39,13 @@ export default function ProjectDetail() {
 
   return (
     <Layout>
+      <SEO
+        title={project.name}
+        description={project.description || `Proyecto ${project.name}: ${project.technologies?.join(", ")} — Portafolio de Eleazar Muñoz.`}
+        keywords={project.technologies ? project.technologies.join(", ") : "proyecto web, frontend"}
+        url={`/proyectos/${project.slug}`}
+        image={project.img}
+      />
       <main className="pt-24 pb-20">
         {/* Hero Section */}
         <motion.section

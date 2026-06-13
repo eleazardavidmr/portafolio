@@ -12,6 +12,7 @@ import SectionTile from "@/components/SectionTitle";
 import PropTypes from "prop-types";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import SEO from "@/components/SEO";
 
 const SERVICES = [
   {
@@ -216,6 +217,12 @@ FeatureItem.propTypes = {
 export default function ServicesPage() {
   return (
     <Layout>
+      <SEO
+        title="Servicios de Desarrollo Web"
+        description="Landing pages, sitios web profesionales y sistemas con reservas de citas. Desarrollo web frontend en Colombia con diseño 100% personalizado y enfoque en conversiones."
+        keywords="servicios desarrollo web, landing page Colombia, sitio web profesional, sistema de citas, diseño web, WhatsApp integration"
+        url="/servicios"
+      />
       <main className="pb-16">
         {/* Hero/Header Section */}
         <motion.section

@@ -44,9 +44,10 @@ export default function BlogPage() {
   return (
     <Layout>
       <SEO
-        title="Blog & Recursos"
-        description="Explora artículos sobre desarrollo frontend, tutoriales de React, y recursos para desarrolladores. Aprende y mejora tus habilidades de programación."
-        keywords="blog programacion, desarrollo web, frontend, react, javascript, tutoriales"
+        title="Blog & Recursos de Desarrollo Web"
+        description="Artículos sobre desarrollo frontend, tutoriales de React y recursos para desarrolladores. Aprende con Eleazar Muñoz desde Colombia."
+        keywords="blog programacion, desarrollo web, frontend, react, javascript, tutoriales, Colombia"
+        url="/blog"
       />
       <div className="max-w-4xl mx-auto">
         <motion.header

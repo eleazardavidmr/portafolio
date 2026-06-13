@@ -54,9 +54,14 @@ export default function PostPage() {
     <Layout>
       <SEO
         title={post.title}
-        description={post.summary || `Read ${post.title} on Edmr Portfolio`}
-        keywords={post.tags ? post.tags.join(", ") : ""}
-        // image={post.cover_image} // Uncomment if cover image is available in post object
+        description={post.summary || `Lee "${post.title}" en el blog de Eleazar Muñoz`}
+        keywords={post.tags ? post.tags.join(", ") : "blog, desarrollo web, frontend"}
+        url={`/blog/${post.slug}`}
+        image={post.cover_image || undefined}
+        type="article"
+        tags={post.tags || []}
+        publishedTime={post.created_at}
+        modifiedTime={post.updated_at}
       />
       <Post postInfo={post} />
     </Layout>

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import Background from "@components/Background";
 import GoBackButton from "@components/Navbar/GoBackButton";
+import SEO from "@components/SEO";
 
 export default function Certificados() {
   const CERTIFICADOS = [
@@ -62,6 +63,12 @@ export default function Certificados() {
   return (
     <>
       <Background />
+      <SEO
+        title="Certificaciones y Credenciales"
+        description="Certificaciones oficiales de Eleazar Muñoz en desarrollo web, React, diseño UI, e inglés EF SET. Validación de conocimiento y trayectoria profesional."
+        keywords="certificados, cursos, desarrollo web, React, Platzi, EF SET, inglés, frontend"
+        url="/certificados"
+      />
 
       <section className="min-h-screen w-full py-10 px-4 md:px-8">
         <div className="max-w-6xl mx-auto">

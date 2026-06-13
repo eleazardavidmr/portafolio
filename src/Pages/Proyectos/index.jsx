@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 import GoBackButton from "@components/Navbar/GoBackButton";
-import { PROJECTS } from "@components/Projects"; // Asegúrate de que la ruta sea correcta
+import { PROJECTS } from "@components/Projects";
 import Project from "@components/Projects/Project";
 import Background from "@components/Background";
+import SEO from "@components/SEO";
 
 export default function Proyectos() {
   // Variantes para la animación escalonada (Stagger)
@@ -29,8 +30,12 @@ export default function Proyectos() {
   return (
     <>
       <Background />
-
-      {/* Contenedor Principal: min-h-screen asegura que el fondo cubra todo */}
+      <SEO
+        title="Portafolio Completo de Proyectos"
+        description="Explora todos los proyectos web de Eleazar Muñoz: landing pages, sitios corporativos, sistemas con React y más. Desarrollo frontend profesional en Colombia."
+        keywords="proyectos web, portafolio frontend, React, landing pages, sitios web Colombia"
+        url="/proyectos"
+      />
       <section className="min-h-screen w-full py-10 px-4 md:px-8">
         <div className="max-w-6xl mx-auto">
           {/* ENCABEZADO DE PÁGINA */}
