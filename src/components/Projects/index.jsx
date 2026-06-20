@@ -128,8 +128,8 @@ export const PROJECTS = [
     id: 1,
     name: "Retro Stack",
     slug: "retro-stack",
-    url: "https://retro-stack.vercel.app/",
-    urlName: "retro-stack.vercel.app",
+    url: "https://retrostack.edmr.dev/",
+    urlName: "retrostack.edmr.dev",
     img: retroStack,
     context: "IDE visual para desarrolladores — necesitaba una interfaz espacial para simplificar el flujo de trabajo de programación.",
     description:
