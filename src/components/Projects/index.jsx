@@ -4,6 +4,7 @@ import stizzo_planet from "/img/projects/stizzoplanet/stizzo-planet.webp";
 import atelierdeldulce from "/img/projects/atelierdeldulce/atelierdeldulce.webp";
 import mineroz from "/img/projects/mineroz/mineroz.jpg";
 import retroStack from "/img/projects/retro-stack/retro-stack.webp";
+import mineTableau from "/img/projects/mine-tableau/mine-tableau.png";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
@@ -18,13 +19,33 @@ import {
 import LogoLoop from "@components/react-bits/LogoLoop";
 export const PROJECTS = [
   {
+    id: 7,
+    name: "Mine Tableau",
+    slug: "mine-tableau",
+    url: "https://mine-tableau.edmr.dev",
+    urlName: "mine-tableau.edmr.dev",
+    img: mineTableau,
+    context:
+      "Dashboard de métricas de call center — construido para entender y recrear los cálculos de rendimiento que uso diariamente en mi trabajo.",
+    description:
+      "Un dashboard oscuro que replica las métricas de CSAT y decline rate de mi trabajo en call center, construido con HTML, CSS y JavaScript vanilla para entender a fondo la matemática detrás de los números.",
+    longDescription:
+      "MineTableau nació de mi experiencia diaria como agente de call center. Cada día reviso mis métricas en un dashboard corporativo — CSAT, decline rate, encuestas — pero nunca entendí del todo los cálculos detrás. Este proyecto es mi intento de reingeniería inversa de esas fórmulas, entendiéndolas a fondo y reconstruyéndolas desde cero. Calcula el target CSAT por agente, el STT (encuestas necesarias para neutralizar DSATs) y el decline rate, visualizando los resultados con badges de color que indican de un vistazo quién está en meta y quién no. Una barra de resumen en la parte superior agrega estadísticas del equipo como CSAT promedio y cantidad de agentes en meta.",
+    technologies: ["HTML5", "CSS3", "JavaScript"],
+    screenshots: ["/img/projects/mine-tableau/screenshot1.png"],
+    branch: "main",
+    status: "DESPLEGADO",
+    client: "Proyecto Personal",
+  },
+  {
     id: 6,
     name: "Atelier del Dulce",
     slug: "atelier-del-dulce",
     url: "https://atelierdeldulce.online",
     urlName: "atelierdeldulce.online",
     img: atelierdeldulce,
-    context: "Sitio para repostería artesanal — necesitaban mostrar su catálogo de forma elegante y captar clientes directamente.",
+    context:
+      "Sitio para repostería artesanal — necesitaban mostrar su catálogo de forma elegante y captar clientes directamente.",
     description:
       "Un sitio web hermosamente diseñado para un negocio de pasteles y postres. Presenta galerías de productos, información de pedidos e una interfaz elegante que refleja el arte de la confitería.",
     longDescription:
@@ -46,7 +67,8 @@ export const PROJECTS = [
     url: "https://mineroz.online",
     urlName: "mineroz.online",
     img: mineroz,
-    context: "Sitio para proyecto culinario — necesitaban una presencia profesional en línea para compartir recetas y conectar con entusiastas de la comida.",
+    context:
+      "Sitio para proyecto culinario — necesitaban una presencia profesional en línea para compartir recetas y conectar con entusiastas de la comida.",
     description:
       "Una aplicación web moderna para un proyecto culinario. Cuenta con una interfaz elegante para mostrar recetas y contenido de alimentos con animaciones suaves y diseño responsivo.",
     longDescription:
@@ -67,7 +89,8 @@ export const PROJECTS = [
     url: "https://jorgevalbuena.surge.sh",
     urlName: "jorgevalbuena.surge.sh",
     img: jorgevalbuena,
-    context: "Sitio para consultor independiente de salud — necesitaba credibilidad médica online y canalizar interesados.",
+    context:
+      "Sitio para consultor independiente de salud — necesitaba credibilidad médica online y canalizar interesados.",
     description:
       "Un sitio web de cartera profesional para el Dr. Jorge Valbuena que muestra experiencia en inmunología e investigación médica. Presenta un diseño limpio y profesional con énfasis en credibilidad y experiencia.",
     longDescription:
@@ -88,7 +111,8 @@ export const PROJECTS = [
     url: "https://dydcrochet.surge.sh",
     urlName: "dydcrochet.surge.sh",
     img: dydcrochet,
-    context: "Sitio para tienda de artesanías — necesitaban un catálogo digital vistoso para vender sus productos hechos a mano.",
+    context:
+      "Sitio para tienda de artesanías — necesitaban un catálogo digital vistoso para vender sus productos hechos a mano.",
     description:
       "Una plataforma de comercio electrónico para un negocio de crochet. Presenta vitrinas de productos, funcionalidad de carrito de compras y una hermosa galería de artículos de crochet hechos a mano.",
     longDescription:
@@ -109,7 +133,8 @@ export const PROJECTS = [
     url: "https://stizzoplanet.surge.sh",
     urlName: "stizzoplanet.surge.sh",
     img: stizzo_planet,
-    context: "Sitio para marca de indumentaria — necesitaban una experiencia interactiva y moderna para destacar su identidad digital.",
+    context:
+      "Sitio para marca de indumentaria — necesitaban una experiencia interactiva y moderna para destacar su identidad digital.",
     description:
       "Una experiencia web interactiva para la marca Stizzo. Presenta animaciones atractivas, vitrinas de productos y un enfoque de diseño moderno para la narración de marca.",
     longDescription:
@@ -131,7 +156,8 @@ export const PROJECTS = [
     url: "https://retrostack.edmr.dev/",
     urlName: "retrostack.edmr.dev",
     img: retroStack,
-    context: "IDE visual para desarrolladores — necesitaba una interfaz espacial para simplificar el flujo de trabajo de programación.",
+    context:
+      "IDE visual para desarrolladores — necesitaba una interfaz espacial para simplificar el flujo de trabajo de programación.",
     description:
       "Un IDE visual de alto rendimiento diseñado para manipulación de código de baja latencia. Construido durante un sprint de 48 horas, desafía los límites tradicionales de la edición basada en terminal al introducir una capa visual espacial sobre comandos de shell estándar.",
     longDescription:
