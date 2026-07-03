@@ -22,7 +22,7 @@ export default function Intro() {
           alt="Eleazar Muñoz"
           width={400}
           height={400}
-          fetchPriority="high"
+          fetchpriority="high"
           decoding="async"
           className="rounded-3xl w-[80%] md:w-[70%] max-w-[400px] shadow-2xl border-4 border-white/10 transition-transform duration-300 hover:scale-105 object-cover"
         />

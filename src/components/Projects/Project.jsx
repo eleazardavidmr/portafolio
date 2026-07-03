@@ -3,9 +3,11 @@ import { motion } from "framer-motion";
 import { FiExternalLink } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
+const MotionLink = motion.create(Link);
+
 export default function Project({ data }) {
   return (
-    <Link
+    <MotionLink
       to={`/proyectos/${data.slug}`}
       target="_blank"
       rel="noopener noreferrer"
@@ -56,7 +58,7 @@ export default function Project({ data }) {
 
       {/* Modern Hover Accent */}
       <div className="absolute bottom-0 left-0 w-full h-1.5 bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-    </Link>
+    </MotionLink>
   );
 }
 

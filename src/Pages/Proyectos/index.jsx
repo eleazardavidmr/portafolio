@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import GoBackButton from "@components/Navbar/GoBackButton";
 import { PROJECTS } from "@components/Projects";
 import Project from "@components/Projects/Project";
+import FifaScores from "@components/FifaScores";
 import Background from "@components/Background";
 import SEO from "@components/SEO";
 
@@ -54,6 +55,8 @@ export default function Proyectos() {
                 </p>
               </div>
             </div>
+
+            <FifaScores />
           </div>
 
           {/* GRID DE PROYECTOS */}

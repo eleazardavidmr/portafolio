@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 import Project from "@components/Projects/Project";
+import FifaScores from "@components/FifaScores";
 import SectionTitle from "@components/SectionTitle";
 import {
   SiReact,
@@ -216,6 +217,10 @@ export default function Projects() {
         <p className="mb-8 mt-4 text-center text-lg text-gray-600 dark:text-gray-300">
           Échale un vistazo a una selección de mis trabajos recientes:
         </p>
+
+        <div className="flex justify-center mb-8">
+          <FifaScores />
+        </div>
 
         {/* Grid Container */}
         <motion.div
