@@ -1,21 +1,19 @@
-import { lazy, Suspense } from "react";
 import Intro from "@components/Main/Intro";
+import About from "@components/Main/About";
+import Principles from "@components/Main/Principles";
+import ContactCTA from "@components/Main/ContactCTA";
+import Projects from "@components/Projects";
 
-const Experience = lazy(() => import("@components/Main/Experience"));
-const About = lazy(() => import("@components/Main/About"));
-const Goals = lazy(() => import("@components/Main/Goals"));
-
+// Orden pensado para quien revisa el portafolio: primero el trabajo,
+// luego quién está detrás, cómo trabaja y cómo contactarlo.
 export default function Main() {
   return (
-    <main className="relative w-full overflow-hidden text-slate-800 dark:text-slate-100 ">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 py-10 flex flex-col items-center gap-24 md:gap-32">
-        <Intro />
-        <Suspense fallback={null}>
-          <Experience />
-          <About />
-          <Goals />
-        </Suspense>
-      </div>
-    </main>
+    <div className="flex flex-col gap-28 md:gap-40">
+      <Intro />
+      <Projects />
+      <About />
+      <Principles />
+      <ContactCTA />
+    </div>
   );
 }

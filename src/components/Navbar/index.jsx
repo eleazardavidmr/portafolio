@@ -1,343 +1,218 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import useProfile from "@/hooks/useProfile";
-import toast from "react-hot-toast";
-import { HiMenuAlt3, HiX } from "react-icons/hi";
-import {
-  FiSun,
-  FiMoon,
-  FiLogOut,
-  FiUser,
-  FiHome,
-  FiBookOpen,
-} from "react-icons/fi";
-// import { FaUserFriends } from "react-icons/fa";
-import { NavLink, Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "@contexts/AuthContext";
-import useNotifications from "@/hooks/useNotifications";
+import { FiSun, FiMoon } from "react-icons/fi";
+import { NavLink, Link, useLocation } from "react-router-dom";
+import { springFast } from "@constants/motion";
+import { whatsappLink } from "@constants/contact";
+
+const LINKS = [
+  { name: "Proyectos", href: "/proyectos" },
+  { name: "Servicios", href: "/servicios" },
+  { name: "Contacto", href: "/contacto" },
+];
+
+function getInitialTheme() {
+  try {
+    const stored = localStorage.getItem("theme");
+    if (stored === "dark" || stored === "light") return stored;
+  } catch {
+    // Almacenamiento bloqueado: seguimos con la preferencia del sistema
+  }
+  return window.matchMedia("(prefers-color-scheme: light)").matches
+    ? "light"
+    : "dark";
+}
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const { session, logout } = useContext(AuthContext);
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
-  const { hasNewPosts } = useNotifications();
+  const [theme, setTheme] = useState(getInitialTheme);
+  const { pathname } = useLocation();
 
-  const navigate = useNavigate();
-
-  // Control de scroll para el estilo del navbar
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => setIsScrolled(window.scrollY > 8);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Bloquear scroll cuando el menú móvil está abierto
+  // Cerrar el menú al cambiar de página
+  useEffect(() => setIsOpen(false), [pathname]);
+
   useEffect(() => {
-    if (isOpen) document.body.style.overflow = "hidden";
-    else document.body.style.overflow = "unset";
+    if (!isOpen) return;
+    const onKey = (e) => e.key === "Escape" && setIsOpen(false);
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKey);
+    };
   }, [isOpen]);
 
-  // Manejo de Tema
   useEffect(() => {
-    if (theme === "dark") document.documentElement.classList.add("dark");
-    else document.documentElement.classList.remove("dark");
-    localStorage.setItem("theme", theme);
+    document.documentElement.classList.toggle("dark", theme === "dark");
+    try {
+      localStorage.setItem("theme", theme);
+    } catch {
+      // Sin almacenamiento el tema simplemente no se recuerda
+    }
   }, [theme]);
 
   const toggleTheme = () => setTheme(theme === "dark" ? "light" : "dark");
+  const themeLabel =
+    theme === "dark" ? "Cambiar a modo claro" : "Cambiar a modo oscuro";
 
-  const handleLogOut = async () => {
-    setIsOpen(false);
-    await logout();
-    toast.success("Sesión cerrada");
-    navigate("/");
-  };
-
-  // Definición de links dinámicos
-  const links = [
-    { name: "Inicio", href: "/", icon: <FiHome />, show: true },
-    { name: "Proyectos", href: "/#proyectos", show: true, isAnchor: true },
-    { name: "Contacto", href: "/contacto", show: true, isAnchor: false },
-    {
-      name: "Servicios",
-      href: "/servicios",
-      show: true,
-      isAnchor: false,
-    },
-  ];
-
-  const { profile } = useProfile();
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 flex justify-center p-4 ${
-        isScrolled ? "pt-2" : "pt-6"
-      }`}
-    >
+    <header className="fixed inset-x-0 top-0 z-50 px-4 pt-3 md:pt-4">
+      {/* Borde de scroll: el contenido se desvanece al pasar bajo la barra */}
       <div
-        className={`w-full max-w-5xl flex items-center justify-between px-6 py-3 transition-all duration-300 rounded-2xl ${
-          isScrolled
-            ? "bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg shadow-lg border border-slate-200/50 dark:border-slate-700/50"
-            : "bg-transparent"
+        aria-hidden="true"
+        className={`pointer-events-none absolute inset-x-0 top-0 -z-10 h-24 bg-gradient-to-b from-canvas via-canvas/80 to-transparent transition-opacity duration-300 ${
+          isScrolled ? "opacity-100" : "opacity-0"
+        }`}
+      />
+      <nav
+        aria-label="Principal"
+        className={`relative mx-auto flex h-14 max-w-content items-center justify-between rounded-full pl-3 pr-2 transition-[background-color,box-shadow] duration-300 ${
+          isScrolled || isOpen ? "glass" : ""
         }`}
       >
-        {/* Logo */}
         <Link
           to="/"
-          className="text-2xl font-bold tracking-tighter text-primary font-jetbrains"
+          className="flex items-center gap-2.5 rounded-full pr-2"
+          aria-label="Eleazar Muñoz, inicio"
         >
-          <img src="/logo.webp" alt="logo" className="w-10 h-10 rounded-full" />
+          <img
+            src="/logo.webp"
+            alt=""
+            width={32}
+            height={32}
+            className="h-8 w-8 rounded-full invert dark:invert-0"
+          />
+          <span className="hidden text-[0.9375rem] font-semibold tracking-tight sm:inline">
+            Eleazar Muñoz
+          </span>
         </Link>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-6">
-          {links
-            .filter((l) => l.show)
-            .map((link) =>
-              link.isAnchor ? (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="text-sm font-bold text-slate-700 dark:text-slate-300 hover:text-primary hover:underline hover:underline-offset-2 hover:underline-primary dark:hover:text-primary transition-colors"
-                >
-                  {link.name}
-                </a>
-              ) : (
-                <NavLink
-                  key={link.name}
-                  to={link.href}
-                  className={({ isActive }) =>
-                    isActive
-                      ? "relative text-sm font-bold  text-primary transition-colors underline underline-offset-4 decoration-2 decoration-primary"
-                      : "relative text-sm font-bold text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors hover:underline hover:underline-offset-2 hover:underline-primary"
-                  }
-                >
-                  {link.name}
-                  {link.name === "Blog" && hasNewPosts && (
-                    <span className="absolute -top-1 -right-2 flex h-2 w-2">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-                    </span>
-                  )}
-                </NavLink>
-              ),
-            )}
+        {/* Escritorio */}
+        <div className="hidden items-center gap-1 md:flex">
+          {LINKS.map((link) => (
+            <NavLink
+              key={link.href}
+              to={link.href}
+              className={({ isActive }) =>
+                `rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+                  isActive
+                    ? "bg-label/[0.07] text-label"
+                    : "text-label-2 hover:text-label"
+                }`
+              }
+            >
+              {link.name}
+            </NavLink>
+          ))}
+        </div>
 
-          <div className="h-6 w-[1px] bg-slate-300 dark:bg-slate-700 mx-2" />
-
+        <div className="flex items-center gap-1">
           <button
+            type="button"
             onClick={toggleTheme}
-            className="p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-700 dark:text-slate-300"
-            aria-label="Change page theme"
+            aria-label={themeLabel}
+            title={themeLabel}
+            className="grid h-10 w-10 place-items-center rounded-full text-label-2 transition-[color,background-color,transform] duration-150 hover:bg-label/[0.06] hover:text-label active:scale-90"
           >
-            {theme === "dark" ? <FiSun size={20} /> : <FiMoon size={20} />}
+            {theme === "dark" ? <FiSun size={18} /> : <FiMoon size={18} />}
           </button>
 
           <a
-            href="https://wa.me/573155614748?text=Hola%20Eleazar,%20quiero%20una%20página%20web."
+            href={whatsappLink()}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-primary text-slate-950 px-5 py-2 rounded-xl font-bold hover:scale-105 transition-transform flex items-center gap-2 shadow-md shadow-primary/20"
+            className="btn-primary hidden !px-5 !py-2 text-sm md:inline-flex"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
-              <path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" />
-            </svg>
-            <span>Hablemos</span>
+            Hablemos
           </a>
-        </div>
 
-        {/* Mobile Toggle */}
-        <div className="flex md:hidden items-center gap-2">
           <button
-            onClick={toggleTheme}
-            aria-label="Open navbar menu"
-            className="p-2.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300"
+            type="button"
+            onClick={() => setIsOpen((open) => !open)}
+            aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
+            aria-expanded={isOpen}
+            aria-controls="menu-movil"
+            className="grid h-10 w-10 place-items-center rounded-full text-label transition-transform duration-150 active:scale-90 md:hidden"
           >
-            {theme === "dark" ? <FiSun size={20} /> : <FiMoon size={20} />}
-          </button>
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="p-2.5 rounded-lg bg-primary text-slate-950"
-          >
-            {isOpen ? <HiX size={24} /> : <HiMenuAlt3 size={24} />}
+            <span className="relative block h-3 w-[18px]" aria-hidden="true">
+              <motion.span
+                className="absolute left-0 top-0 h-[1.5px] w-full rounded-full bg-current"
+                animate={isOpen ? { y: 5.25, rotate: 45 } : { y: 0, rotate: 0 }}
+                transition={springFast}
+              />
+              <motion.span
+                className="absolute bottom-0 left-0 h-[1.5px] w-full rounded-full bg-current"
+                animate={
+                  isOpen ? { y: -5.25, rotate: -45 } : { y: 0, rotate: 0 }
+                }
+                transition={springFast}
+              />
+            </span>
           </button>
         </div>
-      </div>
+      </nav>
 
-      {/* Mobile Menu Overlay */}
+      {/* Móvil: el panel nace del botón que lo abre (esquina superior derecha).
+          Vive fuera del <nav> porque su backdrop-filter confinaría el
+          scrim fijo y el desenfoque del panel a la barra. */}
       <AnimatePresence>
         {isOpen && (
           <>
             <motion.div
+              key="scrim"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
               onClick={() => setIsOpen(false)}
-              className="fixed inset-0 bg-slate-950/60 backdrop-blur-sm z-[-1]"
+              className="fixed inset-0 -z-10 bg-black/30 backdrop-blur-[2px] md:hidden"
             />
             <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 bottom-0 w-[280px] bg-white dark:bg-slate-900 shadow-2xl z-50 p-6 flex flex-col"
+              key="menu"
+              id="menu-movil"
+              initial={{ opacity: 0, scale: 0.94, y: -8 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.94, y: -8 }}
+              transition={springFast}
+              style={{ transformOrigin: "top right" }}
+              className="glass absolute right-4 top-[4.75rem] w-[min(20rem,calc(100vw-2rem))] rounded-3xl p-2 md:hidden"
             >
-              <div className="flex justify-between items-center mb-10">
-                <span className="text-xs font-black uppercase tracking-widest text-slate-500 dark:text-slate-400">
-                  Menú
-                </span>
-                <button
-                  onClick={() => setIsOpen(false)}
-                  className="p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300"
-                >
-                  <HiX size={20} />
-                </button>
-              </div>
-
-              {/* ... dentro del AnimatePresence del menú móvil ... */}
-
-              <div className="flex flex-col gap-2">
-                {links
-                  .filter((l) => l.show)
-                  .map((link, i) => (
-                    <motion.div
-                      key={link.name}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: i * 0.1 }}
+              <ul className="flex list-none flex-col p-0">
+                {LINKS.map((link) => (
+                  <li key={link.href}>
+                    <NavLink
+                      to={link.href}
+                      className={({ isActive }) =>
+                        `block rounded-2xl px-4 py-3 text-lg font-semibold tracking-tight transition-colors active:bg-label/[0.08] ${
+                          isActive ? "text-primary" : "text-label"
+                        }`
+                      }
                     >
-                      {/* Usamos un componente común para evitar repetir estilos */}
-                      {link.isAnchor ? (
-                        <a
-                          href={link.href}
-                          onClick={() => setIsOpen(false)}
-                          className="flex items-center flex-row gap-4 p-3 w-full rounded-xl text-slate-800 dark:text-slate-100 hover:bg-primary/10 group transition-all"
-                        >
-                          {/* Contenedor del icono con tamaño fijo para que todo esté alineado */}
-                          {link.icon && (
-                            <div className="text-primary text-2xl flex items-center justify-center w-8">
-                              {link.icon}
-                            </div>
-                          )}
-                          <span className="text-lg font-bold">{link.name}</span>
-                          {link.name === "Blog" && hasNewPosts && (
-                            <span className="ml-auto flex h-2.5 w-2.5">
-                              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
-                            </span>
-                          )}
-                        </a>
-                      ) : (
-                        <Link
-                          to={link.href}
-                          onClick={() => setIsOpen(false)}
-                          className="flex items-center flex-row gap-4 p-3 w-full rounded-xl text-slate-800 dark:text-slate-100 hover:bg-primary/10 group transition-all"
-                        >
-                          {/* Contenedor del icono con tamaño fijo para que todo esté alineado */}
-                          {link.icon && (
-                            <div className="text-primary text-2xl flex items-center justify-center w-8">
-                              {link.icon}
-                            </div>
-                          )}
-                          <span className="text-lg font-bold">{link.name}</span>
-                          {link.name === "Blog" && hasNewPosts && (
-                            <span className="ml-auto flex h-2.5 w-2.5">
-                              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
-                            </span>
-                          )}
-                        </Link>
-                      )}
-                    </motion.div>
-                  ))}
-              </div>
-
-              {/* Sección de Usuario Corregida */}
-              <div className="mt-auto pt-6 border-t border-slate-100 dark:border-slate-800">
-                {session ? (
-                  <div className="space-y-4">
-                    <Link
-                      to="/profile"
-                      onClick={() => setIsOpen(false)}
-                      className="flex items-center flex-row gap-4 p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700"
-                    >
-                      <div className="shrink-0 w-12 h-12 rounded-xl flex items-center justify-center text-slate-950 font-black shadow-lg shadow-primary/20">
-                        <img
-                          src={profile?.avatar_url}
-                          alt="avatar"
-                          className="w-full h-full rounded-full"
-                        />
-                      </div>
-                      <div className="flex flex-col min-w-0">
-                        <span className="text-sm font-black truncate text-slate-900 dark:text-slate-100">
-                          Mi Perfil
-                        </span>
-                        <span className="text-[10px] text-primary font-bold uppercase tracking-tighter">
-                          Dashboard
-                        </span>
-                      </div>
-                    </Link>
-
-                    <button
-                      onClick={handleLogOut}
-                      className="flex items-center flex-row gap-3 w-full px-4 py-2 text-red-500 font-bold text-sm hover:bg-red-50 dark:hover:bg-red-500/10 rounded-xl transition-colors"
-                    >
-                      <FiLogOut size={18} />
-                      <span>Cerrar Sesión</span>
-                    </button>
-                  </div>
-                ) : (
-                  <div className="flex flex-col gap-3 w-full">
-                    <a
-                      href="https://wa.me/573155614748?text=Hola%20Eleazar,%20quiero%20una%20página%20web."
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={() => setIsOpen(false)}
-                      className="flex items-center justify-center gap-2 w-full py-4 rounded-2xl bg-primary text-slate-950 font-black uppercase tracking-widest hover:scale-105 transition-transform"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
-                        <path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" />
-                      </svg>
-                      <span>Hablemos</span>
-                    </a>
-                    <Link
-                      to="/login"
-                      onClick={() => setIsOpen(false)}
-                      className="text-center text-slate-500 dark:text-slate-400 font-bold hover:text-primary transition-colors text-sm py-2"
-                    >
-                      Entrar
-                    </Link>
-                  </div>
-                )}
-              </div>
+                      {link.name}
+                    </NavLink>
+                  </li>
+                ))}
+              </ul>
+              <a
+                href={whatsappLink()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary mt-2 w-full"
+              >
+                Hablemos por WhatsApp
+              </a>
             </motion.div>
           </>
         )}
       </AnimatePresence>
-    </nav>
+    </header>
   );
 }

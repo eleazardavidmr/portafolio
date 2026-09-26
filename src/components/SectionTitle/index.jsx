@@ -1,33 +1,52 @@
 import PropTypes from "prop-types";
-import { Typewriter } from "react-simple-typewriter";
+import { motion } from "framer-motion";
+import { fadeUp, stagger, revealOnView } from "@constants/motion";
 
-export default function SectionTitle({ title, className }) {
+export default function SectionTitle({
+  eyebrow,
+  title,
+  description,
+  align = "left",
+  as: Heading = "h2",
+  className = "",
+}) {
+  const centered = align === "center";
+
   return (
-    // Usamos 'group' por si quieres añadir efectos hover al contenedor en el futuro
-    <div className="w-fit mb-6">
-      <h2
-        className={`flex items-center text-xl md:text-2xl font-bold px-5 py-2 rounded-xl bg-primary/10 text-primary font-jetbrains border border-primary/20 shadow-sm ${className}`}
-      >
-        {/* Decoración estilo Terminal (Prompt) */}
-        <span className="mr-3 text-primary/50 select-none">{">"}</span>
-
-        {/* Componente Typewriter */}
-        <span>
-          <Typewriter
-            words={[title]}
-            loop={0} // 0 = Infinito (si quieres que pare, pon 1)
-            cursor
-            cursorStyle={"_"}
-            typeSpeed={80} // Un poco más lento para que se lea mejor
-            deleteSpeed={50}
-            delaySpeed={2500} // Espera más tiempo antes de borrar
-          />
-        </span>
-      </h2>
-    </div>
+    <motion.header
+      variants={stagger(0.06)}
+      {...revealOnView}
+      className={`flex flex-col gap-4 ${
+        centered ? "items-center text-center mx-auto" : "items-start"
+      } max-w-3xl ${className}`}
+    >
+      {eyebrow && (
+        <motion.p variants={fadeUp} className="text-eyebrow text-primary">
+          {eyebrow}
+        </motion.p>
+      )}
+      <motion.div variants={fadeUp}>
+        <Heading className="text-headline text-label text-balance">
+          {title}
+        </Heading>
+      </motion.div>
+      {description && (
+        <motion.p
+          variants={fadeUp}
+          className="text-lead text-label-2 text-pretty max-w-2xl"
+        >
+          {description}
+        </motion.p>
+      )}
+    </motion.header>
   );
 }
 
 SectionTitle.propTypes = {
-  title: PropTypes.string.isRequired,
+  eyebrow: PropTypes.string,
+  title: PropTypes.node.isRequired,
+  description: PropTypes.node,
+  align: PropTypes.oneOf(["left", "center"]),
+  as: PropTypes.elementType,
+  className: PropTypes.string,
 };

@@ -4,25 +4,26 @@ import Background from "@components/Background";
 import PropTypes from "prop-types";
 import { Outlet } from "react-router-dom";
 
-export default function Layout({
-  children,
-  showBackground = true,
-  containerClassName = "max-w-7xl flex mx-auto flex-col pt-32 pb-20 px-6",
-  fullHeight = false,
-}) {
+export default function Layout({ children, showBackground = true }) {
   return (
-    <div className={`flex flex-col ${fullHeight ? "min-h-screen" : ""}`}>
+    <div className="relative flex min-h-screen flex-col">
       {showBackground && <Background />}
+      <a
+        href="#contenido"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-surface focus:px-4 focus:py-2 focus:text-sm focus:font-semibold"
+      >
+        Saltar al contenido
+      </a>
       <Navbar />
-      <main className={containerClassName}>{children || <Outlet />}</main>
+      <main id="contenido" className="flex-1 pt-28 md:pt-32">
+        {children || <Outlet />}
+      </main>
       <Footer />
     </div>
   );
 }
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   showBackground: PropTypes.bool,
-  containerClassName: PropTypes.string,
-  fullHeight: PropTypes.bool,
 };

@@ -1,83 +1,39 @@
 import { motion } from "framer-motion";
-import GoBackButton from "@components/Navbar/GoBackButton";
-import { PROJECTS } from "@components/Projects";
+import Layout from "@components/Layout";
 import Project from "@components/Projects/Project";
-import FifaScores from "@components/FifaScores";
-import Background from "@components/Background";
+import SectionTitle from "@components/SectionTitle";
 import SEO from "@components/SEO";
+import { PROJECTS } from "@components/Projects/data";
+import { stagger } from "@constants/motion";
 
 export default function Proyectos() {
-  // Variantes para la animación escalonada (Stagger)
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1, // Efecto cascada rápido
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30, scale: 0.9 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: { type: "spring", stiffness: 50, damping: 20 },
-    },
-  };
-
   return (
-    <>
-      <Background />
+    <Layout>
       <SEO
         title="Portafolio Completo de Proyectos"
         description="Explora todos los proyectos web de Eleazar Muñoz: landing pages, sitios corporativos, sistemas con React y más. Desarrollo frontend profesional en Colombia."
         keywords="proyectos web, portafolio frontend, React, landing pages, sitios web Colombia"
         url="/proyectos"
       />
-      <section className="min-h-screen w-full py-10 px-4 md:px-8">
-        <div className="max-w-6xl mx-auto">
-          {/* ENCABEZADO DE PÁGINA */}
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-12">
-            <div className="flex flex-col gap-4">
-              <GoBackButton />
+      <section className="mx-auto max-w-content px-6 pt-6">
+        <SectionTitle
+          as="h1"
+          eyebrow="Proyectos"
+          title="Todo mi trabajo."
+          description="Sitios corporativos, tiendas en línea y aplicaciones web, desde la idea hasta el despliegue."
+        />
 
-              <div className="ml-2">
-                <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white font-jetbrains">
-                  <span className="text-primary mr-2">{">"}</span>
-                  Portafolio Completo
-                </h1>
-                <p className="mt-2 text-gray-600 dark:text-gray-300 font-inter max-w-xl">
-                  Una colección detallada de mis desarrollos, experimentos y
-                  soluciones web.
-                </p>
-              </div>
-            </div>
-
-            <FifaScores />
-          </div>
-
-          {/* GRID DE PROYECTOS */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            // CAMBIO CLAVE: Grid responsivo real
-            // grid-cols-1 (móvil) -> grid-cols-2 (tablet) -> grid-cols-3 (desktop grande)
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
-          >
-            {PROJECTS.map((project) => (
-              <motion.div key={project.id} variants={itemVariants}>
-                {/* Reutilizamos tu componente Project que ya mejoramos antes */}
-                <Project data={project} />
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
+        <motion.div
+          variants={stagger(0.08)}
+          initial="hidden"
+          animate="visible"
+          className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+        >
+          {PROJECTS.map((project, index) => (
+            <Project key={project.id} data={project} priority={index < 3} />
+          ))}
+        </motion.div>
       </section>
-    </>
+    </Layout>
   );
 }

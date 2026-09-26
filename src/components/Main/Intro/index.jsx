@@ -1,77 +1,104 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-import { IoMdArrowForward } from "react-icons/io";
-import BlurText from "@components/react-bits/BlurText";
+import { FiArrowRight } from "react-icons/fi";
+import { fadeUp, stagger, spring } from "@constants/motion";
+import { whatsappLink, LOCATION } from "@constants/contact";
+import { PROJECTS } from "@components/Projects/data";
+
+const STATS = [
+  { value: "5 años", label: "diseñando y desarrollando sitios web" },
+  { value: `${PROJECTS.length} proyectos`, label: "publicados y en línea" },
+  { value: "< 2 semanas", label: "para lanzar tu sitio" },
+];
 
 export default function Intro() {
   return (
     <section
       id="inicio"
-      className="min-h-[60vh] w-full px-6 flex flex-col md:flex-row items-center justify-center gap-12 md:gap-20 overflow-hidden py-20"
+      className="mx-auto grid w-full max-w-content items-center gap-8 px-6 pb-8 pt-4 md:grid-cols-[1.25fr_1fr] md:gap-16 md:pt-12"
     >
       <motion.div
-        initial={{ x: -50, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
-        className="w-full md:w-1/2 flex justify-center md:justify-end relative"
+        variants={stagger(0.08)}
+        initial="hidden"
+        animate="visible"
+        className="order-2 flex flex-col items-start md:order-1"
       >
-        <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full scale-75 -z-10" />
+        <motion.p variants={fadeUp} className="text-eyebrow text-primary">
+          Eleazar Muñoz · Desarrollador web en {LOCATION}
+        </motion.p>
 
-        <img
-          src="/img/profile.jpg"
-          alt="Eleazar Muñoz"
-          width={400}
-          height={400}
-          fetchpriority="high"
-          decoding="async"
-          className="rounded-3xl w-[80%] md:w-[70%] max-w-[400px] shadow-2xl border-4 border-white/10 transition-transform duration-300 hover:scale-105 object-cover"
-        />
-      </motion.div>
+        <motion.h1
+          variants={fadeUp}
+          className="text-display mt-4 text-balance text-label"
+        >
+          ¿Tu negocio no aparece en internet?
+        </motion.h1>
 
-      {/* --- COLUMNA TEXTO --- */}
-      <motion.div
-        initial={{ x: 50, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.2, type: "spring" }}
-        className="flex flex-col items-center md:items-start justify-center gap-6 text-center md:text-left w-full md:w-1/2"
-      >
-        <div className="space-y-4 flex flex-col items-center md:items-start w-full">
-          <span className="text-sm font-bold tracking-[0.3em] text-cyan-700 dark:text-cyan-400 uppercase">
-            Desarrollador Web
-          </span>
-          <h1 className="text-center flex justify-center w-full items-center">
-            <BlurText
-              text="¿Tu negocio no aparece en internet?"
-              delay={200}
-              animateBy="words"
-              direction="top"
-              className="text-3xl md:text-5xl lg:text-6xl font-extrabold font-jetbrains flex justify-center w-full leading-tight"
-            />
-          </h1>
-        </div>
-
-        <p className="w-[90%] md:w-[85%] text-lg md:text-xl text-slate-700 dark:text-slate-300 leading-relaxed font-inter">
-          Te construyo un sitio web profesional en menos de 2 semanas — para que
+        <motion.p
+          variants={fadeUp}
+          className="text-lead mt-6 max-w-xl text-pretty text-label-2"
+        >
+          Te construyo un sitio web profesional en menos de 2 semanas, para que
           tus clientes te encuentren antes que a la competencia.
-        </p>
+        </motion.p>
 
-        <div className="pt-6 flex flex-wrap gap-4 justify-center md:justify-start">
+        <motion.div
+          variants={fadeUp}
+          className="mt-9 flex flex-wrap items-center gap-3"
+        >
           <a
-            href="https://wa.me/573155614748?text=Hola%20Eleazar,%20vi%20tu%20sitio%20web%20y%20quiero%20contarte%20sobre%20mi%20proyecto."
+            href={whatsappLink()}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-8 py-3 rounded-full bg-primary text-slate-950 font-bold text-base transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg hover:shadow-primary/20 flex items-center justify-center min-w-[180px]"
+            className="btn-primary"
           >
             Cuéntame tu proyecto
           </a>
-          <a
-            href="#proyectos"
-            className="px-8 py-3 rounded-full border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all flex items-center justify-center min-w-[180px]"
-          >
-            Ver Proyectos
+          <a href="#proyectos" className="btn-secondary group">
+            Ver proyectos
+            <FiArrowRight
+              aria-hidden="true"
+              className="transition-transform duration-200 group-hover:translate-x-0.5"
+            />
           </a>
+        </motion.div>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, scale: 0.96 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ ...spring, duration: 0.9 }}
+        className="order-1 w-full max-w-[8.5rem] md:order-2 md:max-w-none"
+      >
+        <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-surface-2 md:rounded-4xl shadow-[0_30px_80px_-20px_rgb(0_0_0/0.35)]">
+          <img
+            src="/img/profile.jpg"
+            alt="Retrato de Eleazar Muñoz"
+            width={800}
+            height={1000}
+            // eslint-disable-next-line react/no-unknown-property -- React 18 aún no reconoce fetchPriority
+            fetchpriority="high"
+            className="h-full w-full object-cover object-top"
+          />
         </div>
       </motion.div>
+
+      <motion.dl
+        variants={stagger(0.08)}
+        initial="hidden"
+        animate="visible"
+        className="order-3 grid gap-6 border-t border-separator/10 pt-8 sm:grid-cols-3 md:col-span-2"
+      >
+        {STATS.map((stat) => (
+          <motion.div
+            key={stat.value}
+            variants={fadeUp}
+            className="flex flex-col-reverse gap-1"
+          >
+            <dt className="text-sm text-label-2">{stat.label}</dt>
+            <dd className="text-title text-label">{stat.value}</dd>
+          </motion.div>
+        ))}
+      </motion.dl>
     </section>
   );
 }

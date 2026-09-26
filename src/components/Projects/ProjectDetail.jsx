@@ -1,283 +1,234 @@
-import Layout from "../Layout";
-import { IoRocketOutline } from "react-icons/io5";
 import { useParams, Link } from "react-router-dom";
-import { PROJECTS } from "./index";
 import { motion } from "framer-motion";
-import SEO from "../SEO";
+import { FiArrowLeft, FiArrowRight, FiArrowUpRight } from "react-icons/fi";
+import Layout from "@components/Layout";
+import SEO from "@components/SEO";
+import NotFoundPage from "@components/NotFoundPage";
+import { PROJECTS } from "./data";
+import { fadeUp, stagger, spring, revealOnView } from "@constants/motion";
+
+const formatStatus = (status = "") =>
+  status.charAt(0).toUpperCase() + status.slice(1).toLowerCase();
 
 export default function ProjectDetail() {
   const { slug } = useParams();
   const projectIndex = PROJECTS.findIndex((p) => p.slug === slug);
   const project = PROJECTS[projectIndex];
 
-  if (!project) {
-    return (
-      <Layout>
-        <main className="pt-24 pb-20 px-8 max-w-screen-2xl mx-auto">
-          <div className="text-center">
-            <h1 className="text-4xl font-bold text-on-surface mb-4">
-              Proyecto no encontrado
-            </h1>
-            <p className="text-on-surface-variant">
-              Lo sentimos, no pudimos encontrar el proyecto que buscas.
-            </p>
-          </div>
-        </main>
-      </Layout>
-    );
-  }
+  if (!project) return <NotFoundPage />;
 
-  // Get previous and next projects
   const previousProject =
-    projectIndex > 0
-      ? PROJECTS[projectIndex - 1]
-      : PROJECTS[PROJECTS.length - 1];
-  const nextProject =
-    projectIndex < PROJECTS.length - 1
-      ? PROJECTS[projectIndex + 1]
-      : PROJECTS[0];
+    PROJECTS[(projectIndex - 1 + PROJECTS.length) % PROJECTS.length];
+  const nextProject = PROJECTS[(projectIndex + 1) % PROJECTS.length];
+
+  const facts = [
+    { label: "Cliente", value: project.client },
+    { label: "Estado", value: formatStatus(project.status) },
+    {
+      label: "Sitio",
+      value: (
+        <a
+          href={project.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-primary hover:underline underline-offset-4"
+        >
+          {project.urlName}
+        </a>
+      ),
+    },
+  ];
 
   return (
     <Layout>
       <SEO
         title={project.name}
-        description={project.description || `Proyecto ${project.name}: ${project.technologies?.join(", ")} — Portafolio de Eleazar Muñoz.`}
-        keywords={project.technologies ? project.technologies.join(", ") : "proyecto web, frontend"}
+        description={
+          project.description ||
+          `Proyecto ${project.name}: ${project.technologies?.join(", ")} — Portafolio de Eleazar Muñoz.`
+        }
+        keywords={project.technologies?.join(", ")}
         url={`/proyectos/${project.slug}`}
         image={project.img}
       />
-      <main className="pt-24 pb-20">
-        {/* Hero Section */}
-        <motion.section
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
-          className="px-8 max-w-screen-2xl mx-auto mb-20"
+
+      <article key={project.slug}>
+        {/* Encabezado */}
+        <motion.header
+          variants={stagger(0.07)}
+          initial="hidden"
+          animate="visible"
+          className="mx-auto max-w-content px-6 pt-6"
         >
-          <motion.div
-            initial={{ y: 40, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative w-full aspect-[21/9] rounded-xl overflow-hidden mb-12 group"
+          <motion.div variants={fadeUp}>
+            <Link
+              to="/proyectos"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-label-2 transition-colors hover:text-label"
+            >
+              <FiArrowLeft aria-hidden="true" />
+              Proyectos
+            </Link>
+          </motion.div>
+          <motion.p variants={fadeUp} className="text-eyebrow mt-8 text-primary">
+            {project.client}
+          </motion.p>
+          <motion.h1 variants={fadeUp} className="text-display mt-3 text-label">
+            {project.name}
+          </motion.h1>
+          <motion.p
+            variants={fadeUp}
+            className="text-lead mt-5 max-w-3xl text-pretty text-label-2"
           >
+            {project.description}
+          </motion.p>
+          <motion.div variants={fadeUp} className="mt-8">
+            <a
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary"
+            >
+              Visitar el sitio
+              <FiArrowUpRight aria-hidden="true" />
+            </a>
+          </motion.div>
+        </motion.header>
+
+        {/* Imagen principal */}
+        <motion.div
+          initial={{ opacity: 0, y: 32 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ ...spring, delay: 0.2 }}
+          className="mx-auto mt-14 max-w-content px-6"
+        >
+          <div className="overflow-hidden rounded-4xl bg-surface-2 shadow-[0_30px_80px_-30px_rgb(0_0_0/0.4)]">
             <img
-              alt={project.name}
-              className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100"
               src={project.img}
+              alt={`Vista principal de ${project.name}`}
+              // eslint-disable-next-line react/no-unknown-property -- React 18 aún no reconoce fetchPriority
+              fetchpriority="high"
+              className="aspect-[16/9] w-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent"></div>
-            <div className="absolute bottom-12 left-12 right-12 flex flex-col md:flex-row justify-between items-end gap-8">
-              <div>
-                <div className="inline-flex items-center px-3 py-1 bg-primary/10 border border-primary/20 rounded-sm mb-4">
-                  <span className="text-[10px] font-headline font-bold text-primary tracking-[0.2em] uppercase">
-                    SYSTEM // 0{project.id}-{project.slug.toUpperCase()}
-                  </span>
-                </div>
-                <h1 className="text-6xl md:text-8xl font-headline font-extrabold tracking-tighter text-on-surface">
-                  {project.name.toUpperCase()}
-                </h1>
-              </div>
-              <div className="flex gap-4">
-                <a
-                  href={project.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-8 py-4 bg-gradient-to-br from-primary to-primary-container text-on-primary font-headline font-bold rounded-xl flex items-center gap-2 hover:scale-[0.98] transition-transform cursor-pointer"
-                >
-                  <IoRocketOutline className="w-5 h-5" />
-                  LIVE DEMO
-                </a>
-              </div>
-            </div>
-          </motion.div>
-        </motion.section>
-
-        {/* Content Grid: About & Stack */}
-        <motion.section
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true, margin: "-100px" }}
-          className="px-8 max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 mb-32"
-        >
-          {/* About Section */}
-          <div className="lg:col-span-8 space-y-12">
-            <div className="space-y-6">
-              <motion.h2
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5 }}
-                viewport={{ once: true }}
-                className="text-3xl font-jetbrains font-bold text-primary tracking-tight"
-              >
-                DESCRIPCIÓN DEL PROYECTO
-              </motion.h2>
-              <div className="space-y-6 text-on-surface-variant text-lg leading-relaxed max-w-3xl">
-                <p>{project.description}</p>
-                <p>{project.longDescription}</p>
-              </div>
-            </div>
-
-            {/* Gallery Section */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="space-y-6 pt-12"
-            >
-              <h2 className="text-3xl font-jetbrains font-bold text-primary tracking-tight">
-                CAPTURAS DEL SISTEMA
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {project.screenshots.map((screenshot, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    whileHover={{ y: -5 }}
-                    transition={{ duration: 0.4, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="rounded-xl overflow-hidden bg-surface-container-low aspect-video"
-                  >
-                    <img
-                      alt={`${project.name} screenshot ${index + 1}`}
-                      className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity"
-                      src={screenshot}
-                    />
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
           </div>
+        </motion.div>
 
-          {/* Tech Stack Section */}
+        {/* Contenido y ficha técnica */}
+        <div className="mx-auto mt-20 grid max-w-content gap-14 px-6 lg:grid-cols-[1fr_20rem] lg:gap-20">
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="lg:col-span-4"
+            variants={stagger(0.08)}
+            {...revealOnView}
+            className="flex flex-col gap-12"
           >
-            <div className="sticky top-32 p-8 rounded-xl bg-surface-container-low border border-outline-variant/10">
-              <h3 className="text-sm font-jetbrains font-bold text-on-surface tracking-[0.2em] uppercase mb-8 pb-4 border-b border-outline-variant/20">
-                STACK DE INGENIERÍA
-              </h3>
-              <div className="flex flex-wrap gap-3 mb-12">
-                {project.technologies.map((tech, index) => (
-                  <motion.span
-                    key={tech}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    transition={{ duration: 0.3, delay: index * 0.05 }}
-                    viewport={{ once: true }}
-                    className="px-4 py-2 bg-secondary-container text-on-secondary-container rounded-sm font-jetbrains text-xs font-bold tracking-wider uppercase cursor-default"
-                  >
-                    {tech}
-                  </motion.span>
-                ))}
-              </div>
-              <div className="space-y-6">
-                <div className="flex justify-between items-center py-4 border-b border-outline-variant/10">
-                  <span className="text-xs font-jetbrains text-on-surface-variant font-bold tracking-widest uppercase">
-                    RAMA
-                  </span>
-                  <span className="text-xs font-jetbrains text-primary font-bold">
-                    {project.branch}
-                  </span>
-                </div>
-                <div className="flex justify-between items-center py-4 border-b border-outline-variant/10">
-                  <span className="text-xs font-jetbrains text-on-surface-variant font-bold tracking-widest uppercase">
-                    ESTADO
-                  </span>
-                  <span className="text-xs font-jetbrains text-primary font-bold">
-                    {project.status}
-                  </span>
-                </div>
-                <div className="flex justify-between items-center py-4 border-b border-outline-variant/10">
-                  <span className="text-xs font-jetbrains text-on-surface-variant font-bold tracking-widest uppercase">
-                    CLIENTE
-                  </span>
-                  <span className="text-xs font-jetbrains text-on-surface font-bold uppercase tracking-tighter">
-                    {project.client}
-                  </span>
-                </div>
-              </div>
-            </div>
+            {project.context && (
+              <motion.section variants={fadeUp}>
+                <h2 className="text-title text-label">El reto</h2>
+                <p className="mt-4 text-[1.0625rem] leading-[1.7] text-label-2">
+                  {project.context}
+                </p>
+              </motion.section>
+            )}
+            {project.longDescription && (
+              <motion.section variants={fadeUp}>
+                <h2 className="text-title text-label">Cómo lo construí</h2>
+                <p className="mt-4 text-[1.0625rem] leading-[1.7] text-label-2">
+                  {project.longDescription}
+                </p>
+              </motion.section>
+            )}
           </motion.div>
-        </motion.section>
 
-        {/* Navigation Section */}
-        <motion.section
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="border-t border-outline-variant/10"
+          <motion.aside
+            variants={fadeUp}
+            {...revealOnView}
+            className="lg:sticky lg:top-28 lg:self-start"
+          >
+            <dl className="card divide-y divide-separator/10 px-6">
+              {facts.map((fact) => (
+                <div
+                  key={fact.label}
+                  className="flex items-baseline justify-between gap-4 py-4"
+                >
+                  <dt className="text-sm text-label-2">{fact.label}</dt>
+                  <dd className="text-right text-sm font-medium text-label">
+                    {fact.value}
+                  </dd>
+                </div>
+              ))}
+              <div className="py-5">
+                <dt className="text-sm text-label-2">Tecnologías</dt>
+                <dd className="mt-3 flex flex-wrap gap-2">
+                  {project.technologies?.map((tech) => (
+                    <span key={tech} className="chip">
+                      {tech}
+                    </span>
+                  ))}
+                </dd>
+              </div>
+            </dl>
+          </motion.aside>
+        </div>
+
+        {/* Capturas */}
+        {project.screenshots?.length > 0 && (
+          <section className="mx-auto mt-24 max-w-content px-6">
+            <h2 className="text-title text-label">Capturas</h2>
+            <motion.div
+              variants={stagger(0.1)}
+              {...revealOnView}
+              className="mt-8 grid gap-6 md:grid-cols-2"
+            >
+              {project.screenshots.map((screenshot, index) => (
+                <motion.figure
+                  key={screenshot}
+                  variants={fadeUp}
+                  className="card overflow-hidden"
+                >
+                  <img
+                    src={screenshot}
+                    alt={`${project.name}, captura ${index + 1}`}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full object-cover"
+                  />
+                </motion.figure>
+              ))}
+            </motion.div>
+          </section>
+        )}
+
+        {/* Navegación entre proyectos */}
+        <nav
+          aria-label="Más proyectos"
+          className="mx-auto mt-28 grid max-w-content gap-4 px-6 sm:grid-cols-2"
         >
-          <div className="max-w-screen-2xl mx-auto flex divide-x divide-outline-variant/10 h-64">
-            <motion.div
-              whileHover={{ backgroundColor: "rgba(0,0,0,0.05)" }}
-              className="flex-1"
-            >
-              <Link
-                to={`/proyectos/${previousProject.slug}`}
-                className="flex-1 group flex flex-col justify-center px-12 hover:bg-surface-container transition-colors h-full"
-              >
-                <motion.span
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ duration: 0.5, delay: 0.1 }}
-                  viewport={{ once: true }}
-                  className="text-[10px] font-jetbrains font-bold text-on-surface-variant tracking-[0.2em] uppercase mb-2"
-                >
-                  PROYECTO ANTERIOR
-                </motion.span>
-                <motion.span
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  whileHover={{ x: -5, color: "#26acd0" }}
-                  transition={{ duration: 0.3, delay: 0.2 }}
-                  viewport={{ once: true }}
-                  className="text-3xl font-headline font-bold group-hover:text-primary transition-colors tracking-tight"
-                >
-                  {previousProject.name.toUpperCase()}
-                </motion.span>
-              </Link>
-            </motion.div>
-            <motion.div
-              whileHover={{ backgroundColor: "rgba(0,0,0,0.05)" }}
-              className="flex-1"
-            >
-              <Link
-                to={`/proyectos/${nextProject.slug}`}
-                className="flex-1 group flex flex-col justify-center items-end px-12 hover:bg-surface-container transition-colors h-full"
-              >
-                <motion.span
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ duration: 0.5, delay: 0.1 }}
-                  viewport={{ once: true }}
-                  className="text-[10px] font-jetbrains font-bold text-on-surface-variant tracking-[0.2em] uppercase mb-2 text-right"
-                >
-                  SIGUIENTE PROYECTO
-                </motion.span>
-                <motion.span
-                  initial={{ opacity: 0, x: 10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  whileHover={{ x: 5, color: "#26acd0" }}
-                  transition={{ duration: 0.3, delay: 0.2 }}
-                  viewport={{ once: true }}
-                  className="text-3xl font-headline font-bold group-hover:text-primary transition-colors tracking-tight text-right"
-                >
-                  {nextProject.name.toUpperCase()}
-                </motion.span>
-              </Link>
-            </motion.div>
-          </div>
-        </motion.section>
-      </main>
+          <Link
+            to={`/proyectos/${previousProject.slug}`}
+            className="group card flex flex-col gap-2 p-6 transition-transform duration-150 active:scale-[0.985]"
+          >
+            <span className="inline-flex items-center gap-1.5 text-sm text-label-2">
+              <FiArrowLeft
+                aria-hidden="true"
+                className="transition-transform duration-200 group-hover:-translate-x-0.5"
+              />
+              Anterior
+            </span>
+            <span className="text-title text-label">{previousProject.name}</span>
+          </Link>
+          <Link
+            to={`/proyectos/${nextProject.slug}`}
+            className="group card flex flex-col items-end gap-2 p-6 text-right transition-transform duration-150 active:scale-[0.985]"
+          >
+            <span className="inline-flex items-center gap-1.5 text-sm text-label-2">
+              Siguiente
+              <FiArrowRight
+                aria-hidden="true"
+                className="transition-transform duration-200 group-hover:translate-x-0.5"
+              />
+            </span>
+            <span className="text-title text-label">{nextProject.name}</span>
+          </Link>
+        </nav>
+      </article>
     </Layout>
   );
 }

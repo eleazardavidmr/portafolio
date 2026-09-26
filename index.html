@@ -9,7 +9,24 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/logo.webp" />
 
     <!-- Theme color (browser UI) -->
-    <meta name="theme-color" content="#26acd0" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fbfbfd" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000" />
+
+    <!-- Aplica el tema antes de pintar para evitar un destello de color -->
+    <script>
+      (function () {
+        var theme;
+        try {
+          theme = localStorage.getItem("theme");
+        } catch (e) {}
+        if (theme !== "light" && theme !== "dark") {
+          theme = window.matchMedia("(prefers-color-scheme: light)").matches
+            ? "light"
+            : "dark";
+        }
+        if (theme === "dark") document.documentElement.classList.add("dark");
+      })();
+    </script>
 
     <!-- Primary Meta Tags -->
     <title>Eleazar Muñoz | Desarrollador Web Frontend en Colombia</title>
@@ -85,13 +102,13 @@
       "@type": "WebSite",
       "name": "Eleazar Muñoz — Dev",
       "url": "https://edmr.dev",
-      "description": "Portafolio y blog de Eleazar Muñoz, desarrollador web frontend en Colombia.",
+      "description": "Portafolio de Eleazar Muñoz, desarrollador web frontend en Colombia.",
       "inLanguage": "es"
     }
     </script>
   </head>
   <body>
-    <div id="root" class="font-inter"></div>
+    <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

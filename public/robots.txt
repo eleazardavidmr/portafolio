@@ -1,11 +1,5 @@
 User-agent: *
 Allow: /
 
-# Disallow private/admin routes
-Disallow: /profile
-Disallow: /login
-Disallow: /blog
-Disallow: /blog/
-
 # Sitemap location
 Sitemap: https://edmr.dev/sitemap.xml

@@ -1,16 +1,30 @@
 import { Link } from "react-router-dom";
+import Layout from "@components/Layout";
+import SEO from "@components/SEO";
 
 export default function NotFoundPage() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
-      <h1 className="text-6xl font-bold text-gray-800 mb-4">404</h1>
-      <p className="text-xl text-gray-600 mb-8">Página no encontrada</p>
-      <Link
-        to="/"
-        className="px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary-dark transition"
-      >
-        Volver al inicio
-      </Link>
-    </div>
+    <Layout>
+      <SEO
+        title="Página no encontrada"
+        description="La página que buscas no existe."
+        robots="noindex, follow"
+      />
+      <section className="mx-auto flex min-h-[55vh] max-w-content flex-col items-center justify-center px-6 text-center">
+        <p className="text-eyebrow text-primary">Error 404</p>
+        <h1 className="text-headline mt-4">Esta página no existe.</h1>
+        <p className="text-lead mt-4 max-w-md text-label-2">
+          Puede que el enlace esté roto o que la página se haya movido.
+        </p>
+        <div className="mt-8 flex flex-wrap justify-center gap-3">
+          <Link to="/" className="btn-primary">
+            Volver al inicio
+          </Link>
+          <Link to="/proyectos" className="btn-secondary">
+            Ver proyectos
+          </Link>
+        </div>
+      </section>
+    </Layout>
   );
 }

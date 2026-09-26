@@ -1,41 +1,59 @@
-import SectionTitle from "@components/SectionTitle";
-import DeveloperCard from "@components/Main/About/DeveloperCard";
 import { motion } from "framer-motion";
+import SectionTitle from "@components/SectionTitle";
+import { fadeUp, stagger, revealOnView } from "@constants/motion";
+
+const STACK = [
+  "React",
+  "TypeScript",
+  "JavaScript",
+  "Tailwind CSS",
+  "Framer Motion",
+  "Vite",
+  "Supabase",
+  "Vercel",
+];
+
+const CLIENTS = ["Jorge Luis Valbuena (Immunotec)", "Stizzo Planet"];
 
 export default function About() {
   return (
-    <motion.section
-      initial={{ y: 50, opacity: 0 }}
-      whileInView={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-      viewport={{ once: true, margin: "-100px" }}
-      id="sobre-mi"
-      // CAMBIOS DE LAYOUT:
-      // items-center: Alinea verticalmente el texto con la tarjeta (se ve más ordenado).
-      // py-10 px-4: Padding estándar para que respire igual que las otras secciones.
-      className="w-full flex flex-col md:flex-row items-center justify-between gap-12 py-10 px-4"
-    >
-      {/* Bloque de Texto */}
-      <div className="md:w-1/2 lg:w-[55%]">
-        <SectionTitle title="Sobre mí 👋" />
+    <section id="sobre-mi" className="mx-auto w-full max-w-content scroll-mt-24 px-6">
+      <SectionTitle
+        eyebrow="Sobre mí"
+        title="Sitios que se ven bien y trabajan para tu negocio."
+        description="Soy Eleazar, desarrollador web con experiencia en React y tecnologías modernas. Llevo alrededor de 5 años construyendo páginas web, combinando práctica constante con una pasión real por la tecnología y la resolución de problemas."
+      />
 
-        <div className="font-inter space-y-6">
-          <p className="mt-8 text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-            Soy Eleazar, desarrollador web con experiencia en React y tecnologías modernas. Mi enfoque es simple: sitios que se vean bien y que trabajen para tu negocio.
-          </p>
-        </div>
-      </div>
+      <motion.div
+        variants={stagger(0.08)}
+        {...revealOnView}
+        className="mt-12 grid gap-6 md:grid-cols-2"
+      >
+        <motion.div variants={fadeUp} className="card p-7">
+          <p className="text-sm text-label-2">Clientes destacados</p>
+          <ul className="mt-4 flex list-none flex-col gap-3 p-0">
+            {CLIENTS.map((client) => (
+              <li
+                key={client}
+                className="border-b border-separator/10 pb-3 text-[0.9375rem] font-medium text-label last:border-0 last:pb-0"
+              >
+                {client}
+              </li>
+            ))}
+          </ul>
+        </motion.div>
 
-      {/* Bloque de Tarjeta */}
-      {/* Añadimos relative para poder poner efectos decorativos detrás si quisieras luego */}
-      <div className="w-full md:w-1/2 lg:w-[40%] flex justify-center md:justify-end relative">
-        {/* Un brillo sutil detrás de la tarjeta para darle profundidad */}
-        <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full opacity-0 md:opacity-50 pointer-events-none transform translate-x-10 translate-y-10" />
-
-        <div className="relative z-10 w-full max-w-sm">
-          <DeveloperCard />
-        </div>
-      </div>
-    </motion.section>
+        <motion.div variants={fadeUp} className="card p-7">
+          <p className="text-sm text-label-2">Herramientas</p>
+          <div className="mt-4 flex flex-wrap gap-2">
+            {STACK.map((tech) => (
+              <span key={tech} className="chip">
+                {tech}
+              </span>
+            ))}
+          </div>
+        </motion.div>
+      </motion.div>
+    </section>
   );
 }
