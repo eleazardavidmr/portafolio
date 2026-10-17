@@ -11,6 +11,35 @@ import excon from "/img/projects/excon/excon.jpg";
 // Los proyectos con `hidden: true` se conservan aquí pero no se muestran en el sitio
 const ALL_PROJECTS = [
   {
+    id: 10,
+    name: "DydCrochet",
+    slug: "dyd-crochet",
+    url: "https://dydcrochet.edmr.dev",
+    urlName: "dydcrochet.edmr.dev",
+    img: dydcrochet,
+    context:
+      "Claudia teje amigurumis a mano desde 2015 y los vendía solo por redes sociales. Necesitaba un catálogo propio, cálido y fácil de compartir, donde la gente pudiera ver cada pieza y pedirla sin fricción.",
+    description:
+      "Sitio y catálogo para DydCrochet, un emprendimiento de amigurumis tejidos a mano. Muestra cada personaje en una ficha detallada y lleva al visitante directo a pedirlo por formulario o Instagram.",
+    longDescription:
+      "Es un sitio estático hecho con Astro y TypeScript, sin frameworks de UI, con un sistema de diseño propio inspirado en las interfaces fluidas de Apple: tipografía del sistema con tracking según el tamaño, materiales translúcidos y modo claro y oscuro con design tokens. Las animaciones no usan duraciones fijas: escribí un resorte físico con los parámetros damping y response que siempre parte del valor actual y conserva la velocidad, así que cualquier transición se puede interrumpir o invertir a mitad de camino. La ficha de cada amigurumi es un sheet que se arrastra con el dedo, con inercia proyectada como el scroll de iOS y resistencia tipo rubber-band al pasar los límites, y todo respeta prefers-reduced-motion. El catálogo vive en un archivo de datos tipado, se filtra por categoría con un control segmentado y Astro genera imágenes WebP responsivas en el build. Los enlaces son compartibles: /products?p=moana abre directamente la ficha de un amigurumi y /contact?producto=Moana precarga el formulario de pedido, que se envía con FormSubmit. La navegación entre páginas usa View Transitions.",
+    technologies: [
+      "Astro",
+      "TypeScript",
+      "CSS",
+      "View Transitions",
+      "FormSubmit",
+      "Responsive Design",
+    ],
+    screenshots: [
+      "/img/projects/dydcrochet/screenshot1.jpg",
+      "/img/projects/dydcrochet/screenshot2.jpg",
+    ],
+    branch: "main",
+    status: "DESPLEGADO",
+    client: "DydCrochet",
+  },
+  {
     id: 9,
     name: "ex-con",
     slug: "excon",
@@ -157,29 +186,6 @@ const ALL_PROJECTS = [
     branch: "main",
     status: "DESPLEGADO",
     client: "Dr. Jorge Valbuena",
-  },
-  {
-    id: 3,
-    name: "Dyd Crochet",
-    slug: "dyd-crochet",
-    url: "https://dydcrochet.surge.sh",
-    urlName: "dydcrochet.surge.sh",
-    img: dydcrochet,
-    context:
-      "Sitio para tienda de artesanías — necesitaban un catálogo digital vistoso para vender sus productos hechos a mano.",
-    description:
-      "Una plataforma de comercio electrónico para un negocio de crochet. Presenta vitrinas de productos, funcionalidad de carrito de compras y una hermosa galería de artículos de crochet hechos a mano.",
-    longDescription:
-      "Este proyecto combina prácticas modernas de comercio electrónico con las necesidades de negocios artesanales. Construido con diseño responsivo para mostrar la belleza de productos de crochet elaborados a mano en todos los dispositivos.",
-    technologies: ["React", "Tailwind CSS", "JavaScript", "E-commerce"],
-    screenshots: [
-      "/img/projects/dydcrochet/screenshot1.jpg", // Reemplaza con captura de pantalla real
-      "/img/projects/dydcrochet/screenshot2.jpg", // Reemplaza con captura de pantalla real
-    ],
-    branch: "main",
-    status: "DESPLEGADO",
-    client: "Tienda Dyd Crochet",
-    hidden: true,
   },
   {
     id: 2,
