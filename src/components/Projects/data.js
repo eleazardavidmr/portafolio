@@ -7,9 +7,32 @@ import retroStack from "/img/projects/retro-stack/retro-stack.webp";
 import mineTableau from "/img/projects/mine-tableau/mine-tableau.png";
 import streak from "/img/projects/streak/streak.jpg";
 import excon from "/img/projects/excon/excon.jpg";
+import tallerNucleo from "/img/projects/taller-nucleo/taller-nucleo.webp";
 
 // Los proyectos con `hidden: true` se conservan aquí pero no se muestran en el sitio
 const ALL_PROJECTS = [
+  {
+    id: 11,
+    name: "Taller Núcleo",
+    slug: "taller-nucleo",
+    url: "https://taller-nucleo.demo.edmr.dev",
+    urlName: "taller-nucleo.demo.edmr.dev",
+    img: tallerNucleo,
+    context:
+      "Concepto para el sector de servicio técnico de computadores: llevar a quien tiene un equipo con fallas a una cotización por WhatsApp.",
+    description:
+      "Sitio de una página para un taller de reparación y mantenimiento de computadores. Un diagnóstico guiado convierte los síntomas que marca el visitante en servicios recomendados y en un mensaje de WhatsApp listo para enviar. Está hecho en HTML, CSS y JavaScript sin dependencias.",
+    longDescription:
+      "La mayoría de clientes de un servicio técnico no sabe describir la falla de su equipo, así que el sitio gira alrededor de un diagnóstico guiado: eliges el tipo de equipo y los síntomas, y un mapa de síntomas a servicios arma la recomendación y el enlace de WhatsApp con el mensaje ya escrito. Todo vive en un único index.html, sin build ni librerías. Las animaciones (la tarjeta del hero que se inclina con el puntero, el control segmentado, el botón flotante y la entrada de las recomendaciones) usan un resorte propio con parámetros de amortiguación y respuesta que parte del valor actual y conserva la velocidad, así que cada movimiento se puede interrumpir. El estado de abierto o cerrado se calcula con la hora de Colombia mediante Intl.DateTimeFormat. Respeta prefers-reduced-motion, prefers-reduced-transparency y prefers-contrast. Las imágenes van en WebP y la ubicación usa un mapa ilustrativo en SVG en lugar de un iframe, para no cargar scripts de terceros. La marca, los datos de contacto y las cifras del sitio son ficticios.",
+    technologies: ["HTML5", "CSS3", "JavaScript", "Vercel"],
+    screenshots: [
+      "/img/projects/taller-nucleo/screenshot1.webp",
+      "/img/projects/taller-nucleo/screenshot2.webp",
+    ],
+    branch: "main",
+    status: "DESPLEGADO",
+    client: "Concepto · Servicio técnico",
+  },
   {
     id: 10,
     name: "DydCrochet",
