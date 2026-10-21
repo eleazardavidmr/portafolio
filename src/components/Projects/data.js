@@ -9,9 +9,32 @@ import streak from "/img/projects/streak/streak.jpg";
 import excon from "/img/projects/excon/excon.jpg";
 import tallerNucleo from "/img/projects/taller-nucleo/taller-nucleo.webp";
 import brisaNocturna from "/img/projects/brisa-nocturna/brisa-nocturna.webp";
+import filoRojo from "/img/projects/filo-rojo/filo-rojo.webp";
 
 // Los proyectos con `hidden: true` se conservan aquí pero no se muestran en el sitio
 const ALL_PROJECTS = [
+  {
+    id: 13,
+    name: "Filo Rojo",
+    slug: "filo-rojo",
+    url: "https://filo-rojo.demo.edmr.dev",
+    urlName: "filo-rojo.demo.edmr.dev",
+    img: filoRojo,
+    context:
+      "Concepto para el sector de barberías: mostrar los servicios y llevar al cliente a reservar por WhatsApp desde el celular.",
+    description:
+      "Sitio de una página para una barbería, con servicios, galería y una hoja de reservas que arma el mensaje de WhatsApp con el servicio y el día elegidos. Está hecho con React 19, Tailwind CSS v4 y Motion, sobre un sistema de diseño en el que todo el color sale de seis variables.",
+    longDescription:
+      "El objetivo era que quien llega desde el celular pase de ver los servicios a pedir su turno sin salir de la página. Cualquier botón de reserva abre una hoja inferior con los servicios y los próximos días, y al final abre WhatsApp con el mensaje ya redactado. La hoja y el visor de fotos responden al dedo: siguen el arrastre 1:1, deciden al soltar según la velocidad proyectada, oponen resistencia en los bordes y se pueden interrumpir a mitad de una animación, todo con resortes de Motion. La foto abierta vuelve a su miniatura aunque se haya pasado a otra, y la vitrina queda fija mientras tres fotos se abren en abanico con el scroll. El color sale de seis variables en el @theme de Tailwind v4 (tres tonos, el núcleo del tubo LED, el color de los halos y su intensidad), así que cambiar de marca es cambiar esas líneas. Los datos del negocio viven en un solo archivo y lo que falta (horario, precios, barberos, fotos) se deja vacío y la interfaz lo oculta. Respeta prefers-reduced-motion, prefers-reduced-transparency y prefers-contrast. La marca, los datos de contacto y la dirección son ficticios, y las fotos son marcadores.",
+    technologies: ["React", "Tailwind CSS", "Motion", "Vite", "Vercel"],
+    screenshots: [
+      "/img/projects/filo-rojo/screenshot1.webp",
+      "/img/projects/filo-rojo/screenshot2.webp",
+    ],
+    branch: "main",
+    status: "DESPLEGADO",
+    client: "Concepto · Barbería",
+  },
   {
     id: 12,
     name: "Brisa Nocturna",
