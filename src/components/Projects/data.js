@@ -10,9 +10,32 @@ import excon from "/img/projects/excon/excon.jpg";
 import tallerNucleo from "/img/projects/taller-nucleo/taller-nucleo.webp";
 import brisaNocturna from "/img/projects/brisa-nocturna/brisa-nocturna.webp";
 import filoRojo from "/img/projects/filo-rojo/filo-rojo.webp";
+import tallerNogal from "/img/projects/taller-nogal/taller-nogal.webp";
 
 // Los proyectos con `hidden: true` se conservan aquí pero no se muestran en el sitio
 const ALL_PROJECTS = [
+  {
+    id: 14,
+    name: "Taller Nogal",
+    slug: "taller-nogal",
+    url: "https://taller-nogal.demo.edmr.dev",
+    urlName: "taller-nogal.demo.edmr.dev",
+    img: tallerNogal,
+    context:
+      "Concepto para el sector de ebanistería: que el cliente pida su cotización completa desde la web, con medidas y fotos del espacio.",
+    description:
+      "Sitio de una página para una ebanistería de muebles a medida, con portafolio filtrable y un formulario de cotización que recoge el tipo de mueble, las medidas, fotos del lugar y el medio de contacto preferido. Está hecho con Astro y Tailwind CSS v4, con las imágenes optimizadas a AVIF y WebP en el build.",
+    longDescription:
+      "El objetivo era sacar la cotización de WhatsApp: el cliente elige el mueble, escribe las medidas, adjunta hasta cinco fotos de su espacio y deja sus datos, todo en la misma página, y al enviar ve un número de solicitud y un resumen. Las tarjetas de servicios llevan al formulario con el mueble ya elegido. La validación marca solo el campo con error y se limpia en cuanto se corrige, y el correo pasa a ser obligatorio únicamente si se elige como medio de contacto. El portafolio arma sus filtros a partir de las fotos que existen y abre un visor que responde al deslizamiento con el dedo. Otras piezas: una frase que se ilumina palabra por palabra con el scroll, tarjetas que se apilan al bajar, CSS en línea para no bloquear el primer pintado en celular y un script que genera favicon e imagen Open Graph a partir del logo. Respeta prefers-reduced-motion y prefers-reduced-transparency. La marca, los datos de contacto y la dirección son ficticios, las fotos son de stock y el formulario funciona en modo demostración, sin enviar datos.",
+    technologies: ["Astro", "Tailwind CSS", "TypeScript", "Vercel"],
+    screenshots: [
+      "/img/projects/taller-nogal/screenshot1.webp",
+      "/img/projects/taller-nogal/screenshot2.webp",
+    ],
+    branch: "main",
+    status: "DESPLEGADO",
+    client: "Concepto · Ebanistería",
+  },
   {
     id: 13,
     name: "Filo Rojo",
