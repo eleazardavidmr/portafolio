@@ -8,9 +8,32 @@ import mineTableau from "/img/projects/mine-tableau/mine-tableau.png";
 import streak from "/img/projects/streak/streak.jpg";
 import excon from "/img/projects/excon/excon.jpg";
 import tallerNucleo from "/img/projects/taller-nucleo/taller-nucleo.webp";
+import brisaNocturna from "/img/projects/brisa-nocturna/brisa-nocturna.webp";
 
 // Los proyectos con `hidden: true` se conservan aquí pero no se muestran en el sitio
 const ALL_PROJECTS = [
+  {
+    id: 12,
+    name: "Brisa Nocturna",
+    slug: "brisa-nocturna",
+    url: "https://brisa-nocturna.demo.edmr.dev",
+    urlName: "brisa-nocturna.demo.edmr.dev",
+    img: brisaNocturna,
+    context:
+      "Concepto para el sector de bienestar y sueño: una tienda de un solo producto con checkout propio para pagos colombianos.",
+    description:
+      "Tienda en línea para una marca de cinta bucal para dormir, con home, página de producto con selector de packs y una hoja de compra propia. El pago va por PayU: tarjeta en su WebCheckout y PSE, Nequi, Efecty y Bre-B QR por API directa. Está hecha con Astro, Tailwind CSS v4 y funciones de Supabase.",
+    longDescription:
+      "El objetivo era vender un solo producto con la menor fricción posible para un comprador colombiano. Cada botón de compra abre la misma hoja de pago: en móvil es una hoja desde abajo y en desktop un modal de dos columnas que no necesita scroll. La tarjeta se cobra en el WebCheckout de PayU, así el número nunca pasa por el sitio. PSE, Nequi, Efecty y Bre-B QR usan la API directa de PayU desde Edge Functions de Supabase, y la hoja muestra cada estado: número de pago de Efecty, QR con cuenta regresiva y espera de la aprobación en Nequi. El monto nunca lo pone el navegador: las funciones leen el precio de la base de datos, firman la transacción y un webhook confirma el pago contra la firma de PayU. El diseño se armó como sistema de tokens en Tailwind v4 (color, tipografía fluida, radios, materiales translúcidos y resortes convertidos a linear()), con imágenes responsivas en WebP generadas con sharp. Respeta prefers-reduced-motion, prefers-reduced-transparency y prefers-contrast. La marca, los textos, las cifras y las personas del sitio son ficticios; los pagos corren en el sandbox de PayU.",
+    technologies: ["Astro", "Tailwind CSS", "TypeScript", "Supabase", "PayU", "Vercel"],
+    screenshots: [
+      "/img/projects/brisa-nocturna/screenshot1.webp",
+      "/img/projects/brisa-nocturna/screenshot2.webp",
+    ],
+    branch: "main",
+    status: "DESPLEGADO",
+    client: "Concepto · Bienestar y sueño",
+  },
   {
     id: 11,
     name: "Taller Núcleo",
