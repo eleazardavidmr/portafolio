@@ -11,9 +11,32 @@ import tallerNucleo from "/img/projects/taller-nucleo/taller-nucleo.webp";
 import brisaNocturna from "/img/projects/brisa-nocturna/brisa-nocturna.webp";
 import filoRojo from "/img/projects/filo-rojo/filo-rojo.webp";
 import tallerNogal from "/img/projects/taller-nogal/taller-nogal.webp";
+import filoNorte from "/img/projects/filo-norte/filo-norte.webp";
 
 // Los proyectos con `hidden: true` se conservan aquí pero no se muestran en el sitio
 const ALL_PROJECTS = [
+  {
+    id: 15,
+    name: "Filo Norte Barber Club",
+    slug: "filo-norte",
+    url: "https://filo-norte.demo.edmr.dev",
+    urlName: "filo-norte.demo.edmr.dev",
+    img: filoNorte,
+    context:
+      "Concepto para el sector de barberías: una página oscura y tranquila donde la reserva se resuelve con un toque a WhatsApp.",
+    description:
+      "Sitio de una página para una barbería de autor, con servicios presentados como experiencias, una galería que se desliza con el dedo y un botón flotante de WhatsApp para reservar. Está hecho con Astro, React y Tailwind CSS v4, y solo hidrata las piezas que se tocan: el encabezado, la galería y el botón.",
+    longDescription:
+      "La idea era que reservar no pidiera más de un toque. Cada llamada a la acción abre WhatsApp con el mensaje ya escrito, y el botón flotante aparece cuando el usuario pasó la portada. La galería sigue el dedo uno a uno al arrastrar y, al soltar, proyecta la velocidad para elegir a qué foto llega, con un pequeño rebote solo ahí; el resto de las transiciones usan resortes sin rebote. El encabezado se vuelve translúcido con desenfoque al hacer scroll y el menú móvil se abre con un resorte. Los botones responden al presionar, sin esperar a que se suelte. Respeta prefers-reduced-motion cambiando resortes por fundidos simples. La marca, los datos de contacto, la dirección y el equipo son ficticios y las imágenes son marcadores de posición generados en CSS.",
+    technologies: ["Astro", "React", "TypeScript", "Tailwind CSS", "Motion", "Vercel"],
+    screenshots: [
+      "/img/projects/filo-norte/screenshot1.webp",
+      "/img/projects/filo-norte/screenshot2.webp",
+    ],
+    branch: "main",
+    status: "DESPLEGADO",
+    client: "Concepto · Barbería",
+  },
   {
     id: 14,
     name: "Taller Nogal",
