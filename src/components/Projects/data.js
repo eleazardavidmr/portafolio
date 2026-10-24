@@ -13,10 +13,31 @@ import filoRojo from "/img/projects/filo-rojo/filo-rojo.webp";
 import tallerNogal from "/img/projects/taller-nogal/taller-nogal.webp";
 import filoNorte from "/img/projects/filo-norte/filo-norte.webp";
 import migaBrasa from "/img/projects/miga-brasa/miga-brasa.webp";
+import rumboEsmeralda from "/img/projects/rumbo-esmeralda/rumbo-esmeralda.webp";
 
 // Los proyectos con `hidden: true` se conservan aquí pero no se muestran en el sitio
 const ALL_PROJECTS = [
   {
+    id: 17,
+    name: "Rumbo Esmeralda",
+    slug: "rumbo-esmeralda",
+    url: "https://rumbo-esmeralda.demo.edmr.dev",
+    urlName: "rumbo-esmeralda.demo.edmr.dev",
+    img: rumboEsmeralda,
+    context:
+      "Concepto para el sector de agencias de viajes: que el viajero explore destinos y reciba un itinerario a su medida sin esperar una cotización manual.",
+    description:
+      "Sitio de una agencia de viajes boutique con catálogo de destinos, planificador de itinerarios con IA y una asesora virtual que responde dudas sobre planes y precios. Está hecho con React, Vite y Tailwind CSS v4, con animaciones de Motion y funciones serverless en Vercel que consultan a Gemini.",
+    longDescription:
+      "El objetivo era reemplazar el ida y vuelta de mensajes por una primera propuesta inmediata: el viajero elige un destino, responde unas preguntas y recibe un itinerario por días con recomendaciones y un presupuesto de referencia. Un asistente conversacional resuelve preguntas frecuentes y lleva a WhatsApp cuando la persona quiere cerrar el plan. La interfaz usa transiciones con resorte, menú adaptable y un acordeón de preguntas que respeta prefers-reduced-motion. Las rutas del servidor viven en funciones serverless que usan Gemini con salida estructurada, y sin clave de API responden en modo demostración con un itinerario de ejemplo. La marca, los precios, los testimonios y los datos de contacto son ficticios, y las fotos son de stock o generadas.",
+    technologies: ["React", "Vite", "Tailwind CSS", "Motion", "Gemini", "Vercel"],
+    screenshots: [
+      "/img/projects/rumbo-esmeralda/screenshot1.webp",
+      "/img/projects/rumbo-esmeralda/screenshot2.webp",
+    ],
+    branch: "main",
+    status: "DESPLEGADO",
+    client: "Concepto · Agencia de viajes",
     id: 16,
     name: "Miga & Brasa",
     slug: "miga-brasa",
