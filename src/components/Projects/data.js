@@ -12,9 +12,32 @@ import brisaNocturna from "/img/projects/brisa-nocturna/brisa-nocturna.webp";
 import filoRojo from "/img/projects/filo-rojo/filo-rojo.webp";
 import tallerNogal from "/img/projects/taller-nogal/taller-nogal.webp";
 import filoNorte from "/img/projects/filo-norte/filo-norte.webp";
+import migaBrasa from "/img/projects/miga-brasa/miga-brasa.webp";
 
 // Los proyectos con `hidden: true` se conservan aquí pero no se muestran en el sitio
 const ALL_PROJECTS = [
+  {
+    id: 16,
+    name: "Miga & Brasa",
+    slug: "miga-brasa",
+    url: "https://miga-brasa.demo.edmr.dev",
+    urlName: "miga-brasa.demo.edmr.dev",
+    img: migaBrasa,
+    context:
+      "Concepto para el sector de restaurantes: una carta digital donde el cliente arma su pedido, elige cuándo recogerlo y sigue su estado.",
+    description:
+      "Sitio para una hamburguesería con panadería propia, con carta por categorías, un carrito en hoja inferior que se arrastra con el dedo y una sección de pedidos con el estado de cada uno. Está hecho con Astro, React y Tailwind CSS v4, con GSAP para las secuencias de scroll y Motion para la interfaz.",
+    longDescription:
+      "El objetivo era pasar de ver la carta a tener un pedido confirmado sin llamar ni escribir. El cliente agrega productos desde cada tarjeta, elige recoger o domicilio y una hora dentro del horario de cocina, y al confirmar llega a la página de su pedido con un código para caja. La hoja del carrito sigue el dedo 1:1, opone resistencia en los bordes, proyecta la velocidad al soltar para elegir dónde se detiene y se puede interrumpir a mitad de una animación. En Tus pedidos aparecen los pedidos en curso y los anteriores; cada uno tiene su página con el seguimiento paso a paso (horas reales y estimadas), la opción de cancelar mientras no esté listo y la de volver a pedir lo mismo, que pasa los productos al carrito. Los pedidos viven detrás de una interfaz de repositorio: hoy la implementa localStorage, simulando el avance con el reloj, y conectar un backend es reemplazar un solo archivo. La portada usa tipografía de cartel a gran escala, y GSAP con ScrollTrigger y SplitText anima titulares y piezas al hacer scroll, dentro de matchMedia para respetar prefers-reduced-motion. Las fuentes son autoalojadas y en dispositivos Apple se usa la del sistema; la navegación entre páginas usa View Transitions. La marca, la dirección, los precios y los textos son ficticios, y las imágenes son ilustraciones de marcador.",
+    technologies: ["Astro", "React", "TypeScript", "Tailwind CSS", "Motion", "GSAP", "Vercel"],
+    screenshots: [
+      "/img/projects/miga-brasa/screenshot1.webp",
+      "/img/projects/miga-brasa/screenshot2.webp",
+    ],
+    branch: "main",
+    status: "DESPLEGADO",
+    client: "Concepto · Restaurante",
+  },
   {
     id: 15,
     name: "Filo Norte Barber Club",
