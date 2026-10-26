@@ -38,6 +38,8 @@ const ALL_PROJECTS = [
     branch: "main",
     status: "DESPLEGADO",
     client: "Concepto · Agencia de viajes",
+  },
+  {
     id: 16,
     name: "Miga & Brasa",
     slug: "miga-brasa",
