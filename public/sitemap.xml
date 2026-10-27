@@ -41,18 +41,4 @@
     <priority>0.5</priority>
   </url>
 
-
-  <!-- Legal -->
-  <url>
-    <loc>https://edmr.dev/terminos</loc>
-    <lastmod>2026-10-27</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://edmr.dev/privacidad</loc>
-    <lastmod>2026-10-27</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
 </urlset>
