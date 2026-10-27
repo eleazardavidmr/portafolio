@@ -13,6 +13,12 @@ const Proyectos = lazy(() => import("@pages/Proyectos/index.jsx"));
 const NotFoundPage = lazy(() => import("@components/NotFoundPage/index.jsx"));
 const ServicesPage = lazy(() => import("@pages/ServicesPage/index.jsx"));
 const ContactPage = lazy(() => import("@pages/ContactPage/index.jsx"));
+const Terminos = lazy(() =>
+  import("@pages/Legal/index.jsx").then((m) => ({ default: m.Terminos })),
+);
+const Privacidad = lazy(() =>
+  import("@pages/Legal/index.jsx").then((m) => ({ default: m.Privacidad })),
+);
 const ProjectDetail = lazy(
   () => import("@components/Projects/ProjectDetail.jsx"),
 );
@@ -32,6 +38,8 @@ createRoot(document.getElementById("root")).render(
               <Route path="/proyectos/:slug" element={<ProjectDetail />} />
               <Route path="/servicios" element={<ServicesPage />} />
               <Route path="/contacto" element={<ContactPage />} />
+              <Route path="/terminos" element={<Terminos />} />
+              <Route path="/privacidad" element={<Privacidad />} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </Suspense>

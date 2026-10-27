@@ -69,9 +69,19 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="mx-auto max-w-content border-t border-separator/10 px-6 py-6 text-xs text-label-3">
-        © {new Date().getFullYear()} Eleazar Muñoz. Todos los derechos
-        reservados.
+      <div className="mx-auto flex max-w-content flex-wrap items-center justify-between gap-3 border-t border-separator/10 px-6 py-6 text-xs text-label-3">
+        <span>
+          © {new Date().getFullYear()} Eleazar Muñoz. Todos los derechos
+          reservados.
+        </span>
+        <span className="flex gap-5">
+          <Link to="/terminos" className="transition-colors hover:text-label">
+            Términos
+          </Link>
+          <Link to="/privacidad" className="transition-colors hover:text-label">
+            Privacidad
+          </Link>
+        </span>
       </div>
     </footer>
   );
